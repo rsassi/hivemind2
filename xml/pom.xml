@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.apache.hivemind</groupId>
+    <artifactId>hivemind-xml</artifactId>
+    <packaging>jar</packaging>
+    <version>2.0.0_M1</version>
+    <parent>
+        <groupId>org.apache.hivemind</groupId>
+        <artifactId>hivemind-project</artifactId>
+        <version>2.0.0_M1</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <name>HiveMind XML Support</name>
+    <inceptionYear>2006</inceptionYear>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.hivemind</groupId>
+            <artifactId>hivemind</artifactId>
+            <version>2.0.0_M1</version>
+        </dependency>
+        <!-- PROVIDED -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.6.3</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- TEST -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>easymock</groupId>
+            <artifactId>easymock</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>easymock</groupId>
+            <artifactId>easymockclassextension</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hivemind</groupId>
+            <artifactId>hivemind</artifactId>
+            <version>2.0.0_M1</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+	<build>
+	  <plugins>
+      	<plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-jar-plugin</artifactId>
+	       <executions>
+	         <execution>
+	           <goals>
+	             <!-- Create jar with unit tests, so they can be reused by the other modules -->
+	             <goal>test-jar</goal>
+	           </goals>
+	           <configuration>
+	             <archive>
+	               <!-- Don't include the MANIFEST.MF in the test-jar because this will result in 
+	                    duplicate module exceptions during the library tests. So override the
+	                    global configuration which is inherited with dummy value.
+	                    In theory it might be possible to use different configurations for 
+	                    jar and test-jar goal, but I found no working syntax and gave up -->
+	                    -->
+	               <manifestFile>src/descriptor/META-INF/test-jar-dummy/MANIFEST.MF</manifestFile>
+	             </archive>
+	           </configuration>
+	         </execution>
+	       </executions>
+           <configuration>
+             <archive>
+               <manifestFile>src/descriptor/META-INF/MANIFEST.MF</manifestFile>
+             </archive>
+           </configuration>
+        </plugin>
+      </plugins>
+  	</build>
+</project>

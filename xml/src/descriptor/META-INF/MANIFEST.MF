@@ -1,0 +1,2 @@
+hivemind-providers: org.apache.hivemind.impl.HivemoduleProvider,org.apache.hivemind.impl.XmlCoreServicesProvider
+
