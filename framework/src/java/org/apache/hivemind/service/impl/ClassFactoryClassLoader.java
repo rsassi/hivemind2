@@ -27,6 +27,11 @@ class ClassFactoryClassLoader extends ClassLoader
 {
     private List _loaders = new ArrayList();
 
+    public ClassFactoryClassLoader(ClassLoader parent)
+    {
+        super(parent);
+    }
+
     /**
      * Adds a delegate class loader to the list of delegate class loaders.
      */
@@ -40,17 +45,6 @@ class ClassFactoryClassLoader extends ClassLoader
      */
     protected synchronized Class findClass(String name) throws ClassNotFoundException
     {
-        ClassNotFoundException cnfex = null;
-
-        try
-        {
-            return super.findClass(name);
-        }
-        catch (ClassNotFoundException ex)
-        {
-            cnfex = ex;
-        }
-
         int count = _loaders.size();
         for (int i = 0; i < count; i++)
         {
@@ -66,9 +60,5 @@ class ClassFactoryClassLoader extends ClassLoader
             }
         }
 
-        // Not found .. through the first exception
-
-        throw cnfex;
-    }
-
-}
+        throw new ClassNotFoundException(name);
+    }}

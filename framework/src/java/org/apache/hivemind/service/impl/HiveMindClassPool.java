@@ -32,8 +32,8 @@ import javassist.LoaderClassPath;
  */
 public class HiveMindClassPool extends ClassPool
 {
-    private ClassFactoryClassLoader _loader = new ClassFactoryClassLoader();
-
+    private ClassFactoryClassLoader _loader = new ClassFactoryClassLoader(HiveMindClassPool.class.getClassLoader());
+    
     /**
      * Used to identify which class loaders have already been integrated into the pool.
      */
