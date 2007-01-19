@@ -29,7 +29,6 @@ import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.hivemind.ApplicationRuntimeException;
-import org.apache.hivemind.ErrorHandler;
 import org.apache.hivemind.HiveMind;
 import org.apache.hivemind.Location;
 import org.apache.hivemind.ServiceImplementationFactoryParameters;
@@ -121,7 +120,7 @@ public class BuilderFactoryLogic
             Constructor candidate = (Constructor) candidates.next();
 
             Class[] parameterTypes = candidate.getParameterTypes();
-
+            
             Object[] parameters = new Object[parameterTypes.length];
 
             for (int i = 0; i < numberOfParams; i++)
@@ -137,7 +136,7 @@ public class BuilderFactoryLogic
             return ConstructorUtils.invoke(candidate, parameters);
         }
 
-        throw new ApplicationRuntimeException(ServiceMessages.unableToFindAutowireConstructor(),
+        throw new ApplicationRuntimeException(ServiceMessages.unableToFindExplicitConstructor(),
                 _parameter.getLocation(), null);
     }
 
@@ -381,9 +380,5 @@ public class BuilderFactoryLogic
         autowiring.autowireProperties(AutowiringStrategy.BY_TYPE, service, props);
     }
 
-    private ErrorHandler getErrorHandler()
-    {
-        return _contributingModule.getErrorHandler();
-    }
 
 }

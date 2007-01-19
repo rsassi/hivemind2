@@ -157,6 +157,11 @@ class ServiceMessages
     {
         return _formatter.getMessage("unable-to-find-autowire-constructor");
     }
+    
+    static String unableToFindExplicitConstructor()
+    {
+        return _formatter.getMessage("unable-to-find-explicit-constructor");
+    }
 
     /** @since 1.1 */
     static String unableToCreateInterface(String name, Exception cause)
