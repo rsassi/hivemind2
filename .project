@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>jakarta-hivemind-2</name>
-	<comment>HiveMind is a dynamic services and configuration microkernel. Its primary feature is the dynamic creation of a runtime registry of services and configuration data, where any HiveMind module may contribute extensions to any other HiveMind module.</comment>
+	<name>hivemind-2</name>
+	<comment>HiveMind is a services and configuration microkernel.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
