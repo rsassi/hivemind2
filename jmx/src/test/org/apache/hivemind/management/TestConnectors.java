@@ -23,7 +23,6 @@ import javax.management.remote.JMXConnectorServerMBean;
 import mx4j.tools.adaptor.http.HttpAdaptorMBean;
 
 import org.apache.hivemind.Registry;
-import org.apache.hivemind.test.HiveMindTestCase;
 import org.apache.hivemind.xml.XmlTestCase;
 
 /**

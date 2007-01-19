@@ -33,7 +33,6 @@ import org.apache.hivemind.internal.ServicePoint;
 import org.apache.hivemind.management.impl.MBeanRegistrationContribution;
 import org.apache.hivemind.management.impl.MBeanRegistryImpl;
 import org.apache.hivemind.management.impl.ObjectNameBuilderImpl;
-import org.apache.hivemind.test.HiveMindTestCase;
 import org.apache.hivemind.xml.XmlTestCase;
 import org.easymock.ArgumentsMatcher;
 import org.easymock.MockControl;

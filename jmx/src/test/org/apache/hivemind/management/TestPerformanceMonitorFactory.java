@@ -19,7 +19,6 @@ import javax.management.ObjectInstance;
 import javax.management.ObjectName;
 
 import org.apache.hivemind.Registry;
-import org.apache.hivemind.test.HiveMindTestCase;
 import org.apache.hivemind.xml.XmlTestCase;
 
 /**
