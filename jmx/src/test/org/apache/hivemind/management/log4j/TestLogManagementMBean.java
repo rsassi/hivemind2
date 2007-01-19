@@ -26,7 +26,6 @@ import junit.framework.AssertionFailedError;
 import org.apache.hivemind.Registry;
 import org.apache.hivemind.management.ObjectNameBuilder;
 import org.apache.hivemind.management.impl.ObjectNameBuilderImpl;
-import org.apache.hivemind.test.HiveMindTestCase;
 import org.apache.hivemind.xml.XmlTestCase;
 import org.apache.log4j.Logger;
 import org.easymock.ArgumentsMatcher;
