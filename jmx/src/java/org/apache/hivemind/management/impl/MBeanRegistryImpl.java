@@ -224,8 +224,8 @@ public class MBeanRegistryImpl implements MBeanRegistry, RegistryShutdownListene
             InvocationTargetException, NoSuchMethodException
     {
         Class serviceClass = mbean.getClass();
-        Method m = serviceClass.getMethod(methodName, null);
-        m.invoke(mbean, null);
+        Method m = serviceClass.getMethod(methodName, (Class []) null);
+        m.invoke(mbean, (Object []) null);
     }
 
     /**

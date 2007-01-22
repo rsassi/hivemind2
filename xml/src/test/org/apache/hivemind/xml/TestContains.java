@@ -14,7 +14,6 @@
 
 package org.apache.hivemind.xml;
 
-import hivemind.test.FrameworkTestCase;
 import hivemind.test.IMultipleService;
 import hivemind.test.IUniqueService;
 

@@ -156,7 +156,7 @@ public class ConstructorUtils
     
         Constructor[] constructors = clazz.getDeclaredConstructors();
     
-        outer: for (int i = 0; i < constructors.length; i++)
+        for (int i = 0; i < constructors.length; i++)
         {
             if (!Modifier.isPublic(constructors[i].getModifiers()))
                 continue;

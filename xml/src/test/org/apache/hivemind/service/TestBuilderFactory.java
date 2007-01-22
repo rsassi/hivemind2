@@ -474,12 +474,6 @@ public class TestBuilderFactory extends XmlTestCase
         verifyControls();
     }
 
-    private void trainIsDebugEnabled(Log log)
-    {
-        log.isDebugEnabled();
-        setReturnValue(log, false);
-    }
-
     private void trainGetService(Module module, Class serviceInterface, Object service)
     {
         module.getService(serviceInterface);

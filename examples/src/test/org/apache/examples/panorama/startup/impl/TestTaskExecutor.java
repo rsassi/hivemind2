@@ -19,12 +19,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.Properties;
 
 import org.apache.commons.logging.Log;
 import org.apache.examples.panorama.startup.Executable;
-import org.apache.examples.panorama.startup.impl.Task;
-import org.apache.examples.panorama.startup.impl.TaskExecutor;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.ErrorLog;
 import org.apache.hivemind.Messages;

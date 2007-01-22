@@ -16,7 +16,6 @@ package org.apache.hivemind.lib.impl;
 
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Registry;
-import org.apache.hivemind.test.HiveMindTestCase;
 import org.apache.hivemind.xml.XmlTestCase;
 
 /**

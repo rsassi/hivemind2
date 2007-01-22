@@ -14,7 +14,6 @@
 
 package hivemind.test.rules;
 
-import hivemind.test.FrameworkTestCase;
 import hivemind.test.config.impl.Datum;
 
 import java.util.List;

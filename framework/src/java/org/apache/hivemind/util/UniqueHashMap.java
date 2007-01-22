@@ -12,6 +12,8 @@ import org.apache.hivemind.ApplicationRuntimeException;
 public class UniqueHashMap extends HashMap
 {
 
+    private static final long serialVersionUID = -3961343404455706964L;
+
     public Object put(Object key, Object value)
     {
         if (containsKey(key)) {

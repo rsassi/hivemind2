@@ -15,7 +15,6 @@
 package org.apache.hivemind.servlet;
 
 import java.io.IOException;
-import java.net.URL;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

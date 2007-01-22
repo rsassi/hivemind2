@@ -32,9 +32,9 @@ public class ExecuteStatic implements Executable
 
     public void execute() throws Exception
     {
-        Method m = _targetClass.getMethod(_methodName, null);
+        Method m = _targetClass.getMethod(_methodName, (Class []) null);
 
-        m.invoke(null, null);
+        m.invoke(null, (Object []) null);
     }
 
     /**

@@ -271,9 +271,9 @@ public class BuilderFactoryLogic
 
         try
         {
-            Method m = serviceClass.getMethod(methodName, null);
+            Method m = serviceClass.getMethod(methodName, (Class []) null);
 
-            m.invoke(service, null);
+            m.invoke(service, (Object []) null);
         }
         catch (NoSuchMethodException ex)
         {

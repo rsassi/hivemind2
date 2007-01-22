@@ -189,7 +189,7 @@ public class PropertyAdaptor
 
         try
         {
-            return _readMethod.invoke(target, null);
+            return _readMethod.invoke(target, (Object []) null);
 
         }
         catch (Exception ex)

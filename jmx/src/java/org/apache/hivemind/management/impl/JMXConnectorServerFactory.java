@@ -44,7 +44,7 @@ public class JMXConnectorServerFactory implements ServiceImplementationFactory
             ServiceImplementationFactoryParameters factoryParameters)
     {
         // Read the parameters of the factory call
-        List parameterList = (List) factoryParameters.getParameters();
+        List parameterList = (List) factoryParameters.getParametersContainer();
         JMXConnectorServerParameter parameter = (JMXConnectorServerParameter) parameterList.get(0);
 
         Map env = new HashMap();

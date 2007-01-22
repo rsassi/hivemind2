@@ -23,7 +23,6 @@ import org.apache.hivemind.ServiceImplementationFactoryParameters;
 import org.apache.hivemind.internal.Module;
 import org.apache.hivemind.test.AggregateArgumentsMatcher;
 import org.apache.hivemind.test.ArgumentMatcher;
-import org.apache.hivemind.test.HiveMindTestCase;
 import org.apache.hivemind.test.TypeMatcher;
 import org.apache.hivemind.xml.XmlTestCase;
 import org.easymock.MockControl;

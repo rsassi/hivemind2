@@ -14,8 +14,6 @@
 
 package hivemind.test.config;
 
-import hivemind.test.FrameworkTestCase;
-
 import java.util.List;
 
 import org.apache.hivemind.Registry;
