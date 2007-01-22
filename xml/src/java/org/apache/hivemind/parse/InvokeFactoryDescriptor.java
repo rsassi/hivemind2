@@ -14,7 +14,7 @@
 
 package org.apache.hivemind.parse;
 
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.impl.InvokeFactoryServiceConstructor;
 import org.apache.hivemind.util.ToStringBuilder;
 

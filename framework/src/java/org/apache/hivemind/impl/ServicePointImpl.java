@@ -24,10 +24,10 @@ import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.HiveMind;
 import org.apache.hivemind.Orderable;
 import org.apache.hivemind.ShutdownCoordinator;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
+import org.apache.hivemind.definition.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
 import org.apache.hivemind.events.RegistryShutdownListener;
 import org.apache.hivemind.internal.Module;
 import org.apache.hivemind.internal.ServiceModel;
@@ -205,7 +205,7 @@ public final class ServicePointImpl extends AbstractExtensionPoint implements
     // Hm. Does this need to be synchronized?
 
     /**
-     * @return  Ordered list of {@link ServiceInterceptorDefinition}s 
+     * @return  Ordered list of {@link InterceptorDefinition}s 
      */
    public List getOrderedInterceptorContributions()
     {
@@ -219,7 +219,7 @@ public final class ServicePointImpl extends AbstractExtensionPoint implements
     }
 
     /**
-     * @return  Ordered list of {@link ServiceInterceptorDefinition}s 
+     * @return  Ordered list of {@link InterceptorDefinition}s 
      */
     private List orderInterceptors()
     {
@@ -238,7 +238,7 @@ public final class ServicePointImpl extends AbstractExtensionPoint implements
         Iterator i = interceptorDefinitions.iterator();
         while (i.hasNext())
         {
-            ServiceInterceptorDefinition sid = (ServiceInterceptorDefinition) i.next();
+            InterceptorDefinition sid = (InterceptorDefinition) i.next();
 
             // Sort them into runtime excecution order. When we build
             // the interceptor stack we'll apply them in reverse order,
@@ -288,7 +288,7 @@ public final class ServicePointImpl extends AbstractExtensionPoint implements
         return getImplementationDefinition().getServiceConstructor();
     }
 
-    public ServiceImplementationDefinition getImplementationDefinition()
+    public ImplementationDefinition getImplementationDefinition()
     {
         if (getServicePointDefinition().getDefaultImplementation() == null)
             throw new ApplicationRuntimeException(ImplMessages.servicePointDefinitionWithoutImplementation(getServicePointDefinition()));

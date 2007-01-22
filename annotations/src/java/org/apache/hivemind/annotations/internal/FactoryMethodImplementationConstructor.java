@@ -5,8 +5,8 @@ import java.lang.reflect.Method;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Location;
 import org.apache.hivemind.annotations.Service;
-import org.apache.hivemind.definition.construction.ImplementationConstructionContext;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationConstructionContext;
+import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
 
 /**

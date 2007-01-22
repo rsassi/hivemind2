@@ -18,11 +18,11 @@ import hivemind.test.FrameworkTestCase;
 
 import org.apache.hivemind.Registry;
 import org.apache.hivemind.ShutdownCoordinator;
+import org.apache.hivemind.definition.ImplementationConstructionContext;
+import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
-import org.apache.hivemind.definition.construction.ImplementationConstructionContext;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
 import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
 import org.apache.hivemind.internal.ServiceModel;
 

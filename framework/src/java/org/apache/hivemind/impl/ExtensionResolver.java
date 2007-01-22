@@ -12,8 +12,8 @@ import org.apache.hivemind.definition.ContributionDefinition;
 import org.apache.hivemind.definition.DefinitionMessages;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
+import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.definition.UnresolvedExtension;
 import org.apache.hivemind.definition.Visibility;
@@ -87,7 +87,7 @@ public class ExtensionResolver
                         unresolved.getExtension().getLocation(),
                         null);
             } else {
-                servicePoint.addImplementation((ServiceImplementationDefinition) unresolved.getExtension());
+                servicePoint.addImplementation((ImplementationDefinition) unresolved.getExtension());
             }
             iter.remove();
         }
@@ -123,7 +123,7 @@ public class ExtensionResolver
                         unresolved.getExtension().getLocation(),
                         null);
             } else {
-                servicePoint.addInterceptor((ServiceInterceptorDefinition) unresolved.getExtension());
+                servicePoint.addInterceptor((InterceptorDefinition) unresolved.getExtension());
             }
             iter.remove();
         }

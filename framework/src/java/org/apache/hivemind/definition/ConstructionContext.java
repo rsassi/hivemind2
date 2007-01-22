@@ -1,7 +1,5 @@
-package org.apache.hivemind.definition.construction;
+package org.apache.hivemind.definition;
 
-import org.apache.hivemind.definition.ExtensionDefinition;
-import org.apache.hivemind.definition.ExtensionPointDefinition;
 import org.apache.hivemind.internal.Module;
 import org.apache.hivemind.internal.RegistryInfrastructure;
 

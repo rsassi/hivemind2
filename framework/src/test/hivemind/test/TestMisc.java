@@ -17,7 +17,7 @@ package hivemind.test;
 import java.util.HashMap;
 
 import org.apache.hivemind.ApplicationRuntimeException;
-import org.apache.hivemind.definition.construction.ImplementationConstructionContext;
+import org.apache.hivemind.definition.ImplementationConstructionContext;
 import org.apache.hivemind.impl.CreateClassServiceConstructor;
 import org.apache.hivemind.impl.ModuleImpl;
 import org.apache.hivemind.impl.ServicePointImpl;

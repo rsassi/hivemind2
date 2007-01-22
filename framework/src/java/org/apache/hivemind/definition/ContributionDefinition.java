@@ -1,6 +1,5 @@
 package org.apache.hivemind.definition;
 
-import org.apache.hivemind.definition.construction.Contribution;
 
 public interface ContributionDefinition extends ExtensionDefinition
 {

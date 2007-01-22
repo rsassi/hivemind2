@@ -1,9 +1,9 @@
 package org.apache.hivemind.definition.impl;
 
 import org.apache.hivemind.Location;
+import org.apache.hivemind.definition.ConfigurationParserConstructor;
 import org.apache.hivemind.definition.ConfigurationParserDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.construction.ConfigurationParserConstructor;
 
 public class ConfigurationParserDefinitionImpl extends ExtensionDefinitionImpl implements ConfigurationParserDefinition
 {

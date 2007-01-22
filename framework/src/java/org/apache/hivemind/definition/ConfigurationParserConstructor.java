@@ -1,6 +1,5 @@
-package org.apache.hivemind.definition.construction;
+package org.apache.hivemind.definition;
 
-import org.apache.hivemind.definition.ConfigurationParser;
 
 public interface ConfigurationParserConstructor
 {

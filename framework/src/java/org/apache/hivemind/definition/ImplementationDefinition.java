@@ -1,8 +1,7 @@
 package org.apache.hivemind.definition;
 
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
 
-public interface ServiceImplementationDefinition extends ExtensionDefinition
+public interface ImplementationDefinition extends ExtensionDefinition
 {
     public String getServiceModel();
 

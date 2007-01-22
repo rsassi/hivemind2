@@ -1,15 +1,15 @@
 package org.apache.hivemind.definition.impl;
 
 import org.apache.hivemind.Location;
+import org.apache.hivemind.definition.InterceptorConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
-import org.apache.hivemind.definition.construction.InterceptorConstructor;
+import org.apache.hivemind.definition.InterceptorDefinition;
 
 /**
  * Implementations of this interface may additionally implement the {@link org.apache.hivemind.Orderable}
  * interface if a certain interceptor order is required.
  */
-public class ServiceInterceptorDefinitionImpl extends ExtensionDefinitionImpl implements ServiceInterceptorDefinition
+public class ServiceInterceptorDefinitionImpl extends ExtensionDefinitionImpl implements InterceptorDefinition
 {
     private InterceptorConstructor _interceptorConstructor;
     private String _name;
@@ -28,7 +28,7 @@ public class ServiceInterceptorDefinitionImpl extends ExtensionDefinitionImpl im
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServiceInterceptorDefinition#getInterceptorConstructor()
+     * @see org.apache.hivemind.definition.InterceptorDefinition#getInterceptorConstructor()
      */
     public InterceptorConstructor getInterceptorConstructor()
     {
@@ -36,7 +36,7 @@ public class ServiceInterceptorDefinitionImpl extends ExtensionDefinitionImpl im
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServiceInterceptorDefinition#setInterceptorConstructor(org.apache.hivemind.definition.construction.InterceptorConstructor)
+     * @see org.apache.hivemind.definition.InterceptorDefinition#setInterceptorConstructor(org.apache.hivemind.definition.InterceptorConstructor)
      */
     public void setInterceptorConstructor(InterceptorConstructor serviceConstructor)
     {
@@ -44,7 +44,7 @@ public class ServiceInterceptorDefinitionImpl extends ExtensionDefinitionImpl im
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServiceInterceptorDefinition#getName()
+     * @see org.apache.hivemind.definition.InterceptorDefinition#getName()
      */
     public String getName()
     {
@@ -52,7 +52,7 @@ public class ServiceInterceptorDefinitionImpl extends ExtensionDefinitionImpl im
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServiceInterceptorDefinition#setName(java.lang.String)
+     * @see org.apache.hivemind.definition.InterceptorDefinition#setName(java.lang.String)
      */
     public void setName(String name)
     {

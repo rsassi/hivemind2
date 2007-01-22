@@ -21,7 +21,7 @@ import java.util.Iterator;
 import org.apache.hivemind.ClassResolver;
 import org.apache.hivemind.Location;
 import org.apache.hivemind.Resource;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.events.RegistryShutdownListener;
 import org.apache.hivemind.internal.ConfigurationPoint;
@@ -74,7 +74,7 @@ class ImplMessages
         return _formatter.format("unable-to-load-class", name, loader, cause);
     }
 
-    static String nullInterceptor(ServiceInterceptorDefinition interceptor,
+    static String nullInterceptor(InterceptorDefinition interceptor,
             ServicePoint point)
     {
         return _formatter.format("null-interceptor", interceptor.getName(), point
@@ -82,7 +82,7 @@ class ImplMessages
     }
 
     static String interceptorDoesNotImplementInterface(Object interceptor,
-            ServiceInterceptorDefinition interceptorDefinition, ServicePoint point, Class serviceInterface)
+            InterceptorDefinition interceptorDefinition, ServicePoint point, Class serviceInterface)
     {
         return _formatter.format("interceptor-does-not-implement-interface", new Object[]
         { interceptor, interceptorDefinition.getName(), point.getExtensionPointId(),

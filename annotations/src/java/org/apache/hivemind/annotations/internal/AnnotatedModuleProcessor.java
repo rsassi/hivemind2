@@ -12,13 +12,13 @@ import org.apache.hivemind.Resource;
 import org.apache.hivemind.annotations.Configuration;
 import org.apache.hivemind.annotations.Module;
 import org.apache.hivemind.annotations.Service;
+import org.apache.hivemind.definition.Contribution;
+import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.Occurances;
 import org.apache.hivemind.definition.RegistryDefinition;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
+import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.Visibility;
-import org.apache.hivemind.definition.construction.Contribution;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
 import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
 import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
@@ -145,7 +145,7 @@ public class AnnotatedModuleProcessor
         ImplementationConstructor constructor = new FactoryMethodImplementationConstructor(location, 
                 method, instanceProvider);
 
-        ServiceImplementationDefinition sid = new ServiceImplementationDefinitionImpl(module, location, 
+        ImplementationDefinition sid = new ServiceImplementationDefinitionImpl(module, location, 
                 constructor, service.serviceModel(), true);
 
         spd.addImplementation(sid);

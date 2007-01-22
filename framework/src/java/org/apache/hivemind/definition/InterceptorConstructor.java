@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.apache.hivemind.definition.construction;
+package org.apache.hivemind.definition;
 
 import org.apache.hivemind.InterceptorStack;
 import org.apache.hivemind.Locatable;

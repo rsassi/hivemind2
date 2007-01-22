@@ -15,7 +15,7 @@
 package org.apache.hivemind.parse;
 
 import org.apache.hivemind.Locatable;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationConstructor;
 
 /**
  * Interface for an object that can construct the core implementation for a service.

@@ -12,20 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.apache.hivemind.definition.construction;
+package org.apache.hivemind.definition;
 
-import org.apache.hivemind.Locatable;
 
 /**
- * Creates the core service instance of a 
- * {@link org.apache.hivemind.definition.ServicePointDefinition service point}
- *
+ * Contributes data to a {@link org.apache.hivemind.definition.ConfigurationPointDefinition}.
+ * 
  * @author Achim Huegen
  */
-public interface ImplementationConstructor extends Locatable
+public interface Contribution
 {
     /**
-     * Creates a new core service implementation.
+     * Contributes to the configuration. The context provides methods to manipulate the
+     * configuration data. 
+     * 
+     * @returns   a configuration object whose type is assignable to the configuration type
      */
-    public Object constructCoreServiceImplementation(ImplementationConstructionContext context);
+    public void contribute(ContributionContext context);
 }

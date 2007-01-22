@@ -2,7 +2,7 @@ package org.apache.hivemind.internal;
 
 import org.apache.hivemind.InterceptorStack;
 import org.apache.hivemind.Location;
-import org.apache.hivemind.definition.construction.InterceptorConstructor;
+import org.apache.hivemind.definition.InterceptorConstructor;
 import org.apache.hivemind.impl.BaseLocatable;
 
 /**

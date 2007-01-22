@@ -17,7 +17,7 @@ package org.apache.hivemind.impl;
 import org.apache.commons.logging.Log;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.InterceptorStack;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.internal.Module;
 import org.apache.hivemind.internal.ServicePoint;
 import org.apache.hivemind.util.ToStringBuilder;
@@ -32,7 +32,7 @@ public final class InterceptorStackImpl implements InterceptorStack
 {
     private final Log _log;
 
-    private ServiceInterceptorDefinition _interceptorDefinition;
+    private InterceptorDefinition _interceptorDefinition;
     private ServicePoint _sep;
     private Class _interfaceClass;
     private Object _top;
@@ -102,7 +102,7 @@ public final class InterceptorStackImpl implements InterceptorStack
      * 
      */
 
-    public void process(ServiceInterceptorDefinition interceptorDefinition)
+    public void process(InterceptorDefinition interceptorDefinition)
     {
         if (_log.isDebugEnabled())
             _log.debug("Applying interceptor factory " + interceptorDefinition.getName());

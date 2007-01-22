@@ -12,14 +12,14 @@ import org.apache.hivemind.SymbolExpander;
 import org.apache.hivemind.SymbolSource;
 import org.apache.hivemind.TranslatorManager;
 import org.apache.hivemind.definition.ConfigurationPointDefinition;
+import org.apache.hivemind.definition.Contribution;
+import org.apache.hivemind.definition.ContributionContext;
+import org.apache.hivemind.definition.ImplementationConstructionContext;
+import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
-import org.apache.hivemind.definition.construction.Contribution;
-import org.apache.hivemind.definition.construction.ContributionContext;
-import org.apache.hivemind.definition.construction.ImplementationConstructionContext;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
 import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
 import org.apache.hivemind.internal.ServiceModel;
 

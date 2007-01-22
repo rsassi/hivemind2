@@ -1,9 +1,9 @@
 package org.apache.hivemind.definition.impl;
 
 import org.apache.hivemind.Location;
+import org.apache.hivemind.definition.Contribution;
 import org.apache.hivemind.definition.ContributionDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.construction.Contribution;
 
 public class ContributionDefinitionImpl extends ExtensionDefinitionImpl implements ContributionDefinition
 {
@@ -32,7 +32,7 @@ public class ContributionDefinitionImpl extends ExtensionDefinitionImpl implemen
     }
 
     /**
-     * @see org.apache.hivemind.definition.ContributionDefinition#setContributionConstructor(org.apache.hivemind.definition.construction.Contribution)
+     * @see org.apache.hivemind.definition.ContributionDefinition#setContributionConstructor(org.apache.hivemind.definition.Contribution)
      */
     public void setContributionConstructor(Contribution contributionConstructor)
     {

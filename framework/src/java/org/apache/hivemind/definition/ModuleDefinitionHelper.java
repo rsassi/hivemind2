@@ -1,7 +1,5 @@
 package org.apache.hivemind.definition;
 
-import org.apache.hivemind.definition.construction.Contribution;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
 import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
 import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
@@ -35,19 +33,19 @@ public class ModuleDefinitionHelper
         return result;
     }
  
-    public ServiceImplementationDefinition addServiceImplementation(
+    public ImplementationDefinition addServiceImplementation(
             ServicePointDefinition servicePoint,
             ImplementationConstructor constructor, String serviceModel
             )
     {
         // These implementations override the inline implementations, so default is true here
-        ServiceImplementationDefinition result = new ServiceImplementationDefinitionImpl(_module, _module
+        ImplementationDefinition result = new ServiceImplementationDefinitionImpl(_module, _module
                 .getLocation(), constructor, serviceModel, true);
         servicePoint.addImplementation(result);
         return result;
     }
     
-    public ServiceImplementationDefinition addSimpleServiceImplementation(
+    public ImplementationDefinition addSimpleServiceImplementation(
             ServicePointDefinition servicePoint,
             String serviceImplementationClass, String serviceModel)
     {

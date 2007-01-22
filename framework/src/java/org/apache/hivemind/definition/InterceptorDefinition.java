@@ -1,8 +1,7 @@
 package org.apache.hivemind.definition;
 
-import org.apache.hivemind.definition.construction.InterceptorConstructor;
 
-public interface ServiceInterceptorDefinition extends ExtensionDefinition
+public interface InterceptorDefinition extends ExtensionDefinition
 {
 
     public InterceptorConstructor getInterceptorConstructor();

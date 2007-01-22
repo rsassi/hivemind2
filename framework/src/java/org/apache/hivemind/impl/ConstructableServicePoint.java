@@ -16,8 +16,8 @@ package org.apache.hivemind.impl;
 
 import java.util.List;
 
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.events.RegistryShutdownListener;
 import org.apache.hivemind.internal.ServicePoint;
 
@@ -38,10 +38,10 @@ public interface ConstructableServicePoint extends ServicePoint
      */
     ImplementationConstructor getServiceConstructor();
 
-    ServiceImplementationDefinition getImplementationDefinition();
+    ImplementationDefinition getImplementationDefinition();
     
     /**
-     * Returns a list of {@link org.apache.hivemind.definition.construction.InterceptorConstructor}s,
+     * Returns a list of {@link org.apache.hivemind.definition.InterceptorConstructor}s,
      * ordered according to their dependencies. May return null or an empty list.
      * <p>
      * Note that the order is tricky! To keep any error messages while ordering the interceptors
@@ -56,7 +56,7 @@ public interface ConstructableServicePoint extends ServicePoint
      * 
      * The <code>before</code> value for the first interceptor contribution will be assigned to
      * the contribution's
-     * {@link org.apache.hivemind.definition.construction.InterceptorConstructor#getFollowingNames() followingNames}
+     * {@link org.apache.hivemind.definition.InterceptorConstructor#getFollowingNames() followingNames}
      * property, because all other interceptors (including the security interceptor) should have
      * their behavior follow the logging interceptor.
      * <p>

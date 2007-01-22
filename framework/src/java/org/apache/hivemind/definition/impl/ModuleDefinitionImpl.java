@@ -13,8 +13,8 @@ import org.apache.hivemind.definition.ConfigurationPointDefinition;
 import org.apache.hivemind.definition.ContributionDefinition;
 import org.apache.hivemind.definition.DefinitionMessages;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
+import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.definition.UnresolvedExtension;
 
@@ -199,10 +199,10 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
    
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addServiceImplementation(java.lang.String, org.apache.hivemind.definition.ServiceImplementationDefinition)
+     * @see org.apache.hivemind.definition.ModuleDefinition#addServiceImplementation(java.lang.String, org.apache.hivemind.definition.ImplementationDefinition)
      */
     public void addServiceImplementation(String qualifiedServicePointId,
-            ServiceImplementationDefinition implementation)
+            ImplementationDefinition implementation)
     {
         UnresolvedExtension unresolvedExtension = new UnresolvedExtension(implementation,
                 qualifiedServicePointId);
@@ -210,10 +210,10 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addServiceInterceptor(java.lang.String, org.apache.hivemind.definition.ServiceInterceptorDefinition)
+     * @see org.apache.hivemind.definition.ModuleDefinition#addServiceInterceptor(java.lang.String, org.apache.hivemind.definition.InterceptorDefinition)
      */
     public void addServiceInterceptor(String qualifiedServicePointId,
-            ServiceInterceptorDefinition interceptor)
+            InterceptorDefinition interceptor)
     {
         UnresolvedExtension unresolvedExtension = new UnresolvedExtension(interceptor,
                 qualifiedServicePointId);

@@ -19,7 +19,7 @@ import java.util.List;
 
 import org.apache.hivemind.Element;
 import org.apache.hivemind.definition.ConfigurationParser;
-import org.apache.hivemind.definition.construction.ContributionContext;
+import org.apache.hivemind.definition.ContributionContext;
 import org.apache.hivemind.impl.SchemaProcessorImpl;
 import org.apache.hivemind.internal.Module;
 import org.apache.hivemind.schema.Schema;
@@ -43,7 +43,7 @@ public final class HiveMindSchemaParser implements ConfigurationParser
 
     /**
      * @param  a list of {@link Element}s
-     * @see org.apache.hivemind.definition.ConfigurationParser#parse(org.apache.hivemind.definition.construction.ContributionContext, java.lang.Object)
+     * @see org.apache.hivemind.definition.ConfigurationParser#parse(org.apache.hivemind.definition.ContributionContext, java.lang.Object)
      */
     public Object parse(ContributionContext context, Object data)
     {

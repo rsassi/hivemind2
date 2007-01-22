@@ -50,10 +50,10 @@ public interface ModuleDefinition
     public void addDependency(String dependsOnModuleId);
 
     public void addServiceImplementation(String qualifiedServicePointId,
-            ServiceImplementationDefinition implementation);
+            ImplementationDefinition implementation);
 
     public void addServiceInterceptor(String qualifiedServicePointId,
-            ServiceInterceptorDefinition interceptor);
+            InterceptorDefinition interceptor);
 
     public void addContribution(String qualifiedConfigurationPointId,
             ContributionDefinition contribution);

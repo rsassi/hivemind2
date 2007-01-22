@@ -19,10 +19,10 @@ import hivemind.test.services.impl.RunnableImpl;
 
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Registry;
+import org.apache.hivemind.definition.ImplementationConstructionContext;
+import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
-import org.apache.hivemind.definition.construction.ImplementationConstructionContext;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.events.RegistryShutdownListener;
@@ -166,7 +166,7 @@ public class TestShutdown extends FrameworkTestCase
                 return result;
             }};
         
-        ServiceImplementationDefinition impl = new ServiceImplementationDefinitionImpl(module, newLocation(),
+        ImplementationDefinition impl = new ServiceImplementationDefinitionImpl(module, newLocation(),
                 constructor, serviceModel, true);
         sp1.addImplementation(impl);
         module.addServicePoint(sp1);

@@ -5,8 +5,8 @@ package org.apache.hivemind.definition.impl;
 
 import org.apache.hivemind.Location;
 import org.apache.hivemind.Orderable;
+import org.apache.hivemind.definition.InterceptorConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.construction.InterceptorConstructor;
 
 /**
  * Specialization of {@link ServiceInterceptorDefinitionImpl} that implements the {@link Orderable}

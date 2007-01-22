@@ -29,14 +29,14 @@ import org.apache.hivemind.Attribute;
 import org.apache.hivemind.ErrorHandler;
 import org.apache.hivemind.definition.ConfigurationPointDefinition;
 import org.apache.hivemind.definition.ContributionDefinition;
+import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.Occurances;
 import org.apache.hivemind.definition.RegistryDefinition;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
+import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.definition.Visibility;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
 import org.apache.hivemind.impl.CreateClassServiceConstructor;
 import org.apache.hivemind.impl.DefaultErrorHandler;
 import org.apache.hivemind.impl.ExtensionResolver;
@@ -247,7 +247,7 @@ public class RegistrySerializer
 //        {
 //            for (Iterator i = implementations.iterator(); i.hasNext();)
 //            {
-//                ServiceImplementationDefinition id = (ServiceImplementationDefinition) i.next();
+//                ImplementationDefinition id = (ImplementationDefinition) i.next();
 //
 //                Element implementation = getImplementationElement(id);
 //
@@ -316,7 +316,7 @@ public class RegistrySerializer
         if (spd instanceof XmlServicePointDefinitionImpl)
             processXmlServicePoint(servicePoint, (XmlServicePointDefinitionImpl) spd);
         
-        ServiceImplementationDefinition ib = spd.getDefaultImplementation();
+        ImplementationDefinition ib = spd.getDefaultImplementation();
 
         if (ib != null)
         {
@@ -331,7 +331,7 @@ public class RegistrySerializer
         {
             for (Iterator i = interceptors.iterator(); i.hasNext();)
             {
-                ServiceInterceptorDefinition icd = (ServiceInterceptorDefinition) i.next();
+                InterceptorDefinition icd = (InterceptorDefinition) i.next();
 
                 Element interceptor = getInterceptorElement(icd);
 
@@ -415,7 +415,7 @@ public class RegistrySerializer
         return contribution;
     }
 
-//    private Element getImplementationElement(ServiceImplementationDefinition id)
+//    private Element getImplementationElement(ImplementationDefinition id)
 //    {
 //        Element implementation = _document.createElement("implementation");
 //
@@ -447,7 +447,7 @@ public class RegistrySerializer
 //        return subModule;
 //    }
 
-    private Element getInstanceBuilderElement(ServiceImplementationDefinition id, ImplementationConstructor ib)
+    private Element getInstanceBuilderElement(ImplementationDefinition id, ImplementationConstructor ib)
     {
         Element instanceBuilder;
         
@@ -488,7 +488,7 @@ public class RegistrySerializer
         return instanceBuilder;
     }
 
-    private Element getInterceptorElement(ServiceInterceptorDefinition icd)
+    private Element getInterceptorElement(InterceptorDefinition icd)
     {
         Element interceptor = _document.createElement("interceptor");
 

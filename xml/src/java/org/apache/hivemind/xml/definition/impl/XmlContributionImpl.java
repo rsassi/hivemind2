@@ -22,11 +22,11 @@ import org.apache.hivemind.Element;
 import org.apache.hivemind.definition.ConfigurationParser;
 import org.apache.hivemind.definition.ConfigurationParserDefinition;
 import org.apache.hivemind.definition.ConfigurationPointDefinition;
-import org.apache.hivemind.definition.construction.Contribution;
-import org.apache.hivemind.definition.construction.ContributionContext;
+import org.apache.hivemind.definition.Contribution;
+import org.apache.hivemind.definition.ContributionContext;
 
 /**
- * Implements the {@link org.apache.hivemind.definition.construction.Contribution} interface.
+ * Implements the {@link org.apache.hivemind.definition.Contribution} interface.
  * Contributes data that is defined as xml in a HiveMind xml module.
  * The data is passed in as instances of {@link Element}.
  * 
@@ -66,7 +66,7 @@ public final class XmlContributionImpl implements Contribution
     }
 
     /**
-     * @see org.apache.hivemind.definition.construction.Contribution#contribute(org.apache.hivemind.definition.construction.ContributionContext)
+     * @see org.apache.hivemind.definition.Contribution#contribute(org.apache.hivemind.definition.ContributionContext)
      */
     public void contribute(ContributionContext context)
     {

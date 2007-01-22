@@ -9,12 +9,12 @@ public interface ServicePointDefinition extends ExtensionPointDefinition
 
     public Collection getImplementations();
 
-    public ServiceImplementationDefinition getDefaultImplementation();
+    public ImplementationDefinition getDefaultImplementation();
 
-    public void addImplementation(ServiceImplementationDefinition implementation);
+    public void addImplementation(ImplementationDefinition implementation);
 
     public Collection getInterceptors();
 
-    public void addInterceptor(ServiceInterceptorDefinition interceptor);
+    public void addInterceptor(InterceptorDefinition interceptor);
 
 }

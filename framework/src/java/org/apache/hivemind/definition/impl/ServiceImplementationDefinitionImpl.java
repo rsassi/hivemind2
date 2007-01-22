@@ -1,12 +1,12 @@
 package org.apache.hivemind.definition.impl;
 
 import org.apache.hivemind.Location;
+import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationDefinition;
 
 public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl implements
-        ServiceImplementationDefinition
+        ImplementationDefinition
 {
     private String _serviceModel;
 
@@ -29,7 +29,7 @@ public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServiceImplementationDefinition#getServiceModel()
+     * @see org.apache.hivemind.definition.ImplementationDefinition#getServiceModel()
      */
     public String getServiceModel()
     {
@@ -37,7 +37,7 @@ public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServiceImplementationDefinition#setServiceModel(java.lang.String)
+     * @see org.apache.hivemind.definition.ImplementationDefinition#setServiceModel(java.lang.String)
      */
     public void setServiceModel(String interfaceClassName)
     {
@@ -45,7 +45,7 @@ public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServiceImplementationDefinition#isDefault()
+     * @see org.apache.hivemind.definition.ImplementationDefinition#isDefault()
      */
     public boolean isDefault()
     {
@@ -53,7 +53,7 @@ public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServiceImplementationDefinition#setDefault(boolean)
+     * @see org.apache.hivemind.definition.ImplementationDefinition#setDefault(boolean)
      */
     public void setDefault(boolean isDefault)
     {
@@ -61,7 +61,7 @@ public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServiceImplementationDefinition#getServiceConstructor()
+     * @see org.apache.hivemind.definition.ImplementationDefinition#getServiceConstructor()
      */
     public ImplementationConstructor getServiceConstructor()
     {
@@ -69,7 +69,7 @@ public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServiceImplementationDefinition#setServiceConstructor(org.apache.hivemind.definition.construction.ImplementationConstructor)
+     * @see org.apache.hivemind.definition.ImplementationDefinition#setServiceConstructor(org.apache.hivemind.definition.ImplementationConstructor)
      */
     public void setServiceConstructor(ImplementationConstructor serviceConstructor)
     {

@@ -21,7 +21,7 @@ import java.util.Locale;
 
 import org.apache.hivemind.Location;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.Visibility;
 import org.apache.hivemind.definition.impl.OrderedServiceInterceptorDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
@@ -63,10 +63,10 @@ public class TestInterceptors extends FrameworkTestCase
         ModuleDefinition moduleDef = createModuleDefinition("module");
         ServicePointImpl sp = newServicePoint(moduleDef, l, module);
         
-        ServiceInterceptorDefinition interceptor1 = new OrderedServiceInterceptorDefinitionImpl(moduleDef, "Interceptor1", null, null,
+        InterceptorDefinition interceptor1 = new OrderedServiceInterceptorDefinitionImpl(moduleDef, "Interceptor1", null, null,
                 null, null);
         sp.getServicePointDefinition().addInterceptor(interceptor1);
-        ServiceInterceptorDefinition interceptor2 = new OrderedServiceInterceptorDefinitionImpl(moduleDef, "Interceptor2", null, null,
+        InterceptorDefinition interceptor2 = new OrderedServiceInterceptorDefinitionImpl(moduleDef, "Interceptor2", null, null,
                 null, null);
         sp.getServicePointDefinition().addInterceptor(interceptor2);
 //        sp.getServicePointDefinition()setExtensionPointId("ExtensionPointId");
@@ -88,10 +88,10 @@ public class TestInterceptors extends FrameworkTestCase
         ModuleDefinition moduleDef = createModuleDefinition("module");
         ServicePointImpl sp = newServicePoint(moduleDef, l, module);
         
-        ServiceInterceptorDefinition interceptor1 = new OrderedServiceInterceptorDefinitionImpl(moduleDef, "Interceptor1", null, null,
+        InterceptorDefinition interceptor1 = new OrderedServiceInterceptorDefinitionImpl(moduleDef, "Interceptor1", null, null,
                 null, null);
         sp.getServicePointDefinition().addInterceptor(interceptor1);
-        ServiceInterceptorDefinition interceptor2 = new OrderedServiceInterceptorDefinitionImpl(moduleDef, "Interceptor2", null, null,
+        InterceptorDefinition interceptor2 = new OrderedServiceInterceptorDefinitionImpl(moduleDef, "Interceptor2", null, null,
                 null, "Interceptor1");
         sp.getServicePointDefinition().addInterceptor(interceptor2);
         final List ordered = sp.getOrderedInterceptorContributions();

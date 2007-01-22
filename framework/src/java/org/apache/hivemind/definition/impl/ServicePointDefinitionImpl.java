@@ -9,8 +9,8 @@ import org.apache.hivemind.Location;
 import org.apache.hivemind.definition.DefinitionMessages;
 import org.apache.hivemind.definition.ExtensionDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
+import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.definition.Visibility;
 
@@ -60,12 +60,12 @@ public class ServicePointDefinitionImpl extends ExtensionPointDefinitionImpl imp
     /**
      * @see org.apache.hivemind.definition.ServicePointDefinition#getDefaultImplementation()
      */
-    public ServiceImplementationDefinition getDefaultImplementation()
+    public ImplementationDefinition getDefaultImplementation()
     {
-        ServiceImplementationDefinition defaulImplementation = null;
+        ImplementationDefinition defaulImplementation = null;
         for (Iterator iter = _implementations.iterator(); iter.hasNext();)
         {
-            ServiceImplementationDefinition impl = (ServiceImplementationDefinition) iter.next();
+            ImplementationDefinition impl = (ImplementationDefinition) iter.next();
             if (defaulImplementation == null)
                 defaulImplementation = impl;
             if (impl.isDefault()) {
@@ -93,9 +93,9 @@ public class ServicePointDefinitionImpl extends ExtensionPointDefinitionImpl imp
     }
     
     /**
-     * @see org.apache.hivemind.definition.ServicePointDefinition#addImplementation(org.apache.hivemind.definition.ServiceImplementationDefinition)
+     * @see org.apache.hivemind.definition.ServicePointDefinition#addImplementation(org.apache.hivemind.definition.ImplementationDefinition)
      */
-    public void addImplementation(ServiceImplementationDefinition implementation)
+    public void addImplementation(ImplementationDefinition implementation)
     {
         checkVisibility(implementation);
         _implementations.add(implementation);
@@ -112,7 +112,7 @@ public class ServicePointDefinitionImpl extends ExtensionPointDefinitionImpl imp
     /**
      * @see org.apache.hivemind.definition.ServicePointDefinition#addInterceptor(org.apache.hivemind.definition.ServiceInterceptorDefinitionImpl)
      */
-    public void addInterceptor(ServiceInterceptorDefinition interceptor)
+    public void addInterceptor(InterceptorDefinition interceptor)
     {
         checkVisibility(interceptor);
         _interceptors.add(interceptor);

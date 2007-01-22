@@ -17,7 +17,7 @@ package hivemind.test;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Registry;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
+import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 
 /**
@@ -36,13 +36,13 @@ public class TestServicesByInterface extends FrameworkTestCase
         ModuleDefinition module = createModuleDefinition("hivemind.tests.serviceByInterface");
 
         ServicePointDefinitionImpl sp1 = createServicePointDefinition(module, "uniqueService", IUniqueService.class);
-        ServiceImplementationDefinition impl1 = createServiceImplementationDefinition(module, UniqueServiceImpl.class);
+        ImplementationDefinition impl1 = createServiceImplementationDefinition(module, UniqueServiceImpl.class);
         sp1.addImplementation(impl1);
 
         module.addServicePoint(sp1);
 
         ServicePointDefinitionImpl sp2 = createServicePointDefinition(module, "multipleServiceOne", IMultipleService.class);
-        ServiceImplementationDefinition impl2 = createServiceImplementationDefinition(module, MultipleServiceImpl.class);
+        ImplementationDefinition impl2 = createServiceImplementationDefinition(module, MultipleServiceImpl.class);
         sp2.addImplementation(impl2);
 
         module.addServicePoint(sp2);

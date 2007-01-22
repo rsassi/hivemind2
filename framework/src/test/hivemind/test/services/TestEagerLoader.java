@@ -21,11 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.hivemind.Registry;
+import org.apache.hivemind.definition.Contribution;
+import org.apache.hivemind.definition.ContributionContext;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
-import org.apache.hivemind.definition.construction.Contribution;
-import org.apache.hivemind.definition.construction.ContributionContext;
 import org.apache.hivemind.internal.ServiceModel;
 import org.apache.hivemind.internal.ServicePoint;
 import org.apache.hivemind.service.impl.EagerLoader;

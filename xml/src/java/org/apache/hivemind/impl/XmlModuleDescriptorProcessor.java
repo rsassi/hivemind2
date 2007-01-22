@@ -16,7 +16,7 @@ import org.apache.hivemind.conditional.Parser;
 import org.apache.hivemind.definition.ConfigurationParserDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
+import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.impl.ConfigurationParserDefinitionImpl;
 import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
@@ -224,7 +224,7 @@ public class XmlModuleDescriptorProcessor
             return;
 
         if (builder != null) {
-            ServiceImplementationDefinition implementation = new ServiceImplementationDefinitionImpl(
+            ImplementationDefinition implementation = new ServiceImplementationDefinitionImpl(
                     module, builder.getLocation(), builder.createConstructor(module.getId()),
                     builder.getServiceModel(), false);
             point.addImplementation(implementation);

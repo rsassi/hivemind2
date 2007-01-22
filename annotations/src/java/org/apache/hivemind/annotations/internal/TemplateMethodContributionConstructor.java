@@ -4,8 +4,8 @@ import java.lang.reflect.Method;
 
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Location;
-import org.apache.hivemind.definition.construction.Contribution;
-import org.apache.hivemind.definition.construction.ContributionContext;
+import org.apache.hivemind.definition.Contribution;
+import org.apache.hivemind.definition.ContributionContext;
 
 /**
  * Contributes to a configuration point by passing the configuration container

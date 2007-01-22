@@ -2,7 +2,6 @@ package org.apache.hivemind.definition;
 
 import java.io.InputStream;
 
-import org.apache.hivemind.definition.construction.ContributionContext;
 
 public interface ConfigurationParser
 {

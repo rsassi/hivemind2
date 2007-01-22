@@ -7,10 +7,10 @@ import java.util.Collections;
 
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.InterceptorStack;
+import org.apache.hivemind.definition.InterceptorConstructor;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
-import org.apache.hivemind.definition.construction.InterceptorConstructor;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceInterceptorDefinitionImpl;
 import org.apache.hivemind.impl.DefaultClassResolver;
@@ -52,7 +52,7 @@ public class StringHolderModule extends ModuleDefinitionImpl
                 }
                 interceptorStack.push(interceptor);
             }};
-        ServiceInterceptorDefinition interceptor = new ServiceInterceptorDefinitionImpl(helper.getModule(), "hivemind.LoggingInterceptor", getLocation(), constructor);
+        InterceptorDefinition interceptor = new ServiceInterceptorDefinitionImpl(helper.getModule(), "hivemind.LoggingInterceptor", getLocation(), constructor);
         sp.addInterceptor(interceptor);
     }
 }

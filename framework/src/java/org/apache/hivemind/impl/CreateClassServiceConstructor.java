@@ -15,7 +15,7 @@
 package org.apache.hivemind.impl;
 
 import org.apache.hivemind.Location;
-import org.apache.hivemind.definition.construction.ImplementationConstructionContext;
+import org.apache.hivemind.definition.ImplementationConstructionContext;
 import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
 import org.apache.hivemind.util.InstanceCreationUtils;
 

@@ -1,8 +1,8 @@
 package org.apache.hivemind.xml.definition.impl;
 
 import org.apache.hivemind.definition.ConfigurationParser;
-import org.apache.hivemind.definition.construction.ConfigurationParserConstructor;
-import org.apache.hivemind.definition.construction.ConstructionContext;
+import org.apache.hivemind.definition.ConfigurationParserConstructor;
+import org.apache.hivemind.definition.ConstructionContext;
 import org.apache.hivemind.schema.Schema;
 import org.apache.hivemind.util.Defense;
 

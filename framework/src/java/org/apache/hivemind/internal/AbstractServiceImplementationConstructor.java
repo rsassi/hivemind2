@@ -1,7 +1,7 @@
 package org.apache.hivemind.internal;
 
 import org.apache.hivemind.Location;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.impl.BaseLocatable;
 
 /**

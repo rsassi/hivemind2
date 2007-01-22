@@ -19,7 +19,7 @@ import org.apache.hivemind.internal.Module;
 
 /**
  * Object used when processing the elements contributed in an
- * {@link org.apache.hivemind.definition.construction.Contribution}.
+ * {@link org.apache.hivemind.definition.Contribution}.
  * 
  * @author Howard Lewis Ship
  */

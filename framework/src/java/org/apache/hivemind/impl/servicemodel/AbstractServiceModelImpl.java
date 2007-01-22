@@ -21,10 +21,10 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.HiveMind;
 import org.apache.hivemind.ShutdownCoordinator;
-import org.apache.hivemind.definition.ServiceImplementationDefinition;
-import org.apache.hivemind.definition.ServiceInterceptorDefinition;
-import org.apache.hivemind.definition.construction.ImplementationConstructionContext;
-import org.apache.hivemind.definition.construction.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationConstructionContext;
+import org.apache.hivemind.definition.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.events.RegistryShutdownListener;
 import org.apache.hivemind.impl.ConstructableServicePoint;
 import org.apache.hivemind.impl.InterceptorStackImpl;
@@ -84,7 +84,7 @@ public abstract class AbstractServiceModelImpl implements ServiceModel
 
         for (int i = count - 1; i >= 0; i--)
         {
-            ServiceInterceptorDefinition id = (ServiceInterceptorDefinition) interceptors
+            InterceptorDefinition id = (InterceptorDefinition) interceptors
                     .get(i);
 
             stack.process(id);
@@ -109,7 +109,7 @@ public abstract class AbstractServiceModelImpl implements ServiceModel
         Class serviceInterface = _servicePoint.getServiceInterface();
         Class declaredInterface = _servicePoint.getDeclaredInterface();
 
-        ServiceImplementationDefinition implementationDefinition = _servicePoint.getImplementationDefinition();
+        ImplementationDefinition implementationDefinition = _servicePoint.getImplementationDefinition();
         ImplementationConstructor constructor = implementationDefinition.getServiceConstructor();
         // Get a reference to the module that provided the implementation 
         String definingModuleId = implementationDefinition.getModuleId();

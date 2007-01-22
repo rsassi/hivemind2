@@ -1,6 +1,5 @@
 package org.apache.hivemind.definition;
 
-import org.apache.hivemind.definition.construction.ConfigurationParserConstructor;
 
 /**
  * Defines a parser for the processing of configuration data that is provided

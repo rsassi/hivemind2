@@ -28,10 +28,10 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.ShutdownCoordinator;
 import org.apache.hivemind.definition.ConfigurationPointDefinition;
+import org.apache.hivemind.definition.Contribution;
+import org.apache.hivemind.definition.ContributionContext;
 import org.apache.hivemind.definition.ContributionDefinition;
 import org.apache.hivemind.definition.Occurances;
-import org.apache.hivemind.definition.construction.Contribution;
-import org.apache.hivemind.definition.construction.ContributionContext;
 import org.apache.hivemind.impl.servicemodel.SingletonInnerProxy;
 import org.apache.hivemind.internal.AbstractConstructionContext;
 import org.apache.hivemind.internal.ConfigurationPoint;
@@ -43,7 +43,7 @@ import org.apache.hivemind.util.ToStringBuilder;
 
 /**
  * Implementation of the {@link org.apache.hivemind.internal.ConfigurationPoint} interface; a
- * container for {@link org.apache.hivemind.definition.construction.Contribution}s.
+ * container for {@link org.apache.hivemind.definition.Contribution}s.
  * 
  * @author Howard Lewis Ship
  */

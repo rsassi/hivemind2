@@ -1,6 +1,6 @@
 package org.apache.hivemind.internal;
 
-import org.apache.hivemind.definition.construction.ImplementationConstructionContext;
+import org.apache.hivemind.definition.ImplementationConstructionContext;
 
 /**
  * Implementation of {@link ImplementationConstructionContext}.

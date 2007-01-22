@@ -1,6 +1,6 @@
 package org.apache.hivemind.internal;
 
-import org.apache.hivemind.definition.construction.ConstructionContext;
+import org.apache.hivemind.definition.ConstructionContext;
 
 /**
  * Default Implementation of {@link ConstructionContext}.
@@ -22,7 +22,7 @@ public abstract class AbstractConstructionContext implements ConstructionContext
     }
 
     /**
-     * @see org.apache.hivemind.definition.construction.ConstructionContext#getDefiningModule()
+     * @see org.apache.hivemind.definition.ConstructionContext#getDefiningModule()
      */
     public Module getDefiningModule()
     {
@@ -30,7 +30,7 @@ public abstract class AbstractConstructionContext implements ConstructionContext
     }
 
     /**
-     * @see org.apache.hivemind.definition.construction.ConstructionContext#getService(java.lang.String, java.lang.Class)
+     * @see org.apache.hivemind.definition.ConstructionContext#getService(java.lang.String, java.lang.Class)
      */
     public Object getService(String serviceId, Class serviceInterface)
     {
@@ -38,7 +38,7 @@ public abstract class AbstractConstructionContext implements ConstructionContext
     }
 
     /**
-     * @see org.apache.hivemind.definition.construction.ConstructionContext#getService(java.lang.Class)
+     * @see org.apache.hivemind.definition.ConstructionContext#getService(java.lang.Class)
      */
     public Object getService(Class serviceInterface)
     {
@@ -46,7 +46,7 @@ public abstract class AbstractConstructionContext implements ConstructionContext
     }
     
     /**
-     * @see org.apache.hivemind.definition.construction.ConstructionContext#containsService(java.lang.Class)
+     * @see org.apache.hivemind.definition.ConstructionContext#containsService(java.lang.Class)
      */
     public boolean containsService(Class serviceInterface)
     {
@@ -54,7 +54,7 @@ public abstract class AbstractConstructionContext implements ConstructionContext
     }
 
     /**
-     * @see org.apache.hivemind.definition.construction.ConstructionContext#getRegistry()
+     * @see org.apache.hivemind.definition.ConstructionContext#getRegistry()
      */
     public RegistryInfrastructure getRegistry()
     {
