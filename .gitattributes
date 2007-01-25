@@ -73,6 +73,7 @@ framework/src/java/org/apache/hivemind/definition/impl/RegistryDefinitionImpl.ja
 framework/src/java/org/apache/hivemind/definition/impl/ServiceImplementationDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/ServiceInterceptorDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/ServicePointDefinitionImpl.java -text
+framework/src/java/org/apache/hivemind/definition/package.html -text
 framework/src/java/org/apache/hivemind/events/RegistryInitializationListener.java -text
 framework/src/java/org/apache/hivemind/impl/CoreServicesProvider.java -text
 framework/src/java/org/apache/hivemind/impl/ExtensionResolver.java -text
