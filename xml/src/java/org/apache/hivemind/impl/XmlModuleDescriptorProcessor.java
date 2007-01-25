@@ -262,6 +262,7 @@ public class XmlModuleDescriptorProcessor
                 // TODO: compare container class name and rootElementClassName
                 if (HashMap.class.getName().equals(cpd.getContributionsSchema().getRootElementClassName())
                     || UniqueHashMap.class.getName().equals(cpd.getContributionsSchema().getRootElementClassName())) {
+                    
                     configurationPoint.setConfigurationTypeName(Map.class.getName());
                 }
 

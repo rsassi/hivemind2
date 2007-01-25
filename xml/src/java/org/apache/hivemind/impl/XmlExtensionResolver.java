@@ -17,6 +17,7 @@ import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.definition.UnresolvedExtension;
 import org.apache.hivemind.definition.impl.ConfigurationParserDefinitionImpl;
+import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
 import org.apache.hivemind.schema.Schema;
 import org.apache.hivemind.util.IdUtils;
 import org.apache.hivemind.util.UniqueHashMap;
@@ -156,10 +157,15 @@ public class XmlExtensionResolver
                 
                 cpd.addParser(parserDef);
                 
-                // For backward compatibility
+                // For backward compatibility change the configuration to Map if the schema uses a map too
                 if (HashMap.class.getName().equals(schema.getRootElementClassName())
                         || UniqueHashMap.class.getName().equals(schema.getRootElementClassName())) {
-                    cpd.setConfigurationTypeName(Map.class.getName());
+                    // The schema assignments are mainly used for backward compatibility so we can 
+                    // expect to deal here with a configuration point from the core or xml module.
+                    // The cast prevents us from putting the setter into the public api of the ConfigurationPointDefinition
+                    if (cpd instanceof ConfigurationPointDefinitionImpl) {
+                        ((ConfigurationPointDefinitionImpl) cpd).setConfigurationTypeName(Map.class.getName());
+                    }
                 }
                 
             }

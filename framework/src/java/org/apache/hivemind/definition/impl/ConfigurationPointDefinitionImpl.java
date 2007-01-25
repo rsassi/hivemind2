@@ -48,7 +48,7 @@ public class ConfigurationPointDefinitionImpl extends ExtensionPointDefinitionIm
     }
 
     /**
-     * @see org.apache.hivemind.definition.ConfigurationPointDefinition#setConfigurationTypeName(java.lang.String)
+     * Set the class name of the configuration.
      */
     public void setConfigurationTypeName(String containerClassName)
     {

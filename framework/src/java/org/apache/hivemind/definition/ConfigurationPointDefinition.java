@@ -8,8 +8,6 @@ public interface ConfigurationPointDefinition extends ExtensionPointDefinition
 {
     public String getConfigurationTypeName();
 
-    public void setConfigurationTypeName(String typeName);
-
     public Occurances getExpectedContributions();
 
     public Collection getContributions();
