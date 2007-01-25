@@ -20,6 +20,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.hivemind.definition.ConfigurationPointDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.internal.ConfigurationPoint;
 import org.apache.hivemind.internal.RegistryInfrastructure;
@@ -37,7 +38,7 @@ public class TestRegistryInfrastructureConstructor extends FrameworkTestCase
     {
         DefaultErrorHandler errorHandler = new DefaultErrorHandler();
 
-    	RegistryDefinition definition = new RegistryDefinition();
+    	RegistryDefinition definition = new RegistryDefinitionImpl();
     	
         ModuleDefinition fooBar = createModuleDefinition("foo.bar");
 

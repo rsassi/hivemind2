@@ -69,6 +69,7 @@ framework/src/java/org/apache/hivemind/definition/impl/ExtensionDefinitionImpl.j
 framework/src/java/org/apache/hivemind/definition/impl/ExtensionPointDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/ModuleDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/OrderedServiceInterceptorDefinitionImpl.java -text
+framework/src/java/org/apache/hivemind/definition/impl/RegistryDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/ServiceImplementationDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/ServiceInterceptorDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/ServicePointDefinitionImpl.java -text

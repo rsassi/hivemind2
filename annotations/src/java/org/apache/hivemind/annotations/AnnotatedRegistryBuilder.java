@@ -6,6 +6,7 @@ import org.apache.hivemind.ClassResolver;
 import org.apache.hivemind.ErrorHandler;
 import org.apache.hivemind.Registry;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.impl.DefaultClassResolver;
 import org.apache.hivemind.impl.DefaultErrorHandler;
 import org.apache.hivemind.impl.RegistryBuilder;
@@ -50,7 +51,7 @@ public class AnnotatedRegistryBuilder
     
     private RegistryDefinition constructRegistryDefinition(String ... moduleClassNames)
     {
-        RegistryDefinition definition = new RegistryDefinition();
+        RegistryDefinition definition = new RegistryDefinitionImpl();
 
         for (int i = 0; i < moduleClassNames.length; i++)
         {
@@ -64,7 +65,7 @@ public class AnnotatedRegistryBuilder
     
     private RegistryDefinition constructRegistryDefinition(Class ... moduleClasses)
     {
-        RegistryDefinition definition = new RegistryDefinition();
+        RegistryDefinition definition = new RegistryDefinitionImpl();
 
         for (int i = 0; i < moduleClasses.length; i++)
         {

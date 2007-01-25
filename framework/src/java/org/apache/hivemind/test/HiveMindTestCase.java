@@ -30,6 +30,7 @@ import org.apache.hivemind.Registry;
 import org.apache.hivemind.Resource;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.impl.DefaultClassResolver;
 import org.apache.hivemind.impl.LocationImpl;
 import org.apache.hivemind.impl.RegistryBuilder;
@@ -411,7 +412,7 @@ public abstract class HiveMindTestCase extends TestCase
      */
     protected Registry buildFrameworkRegistry(ModuleDefinition[] customModules)
     {
-        RegistryDefinition registryDefinition = new RegistryDefinition();
+        RegistryDefinition registryDefinition = new RegistryDefinitionImpl();
         for (int i = 0; i < customModules.length; i++)
         {
             ModuleDefinition module = customModules[i];

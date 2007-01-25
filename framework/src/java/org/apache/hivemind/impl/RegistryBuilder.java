@@ -27,12 +27,12 @@ import org.apache.hivemind.definition.DefinitionMessages;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.Occurances;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.events.RegistryInitializationListener;
 import org.apache.hivemind.internal.RegistryInfrastructure;
 
 /**
- * Class used to build a {@link org.apache.hivemind.Registry} from individual
- * {@link org.apache.hivemind.definition.RegistryDefinition}. 
+ * Class used to build a {@link org.apache.hivemind.Registry} from a {@link org.apache.hivemind.definition.RegistryDefinition}. 
  * A note about threadsafety: The assumption is that a single thread will access the RegistryBuilder
  * at one time (typically, a startup class within some form of server or application). Code here and
  * in many of the related classes is divided into construction-time logic and runtime logic. Runtime
@@ -84,7 +84,7 @@ public final class RegistryBuilder
 
     public RegistryBuilder()
     {
-        this(new RegistryDefinition(), new DefaultErrorHandler());
+        this(new RegistryDefinitionImpl(), new DefaultErrorHandler());
     }
     
     public RegistryBuilder(RegistryDefinition registryDefinition)
@@ -94,7 +94,7 @@ public final class RegistryBuilder
 
     public RegistryBuilder(ErrorHandler errorHandler)
     {
-        this(new RegistryDefinition(), errorHandler);
+        this(new RegistryDefinitionImpl(), errorHandler);
     }
     
     public RegistryBuilder(RegistryDefinition registryDefinition, ErrorHandler errorHandler)

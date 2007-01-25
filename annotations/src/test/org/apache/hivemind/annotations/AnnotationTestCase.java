@@ -4,6 +4,7 @@ import org.apache.hivemind.Registry;
 import org.apache.hivemind.annotations.AnnotatedModuleReader;
 import org.apache.hivemind.annotations.AnnotatedRegistryBuilder;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.impl.DefaultErrorHandler;
 import org.apache.hivemind.test.HiveMindTestCase;
 
@@ -23,7 +24,7 @@ public class AnnotationTestCase extends HiveMindTestCase
 
     protected RegistryDefinition constructRegistryDefinition(Class ... moduleClasses)
     {
-        RegistryDefinition definition = new RegistryDefinition();
+        RegistryDefinition definition = new RegistryDefinitionImpl();
 
         for (int i = 0; i < moduleClasses.length; i++)
         {

@@ -25,6 +25,7 @@ import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.impl.InterceptorStackImpl;
@@ -124,7 +125,7 @@ public class TestLoggingInterceptorFactory extends FrameworkTestCase
      */
     private Registry createRegistry(ImplementationConstructor constructor)
     {
-        RegistryDefinition definition = new RegistryDefinition();
+        RegistryDefinition definition = new RegistryDefinitionImpl();
 
         ModuleDefinition module = createModuleDefinition("hivemind.tests.serviceByInterface");
         definition.addModule(module);

@@ -25,6 +25,7 @@ import org.apache.hivemind.definition.ConfigurationParserDefinition;
 import org.apache.hivemind.definition.ConfigurationPointDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.Visibility;
+import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.parse.ConfigurationPointDescriptor;
 import org.apache.hivemind.parse.ContributionDescriptor;
 import org.apache.hivemind.parse.ModuleDescriptor;
@@ -54,7 +55,7 @@ public class TestXmlModuleDescriptorProcessor extends FrameworkTestCase
         schema.setId("Baz");
 
         DefaultErrorHandler errorHandler = new DefaultErrorHandler();
-        RegistryDefinition definition = new RegistryDefinition();
+        RegistryDefinition definition = new RegistryDefinitionImpl();
 
         ModuleDescriptor fooBar = new ModuleDescriptor(null, errorHandler);
         fooBar.setModuleId("foo.bar");
@@ -104,7 +105,7 @@ public class TestXmlModuleDescriptorProcessor extends FrameworkTestCase
         schema.setId("Baz");
         schema.setVisibility(Visibility.PRIVATE);
 
-        RegistryDefinition definition = new RegistryDefinition();
+        RegistryDefinition definition = new RegistryDefinitionImpl();
 
         Location l = newLocation();
 
@@ -148,7 +149,7 @@ public class TestXmlModuleDescriptorProcessor extends FrameworkTestCase
 
         Log log = LogFactory.getLog(XmlModuleDescriptorProcessor.class);
 
-        RegistryDefinition definition = new RegistryDefinition();
+        RegistryDefinition definition = new RegistryDefinitionImpl();
 
         Location l = newLocation();
 
@@ -189,7 +190,7 @@ public class TestXmlModuleDescriptorProcessor extends FrameworkTestCase
     {
         ErrorHandler errorHandler = new DefaultErrorHandler();
 
-        RegistryDefinition definition = new RegistryDefinition();
+        RegistryDefinition definition = new RegistryDefinitionImpl();
 
         replayControls();
 
@@ -229,7 +230,7 @@ public class TestXmlModuleDescriptorProcessor extends FrameworkTestCase
     {
         ErrorHandler errorHandler = new DefaultErrorHandler();
 
-        RegistryDefinition definition = new RegistryDefinition();
+        RegistryDefinition definition = new RegistryDefinitionImpl();
 
         replayControls();
 
@@ -270,7 +271,7 @@ public class TestXmlModuleDescriptorProcessor extends FrameworkTestCase
         MockControl ehControl = newControl(ErrorHandler.class);
         ErrorHandler eh = (ErrorHandler) ehControl.getMock();
 
-        RegistryDefinition definition = new RegistryDefinition();
+        RegistryDefinition definition = new RegistryDefinitionImpl();
 
         Log log = LogFactory.getLog(XmlModuleDescriptorProcessor.class);
 

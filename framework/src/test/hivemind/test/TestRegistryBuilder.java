@@ -18,6 +18,7 @@ import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Registry;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.impl.RegistryBuilder;
 import org.apache.hivemind.service.ClassFactory;
 
@@ -44,7 +45,7 @@ public class TestRegistryBuilder extends FrameworkTestCase
     {
         String duplicateModuleId = "non.unique.module";
 
-        RegistryDefinition registryDefinition = new RegistryDefinition();
+        RegistryDefinition registryDefinition = new RegistryDefinitionImpl();
         registryDefinition.addModule(createModuleDefinition(duplicateModuleId));
         try
         {
