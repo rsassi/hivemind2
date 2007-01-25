@@ -14,10 +14,11 @@ import org.apache.hivemind.conditional.EvaluationContextImpl;
 import org.apache.hivemind.conditional.Node;
 import org.apache.hivemind.conditional.Parser;
 import org.apache.hivemind.definition.ConfigurationParserDefinition;
+import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
-import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.impl.ConfigurationParserDefinitionImpl;
+import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
 import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceInterceptorDefinitionImpl;
@@ -36,7 +37,6 @@ import org.apache.hivemind.util.IdUtils;
 import org.apache.hivemind.util.UniqueHashMap;
 import org.apache.hivemind.xml.definition.impl.HiveMindSchemaParser;
 import org.apache.hivemind.xml.definition.impl.HiveMindSchemaParserConstructor;
-import org.apache.hivemind.xml.definition.impl.XmlConfigurationPointDefinitionImpl;
 import org.apache.hivemind.xml.definition.impl.XmlContributionImpl;
 import org.apache.hivemind.xml.definition.impl.XmlModuleDefinitionImpl;
 import org.apache.hivemind.xml.definition.impl.XmlServicePointDefinitionImpl;
@@ -251,7 +251,7 @@ public class XmlModuleDescriptorProcessor
         {
             ConfigurationPointDescriptor cpd = (ConfigurationPointDescriptor) points.get(i);
 
-            XmlConfigurationPointDefinitionImpl configurationPoint = new XmlConfigurationPointDefinitionImpl(
+            ConfigurationPointDefinitionImpl configurationPoint = new ConfigurationPointDefinitionImpl(
                     module, cpd.getId(), cpd.getLocation(), cpd.getVisibility(), 
                     cpd.getType(), cpd.getCount());
             module.addConfigurationPoint(configurationPoint);

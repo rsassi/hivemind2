@@ -193,7 +193,6 @@ xml/src/java/org/apache/hivemind/service/impl/LoggingInterceptorFactory.java -te
 xml/src/java/org/apache/hivemind/servlet/HiveMindFilter.java -text
 xml/src/java/org/apache/hivemind/xml/definition/impl/HiveMindSchemaParser.java -text
 xml/src/java/org/apache/hivemind/xml/definition/impl/HiveMindSchemaParserConstructor.java -text
-xml/src/java/org/apache/hivemind/xml/definition/impl/XmlConfigurationPointDefinitionImpl.java -text
 xml/src/java/org/apache/hivemind/xml/definition/impl/XmlModuleDefinitionImpl.java -text
 xml/src/java/org/apache/hivemind/xml/definition/impl/XmlServicePointDefinitionImpl.java -text
 xml/src/test/hivemind/test/config/Null.xml -text
