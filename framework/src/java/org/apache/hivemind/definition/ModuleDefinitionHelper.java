@@ -7,6 +7,14 @@ import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.impl.CreateClassServiceConstructor;
 import org.apache.hivemind.internal.ServiceModel;
 
+/**
+ * Helper class that offers convenience functions for the definition of modules
+ * and its extension points. All instances created are 
+ * {@link org.apache.hivemind.definition.impl standard implementations} 
+ * of the definition interfaces.
+ * 
+ * @author Achim Huegen
+ */
 public class ModuleDefinitionHelper
 {
     private ModuleDefinition _module;

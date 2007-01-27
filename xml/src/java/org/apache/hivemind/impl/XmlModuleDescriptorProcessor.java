@@ -197,7 +197,7 @@ public class XmlModuleDescriptorProcessor
             ServiceImplementationDefinitionImpl implementation = new ServiceImplementationDefinitionImpl(
                     sourceModule, builder.getLocation(), builder.createConstructor(sourceModule.getId()),
                     builder.getServiceModel(), false);
-            sourceModule.addServiceImplementation(qualifiedPointId, implementation); 
+            sourceModule.addImplementation(qualifiedPointId, implementation); 
         }
         
         int count = size(interceptors);
@@ -319,7 +319,7 @@ public class XmlModuleDescriptorProcessor
         constructor.setFollowingInterceptorIds(id.getBefore());
         ServiceInterceptorDefinitionImpl interceptor = new ServiceInterceptorDefinitionImpl(
                 module, id.getName(), id.getLocation(), constructor);
-        module.addServiceInterceptor(qualifiedPointId, interceptor);
+        module.addInterceptor(qualifiedPointId, interceptor);
     }
 
     /**

@@ -2,6 +2,7 @@ package org.apache.hivemind.definition.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +73,7 @@ public class RegistryDefinitionImpl implements RegistryDefinition
      */
     public List getPostProcessors()
     {
-        return _postProcessors;
+        return Collections.unmodifiableList(_postProcessors);
     }
 
     /**
@@ -88,7 +89,7 @@ public class RegistryDefinitionImpl implements RegistryDefinition
      */
     public List getRegistryInitializationListeners()
     {
-        return _initializationListeners;
+        return Collections.unmodifiableList(_initializationListeners);
     }
     
     /**
@@ -96,7 +97,7 @@ public class RegistryDefinitionImpl implements RegistryDefinition
      */
     public Collection getModules()
     {
-        return _modules.values();
+        return Collections.unmodifiableCollection(_modules.values());
     }
 
     /**

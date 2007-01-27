@@ -2,6 +2,7 @@ package org.apache.hivemind.definition.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -151,7 +152,7 @@ public class ModuleDefinitionImpl implements ModuleDefinition
      */
     public Collection getServicePoints()
     {
-        return _servicePoints.values();
+        return Collections.unmodifiableCollection(_servicePoints.values());
     }
  
     /**
@@ -179,7 +180,7 @@ public class ModuleDefinitionImpl implements ModuleDefinition
      */
     public Collection getConfigurationPoints()
     {
-        return _configurationPoints.values();
+        return Collections.unmodifiableCollection(_configurationPoints.values());
     }
 
     /**
@@ -187,7 +188,7 @@ public class ModuleDefinitionImpl implements ModuleDefinition
      */
     public Collection getDependencies()
     {
-        return _dependencies;
+        return Collections.unmodifiableCollection(_dependencies);
     }
     
     /**
@@ -199,9 +200,9 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
    
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addServiceImplementation(java.lang.String, org.apache.hivemind.definition.ImplementationDefinition)
+     * @see org.apache.hivemind.definition.ModuleDefinition#addImplementation(java.lang.String, org.apache.hivemind.definition.ImplementationDefinition)
      */
-    public void addServiceImplementation(String qualifiedServicePointId,
+    public void addImplementation(String qualifiedServicePointId,
             ImplementationDefinition implementation)
     {
         UnresolvedExtension unresolvedExtension = new UnresolvedExtension(implementation,
@@ -210,9 +211,9 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addServiceInterceptor(java.lang.String, org.apache.hivemind.definition.InterceptorDefinition)
+     * @see org.apache.hivemind.definition.ModuleDefinition#addInterceptor(java.lang.String, org.apache.hivemind.definition.InterceptorDefinition)
      */
-    public void addServiceInterceptor(String qualifiedServicePointId,
+    public void addInterceptor(String qualifiedServicePointId,
             InterceptorDefinition interceptor)
     {
         UnresolvedExtension unresolvedExtension = new UnresolvedExtension(interceptor,
@@ -266,9 +267,9 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#getParsers()
+     * @see org.apache.hivemind.definition.ModuleDefinition#getConfigurationParsers()
      */
-    public Collection getParsers()
+    public Collection getConfigurationParsers()
     {
         return _unresolvedConfigurationParsers;
     }

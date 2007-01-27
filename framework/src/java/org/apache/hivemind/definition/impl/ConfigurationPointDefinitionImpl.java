@@ -2,6 +2,7 @@ package org.apache.hivemind.definition.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -76,7 +77,7 @@ public class ConfigurationPointDefinitionImpl extends ExtensionPointDefinitionIm
      */
     public Collection getContributions()
     {
-        return _contributions;
+        return Collections.unmodifiableCollection(_contributions);
     }
 
     /**
@@ -122,7 +123,7 @@ public class ConfigurationPointDefinitionImpl extends ExtensionPointDefinitionIm
      */
     public Collection getParsers()
     {
-        return _parsers.values();
+        return Collections.unmodifiableCollection(_parsers.values());
     }
 
     /**

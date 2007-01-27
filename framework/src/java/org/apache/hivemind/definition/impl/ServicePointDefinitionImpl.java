@@ -2,6 +2,7 @@ package org.apache.hivemind.definition.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 
 import org.apache.hivemind.ApplicationRuntimeException;
@@ -54,7 +55,7 @@ public class ServicePointDefinitionImpl extends ExtensionPointDefinitionImpl imp
      */
     public Collection getImplementations()
     {
-        return _implementations;
+        return Collections.unmodifiableCollection(_implementations);
     }
     
     /**
@@ -106,7 +107,7 @@ public class ServicePointDefinitionImpl extends ExtensionPointDefinitionImpl imp
      */
     public Collection getInterceptors()
     {
-        return _interceptors;
+        return Collections.unmodifiableCollection(_interceptors);
     }
 
     /**

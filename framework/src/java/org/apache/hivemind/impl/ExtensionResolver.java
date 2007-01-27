@@ -158,7 +158,7 @@ public class ExtensionResolver
     
     private void resolveConfigurationParsers(ModuleDefinition module)
     {
-        for (Iterator iter = module.getParsers().iterator(); iter.hasNext();)
+        for (Iterator iter = module.getConfigurationParsers().iterator(); iter.hasNext();)
         {
             UnresolvedExtension unresolved = (UnresolvedExtension) iter.next();
             String configurationPointId = unresolved.getExtensionPointId();

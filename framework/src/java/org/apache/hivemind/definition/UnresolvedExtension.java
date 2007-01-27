@@ -28,6 +28,9 @@ public class UnresolvedExtension
         return _extensionPointId;
     }
 
+    /**
+     * @return  the extension
+     */
     public ExtensionDefinition getExtension()
     {
         return _extension;
