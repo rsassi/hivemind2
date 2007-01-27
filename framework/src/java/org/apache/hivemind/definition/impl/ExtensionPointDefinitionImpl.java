@@ -31,7 +31,7 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinitionIF#getModuleId()
+     * @see org.apache.hivemind.definition.ExtensionPointDefinition#getModuleId()
      */
     public String getModuleId()
     {
@@ -44,15 +44,15 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
     }
     
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinitionIF#getFullyQualifiedId()
+     * @see org.apache.hivemind.definition.ExtensionPointDefinition#getQualifiedId()
      */
-    public String getFullyQualifiedId()
+    public String getQualifiedId()
     {
         return getModuleId() + "." + _id;
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinitionIF#getId()
+     * @see org.apache.hivemind.definition.ExtensionPointDefinition#getId()
      */
     public String getId()
     {
@@ -60,7 +60,7 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinitionIF#setId(java.lang.String)
+     * @see org.apache.hivemind.definition.ExtensionPointDefinition#setId(java.lang.String)
      */
     public void setId(String id)
     {
@@ -68,7 +68,7 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinitionIF#getLocation()
+     * @see org.apache.hivemind.definition.ExtensionPointDefinition#getLocation()
      */
     public Location getLocation()
     {
@@ -76,7 +76,7 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinitionIF#setLocation(org.apache.hivemind.Location)
+     * @see org.apache.hivemind.definition.ExtensionPointDefinition#setLocation(org.apache.hivemind.Location)
      */
     public void setLocation(Location location)
     {
@@ -84,7 +84,7 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinitionIF#getVisibility()
+     * @see org.apache.hivemind.definition.ExtensionPointDefinition#getVisibility()
      */
     public Visibility getVisibility()
     {
@@ -92,7 +92,7 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinitionIF#setVisibility(org.apache.hivemind.definition.Visibility)
+     * @see org.apache.hivemind.definition.ExtensionPointDefinition#setVisibility(org.apache.hivemind.definition.Visibility)
      */
     public void setVisibility(Visibility visibility)
     {

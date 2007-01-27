@@ -133,7 +133,7 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     public void addServicePoint(ServicePointDefinition servicePoint)
     {
         if (_servicePoints.containsKey(servicePoint.getId())) {
-            throw new ApplicationRuntimeException(DefinitionMessages.duplicateServicePointId(servicePoint.getFullyQualifiedId(), 
+            throw new ApplicationRuntimeException(DefinitionMessages.duplicateServicePointId(servicePoint.getQualifiedId(), 
                     this));
         }
         _servicePoints.put(servicePoint.getId(), servicePoint);

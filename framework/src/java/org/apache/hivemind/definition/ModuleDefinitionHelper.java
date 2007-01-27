@@ -79,11 +79,11 @@ public class ModuleDefinitionHelper
         return result;
     }
     
-    public ContributionDefinition addContributionDefinition(String fullyQualifiedConfigurationPointId, 
+    public ContributionDefinition addContributionDefinition(String qualifiedConfigurationPointId, 
             Contribution contributionConstructor)
     {
         ContributionDefinitionImpl result = new ContributionDefinitionImpl(_module, _module.getLocation(), contributionConstructor, false);
-        _module.addContribution(fullyQualifiedConfigurationPointId, result);
+        _module.addContribution(qualifiedConfigurationPointId, result);
         return result;
     }
 

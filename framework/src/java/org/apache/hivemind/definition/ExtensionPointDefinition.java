@@ -9,7 +9,7 @@ public interface ExtensionPointDefinition extends Locatable
      */
     public String getModuleId();
 
-    public String getFullyQualifiedId();
+    public String getQualifiedId();
 
     public String getId();
 

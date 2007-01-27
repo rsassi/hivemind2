@@ -20,11 +20,11 @@ public class RegistryImpl implements Registry
 
     public <T> T getConfiguration(String configurationId, Class<T> configurationType)
     {
-        String fullyQualifiedConfigurationId = IdUtils.qualify(
+        String qualifiedConfigurationId = IdUtils.qualify(
                 _callingModule.getModuleId(),
                 configurationId);
         Object configuration = _delegate.getConfiguration(
-                fullyQualifiedConfigurationId,
+                qualifiedConfigurationId,
                 _callingModule);
         return (T) configuration;
     }
@@ -38,18 +38,18 @@ public class RegistryImpl implements Registry
 
     public Object getConfiguration(String configurationId)
     {
-        String fullyQualifiedConfigurationId = IdUtils.qualify(
+        String qualifiedConfigurationId = IdUtils.qualify(
                 _callingModule.getModuleId(),
                 configurationId);
-        return _delegate.getConfiguration(fullyQualifiedConfigurationId, _callingModule);
+        return _delegate.getConfiguration(qualifiedConfigurationId, _callingModule);
     }
 
     public <T> T getService(String serviceId, Class<T> serviceInterface)
     {
-        String fullyQualifiedServiceId = IdUtils.qualify(
+        String qualifiedServiceId = IdUtils.qualify(
                 _callingModule.getModuleId(),
                 serviceId);
-        Object service = _delegate.getService(fullyQualifiedServiceId, serviceInterface, _callingModule);
+        Object service = _delegate.getService(qualifiedServiceId, serviceInterface, _callingModule);
         return (T) service;
     }
 

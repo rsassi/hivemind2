@@ -38,7 +38,7 @@ public class DefinitionMessages
     {
         return _formatter.format(
                 "wrong-number-of-contributions",
-                point.getFullyQualifiedId(),
+                point.getQualifiedId(),
                 contributionCount(actualCount),
                 occurances(expectation));
     }
@@ -87,13 +87,13 @@ public class DefinitionMessages
     {
         return _formatter.format(
                 "configuration-point-not-visible",
-                point.getFullyQualifiedId(),
+                point.getQualifiedId(),
                 contributingModule.getId());
     }
 
     public static String duplicateParserInputFormat(String inputFormat, ConfigurationPointDefinition cp)
     {
-        return _formatter.format("duplicate-parser-inputformat", inputFormat, cp.getFullyQualifiedId());
+        return _formatter.format("duplicate-parser-inputformat", inputFormat, cp.getQualifiedId());
     }
 
 
@@ -101,7 +101,7 @@ public class DefinitionMessages
     {
         return _formatter.format(
                 "service-point-not-visible",
-                point.getFullyQualifiedId(),
+                point.getQualifiedId(),
                 contributingModule.getId());
     }
     

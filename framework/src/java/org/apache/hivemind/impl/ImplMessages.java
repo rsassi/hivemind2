@@ -252,6 +252,6 @@ class ImplMessages
 
     public static String servicePointDefinitionWithoutImplementation(ServicePointDefinition sd)
     {
-        return _formatter.format("servicepointdefinition-without-implementation", sd.getFullyQualifiedId());
+        return _formatter.format("servicepointdefinition-without-implementation", sd.getQualifiedId());
     }
 }
