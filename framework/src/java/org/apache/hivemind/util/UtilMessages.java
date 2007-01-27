@@ -104,4 +104,11 @@ class UtilMessages
     {
         return _formatter.format("unable-to-instantiate-instance-of-class", clazz.getName(), cause);
     }
+    
+    /** @since 2.0 */
+    static String duplicateKeyInMap(Object key)
+    {
+        return _formatter.format("duplicate-key-in-map", key);
+    }
+
 }

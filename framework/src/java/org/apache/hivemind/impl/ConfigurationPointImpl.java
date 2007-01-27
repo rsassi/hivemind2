@@ -65,6 +65,7 @@ public final class ConfigurationPointImpl extends AbstractExtensionPoint impleme
 
     private boolean _building;
 
+    // TODO: use ShutdownCoordinator 
     private ShutdownCoordinator _shutdownCoordinator;
 
     public ConfigurationPointImpl(Module module, ConfigurationPointDefinition definition)
@@ -108,7 +109,7 @@ public final class ConfigurationPointImpl extends AbstractExtensionPoint impleme
     }
 
     /**
-     * @return true if configuration should be create lazy, that means a proxy must be created.
+     * @return true if configuration should be created lazy, that means a proxy must be created.
      */
     public boolean isLazy()
     {

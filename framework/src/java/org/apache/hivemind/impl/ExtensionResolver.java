@@ -179,7 +179,6 @@ public class ExtensionResolver
             } else {
                 if (Visibility.PRIVATE.equals(configurationPoint.getVisibility())
                    && !module.getId().equals(IdUtils.extractModule(configurationPointId))) {
-                    // TODO: Ids are not qualified
                     _errorHandler.error(
                             LOG,
                             DefinitionMessages.configurationPointNotVisible(

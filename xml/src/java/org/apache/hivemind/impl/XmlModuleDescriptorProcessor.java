@@ -70,6 +70,9 @@ public class XmlModuleDescriptorProcessor
         _errorHandler = errorHandler;
     }
 
+    /**
+     * Adds all elements to the registry definition that are defined in a module descriptor. 
+     */
     public void processModuleDescriptor(ModuleDescriptor md)
     {
         String id = md.getModuleId();
@@ -99,6 +102,9 @@ public class XmlModuleDescriptorProcessor
         
     }
     
+    /**
+     * Adds all module dependencies to the module definition.
+     */
     private void addDependencies(ModuleDefinition module, ModuleDescriptor md)
     {
         int count = size(md.getDependencies());
@@ -110,6 +116,9 @@ public class XmlModuleDescriptorProcessor
         }
     }
 
+    /**
+     * Adds all schemas to the module definition.
+     */
     private void addSchemas(XmlModuleDefinitionImpl module, ModuleDescriptor md)
     {
         for (Iterator schemas = md.getSchemas().iterator(); schemas.hasNext();)
@@ -120,6 +129,9 @@ public class XmlModuleDescriptorProcessor
         }
     }
     
+    /**
+     * Adds all schema assignments to the module definition.
+     */
     private void addSchemaAssignments(XmlModuleDefinitionImpl module, ModuleDescriptor md)
     {
         if (md.getSchemaAssignment() == null)
@@ -134,6 +146,9 @@ public class XmlModuleDescriptorProcessor
         }
     }
     
+    /**
+     * Adds all service points to the module definition.
+     */
     private void addServicePoints(XmlModuleDefinitionImpl module, ModuleDescriptor md)
     {
         List services = md.getServicePoints();
@@ -162,6 +177,9 @@ public class XmlModuleDescriptorProcessor
         }
     }
 
+    /**
+     * Adds all service implementations to the module definition.
+     */
     private void addImplementations(ModuleDefinition module, ModuleDescriptor md)
     {
         String moduleId = md.getModuleId();
@@ -186,7 +204,7 @@ public class XmlModuleDescriptorProcessor
     }
 
     /**
-     * Adds ordinary service contributions.
+     * Adds one implementation and its interceptors to a module definition.
      */
     private void addImplementationAndInterceptors(ModuleDefinition sourceModule, String qualifiedPointId, ImplementationDescriptor id)
     {
@@ -242,6 +260,9 @@ public class XmlModuleDescriptorProcessor
         }
     }
 
+    /**
+     * Adds all configuratin points to a module definition.
+     */
     private void addConfigurationPoints(XmlModuleDefinitionImpl module, ModuleDescriptor md)
     {
         List points = md.getConfigurationPoints();
@@ -282,6 +303,9 @@ public class XmlModuleDescriptorProcessor
         }
     }
 
+    /**
+     * Adds all contributions to a module definition.
+     */
     private void addContributions(ModuleDefinition module, ModuleDescriptor md)
     {
         String moduleId = md.getModuleId();
@@ -306,12 +330,14 @@ public class XmlModuleDescriptorProcessor
         }
     }
 
+    /**
+     * Adds all interceptors to a module definition.
+     */
     private void addInterceptor(ModuleDefinition module, String qualifiedPointId, InterceptorDescriptor id)
     {
         if (_log.isDebugEnabled())
             _log.debug("Adding " + id + " to service extension point " + qualifiedPointId);
         
-        // TODO annotations: generic container for parameter 
         InvokeFactoryInterceptorConstructor constructor = new InvokeFactoryInterceptorConstructor(id.getLocation());
         constructor.setFactoryServiceId(id.getFactoryServiceId());
         constructor.setParameters(id.getParameters());

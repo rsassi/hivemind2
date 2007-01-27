@@ -138,8 +138,7 @@ public class XmlExtensionResolver
             String configurationPointId = IdUtils.qualify(sourceModule.getId(), schemaAssignment.getConfigurationId());
             ConfigurationPointDefinition cpd = _definition.getConfigurationPoint(configurationPointId);
             if (cpd == null) {
-                // TODO annotations: Exception handling
-                throw new ApplicationRuntimeException("Unknown configuration point");
+                throw new ApplicationRuntimeException(XmlImplMessages.unknownConfigurationPointOfSchemaAssignment(configurationPointId, schemaAssignment));
             }
             
             String schemaId = IdUtils.qualify(sourceModule.getId(), schemaAssignment.getSchemaId());
@@ -148,7 +147,6 @@ public class XmlExtensionResolver
             if (schema != null) {
                 // TODO: check if schema has already been set
                 // TODO: more type related error handling, check root type of schema
-                // TODO: set parser here instead of schema
                 
                 // Add parser constructor with direct reference to schema
                 ConfigurationParserDefinition parserDef = new ConfigurationParserDefinitionImpl(

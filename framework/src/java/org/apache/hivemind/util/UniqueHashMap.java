@@ -17,8 +17,7 @@ public class UniqueHashMap extends HashMap
     public Object put(Object key, Object value)
     {
         if (containsKey(key)) {
-            // TODO annotations: Exception-Handling
-            throw new ApplicationRuntimeException("Key '" + key + "' already contained in map");
+            throw new ApplicationRuntimeException(UtilMessages.duplicateKeyInMap(key));
         }
         return super.put(key, value);
     }

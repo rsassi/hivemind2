@@ -145,5 +145,10 @@ class XmlImplMessages
     {
         return _formatter.getMessage("symbol-source-contribution");
     }
+    
+    static String unknownConfigurationPointOfSchemaAssignment(String configurationId, SchemaAssignment schemaAssignment)
+    {
+        return _formatter.format("unknown-configurationpoint-in-schema-assignment", configurationId, schemaAssignment.getLocation());
+    }
 
 }
