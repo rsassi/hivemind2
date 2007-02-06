@@ -7,8 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marks a class as an annotated module and assigns an id 
- * to it. 
+ * Marks a class as an annotated module and assigns an id to it. 
  * 
  * @author Achim Huegen
  */

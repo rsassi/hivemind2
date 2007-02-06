@@ -31,11 +31,20 @@ public class AnnotatedModuleReader
 
     private ClassResolver _classResolver;
 
+    /**
+     * @param registryDefinition  the registry definition to which the modules are added.
+     */
     public AnnotatedModuleReader(RegistryDefinition registryDefinition)
     {
         this(registryDefinition, new DefaultClassResolver(), new DefaultErrorHandler());
     }
 
+    /**
+     * @param registryDefinition  the registry definition to which the modules are added.
+     * @param classResolver  the {@link ClassResolver} used to resolve all classes referenced from 
+     *          elements inside this module.
+     * @param errorHandler  errorHandler used for handling recoverable errors
+     */
     public AnnotatedModuleReader(RegistryDefinition registryDefinition, ClassResolver classResolver,
             ErrorHandler errorHandler)
     {

@@ -9,7 +9,8 @@ import java.lang.annotation.Target;
 /**
  * Marks a method in an annotated module as configuration point.
  * The return type of the method defines the configuration type. 
- * The method is used factory method for the construction of the configuration container.
+ * The method is used as factory method for the construction of the configuration.
+ * It can return null if no initial contribution is to be provided. 
  *  
  * @author Achim Huegen
  */

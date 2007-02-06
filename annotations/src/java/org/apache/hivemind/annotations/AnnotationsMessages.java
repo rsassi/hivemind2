@@ -21,7 +21,7 @@ import org.apache.hivemind.impl.MessageFormatter;
 /**
  * Used to format messages used in errors and log output for classes within the impl package.
  * 
- * @author Howard Lewis Ship
+ * @author Achim Huegen
  */
 class AnnotationsMessages
 {

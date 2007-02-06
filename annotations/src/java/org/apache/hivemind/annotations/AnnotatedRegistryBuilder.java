@@ -23,27 +23,46 @@ public class AnnotatedRegistryBuilder
     private ErrorHandler _errorHandler;
     private Locale _locale;
     
+    /**
+     * Constructor that uses default implementations of ClassResolver, ErrorHandler and Locale.
+     */
     public AnnotatedRegistryBuilder()
     {
         this(new DefaultClassResolver(), new DefaultErrorHandler(), Locale.getDefault());
     }
     
+    /**
+     * Creates a new instance.
+     * @param classResolver  the {@link ClassResolver} used to resolve all classes referenced from 
+     *          elements inside this module.
+     * @param errorHandler  errorHandler used for handling recoverable errors
+     * @param locale  the locale to use for the registry
+     */
     public AnnotatedRegistryBuilder(ClassResolver classResolver, ErrorHandler errorHandler,
             Locale locale)
     {
         _classResolver = classResolver;
         _errorHandler = errorHandler;
         _locale = locale;
-        
     }
     
+    /**
+     * Constructs a registry from a couple of annotated module classes specified by their name.
+     * @param moduleClassNames  the annotated module class names 
+     * @return  the registry
+     */
     public Registry constructRegistry(String ... moduleClassNames)
     {
         RegistryDefinition definition = constructRegistryDefinition(moduleClassNames);
         return RegistryBuilder.constructRegistry(definition, _errorHandler, _locale);
     }
     
-    public Registry constructRegistry(Class ... moduleClasses)
+    /**
+     * Constructs a registry from a couple of annotated module classes specified by their class definitions.
+     * @param moduleClasses  the annotated module classes 
+     * @return  the registry
+     */
+   public Registry constructRegistry(Class ... moduleClasses)
     {
         RegistryDefinition definition = constructRegistryDefinition(moduleClasses);
         return RegistryBuilder.constructRegistry(definition, _errorHandler, _locale);
