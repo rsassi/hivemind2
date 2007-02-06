@@ -33,6 +33,7 @@ import org.apache.hivemind.internal.RegistryInfrastructure;
 
 /**
  * Class used to build a {@link org.apache.hivemind.Registry} from a {@link org.apache.hivemind.definition.RegistryDefinition}. 
+ * 
  * A note about threadsafety: The assumption is that a single thread will access the RegistryBuilder
  * at one time (typically, a startup class within some form of server or application). Code here and
  * in many of the related classes is divided into construction-time logic and runtime logic. Runtime
@@ -82,12 +83,20 @@ public final class RegistryBuilder
 
     private RegistryDefinition _registryDefinition;
 
+    /**
+     * Constructs a new instance that starts with a empty {@link RegistryDefinition} which can be 
+     * requested by {@link #getRegistryDefinition()}.
+     */
     public RegistryBuilder()
     {
         this(new RegistryDefinitionImpl(), new DefaultErrorHandler());
     }
     
-    public RegistryBuilder(RegistryDefinition registryDefinition)
+    /**
+     * Constructs a new instance that starts with the provided {@link RegistryDefinition}.
+     * The definition can still be altered afterwards.
+     */
+   public RegistryBuilder(RegistryDefinition registryDefinition)
     {
         this(registryDefinition, new DefaultErrorHandler());
     }
@@ -103,6 +112,9 @@ public final class RegistryBuilder
         _errorHandler = errorHandler;
     }
 
+    /**
+     * @return  the contained registry definition
+     */
     public RegistryDefinition getRegistryDefinition()
     {
         return _registryDefinition;
@@ -119,6 +131,7 @@ public final class RegistryBuilder
     
     /**
      * Constructs the registry from its {@link RegistryDefinition}.
+     * @param locale  the locale used for translating resources
      */
     public Registry constructRegistry(Locale locale)
     {
@@ -160,6 +173,10 @@ public final class RegistryBuilder
     
     /**
      * Constructs the registry from a specified {@link RegistryDefinition}.
+     * @param definition  the registry definition
+     * @param errorHandler  errorHandler used for handling recoverable errors
+     * @param locale  the locale used for translating resources
+     * @return  the registry
      */
     public static Registry constructRegistry(RegistryDefinition definition, ErrorHandler errorHandler,
             Locale locale)
@@ -168,6 +185,9 @@ public final class RegistryBuilder
         return builder.constructRegistry(locale);
     }
 
+    /**
+     * Checks if all dependencies of modules are present.
+     */
     private void checkDependencies(RegistryDefinition definition)
     {
         for (Iterator iterModules = definition.getModules().iterator(); iterModules.hasNext();)
@@ -188,7 +208,7 @@ public final class RegistryBuilder
         ModuleDefinition requiredModule = (ModuleDefinition) definition.getModule(requiredModuleId);
         if (requiredModule == null)
         {
-            // TODO annotation: Location in Dependencies aufnehmen
+            // TODO: Include Location in Dependencies 
             _errorHandler.error(
                     LOG,
                     DefinitionMessages.dependencyOnUnknownModule(requiredModuleId),

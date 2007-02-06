@@ -16,8 +16,6 @@ package org.apache.hivemind.impl;
 
 import hivemind.test.FrameworkTestCase;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.definition.Visibility;
 import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
@@ -34,8 +32,6 @@ import org.easymock.MockControl;
  */
 public class TestVisibility extends FrameworkTestCase
 {
-    private static final Log LOG = LogFactory.getLog(TestVisibility.class);
-
     public void testPublicConfigurationVisibleToOtherModule()
     {
         Module m = (Module) newMock(Module.class);
