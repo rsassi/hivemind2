@@ -60,21 +60,35 @@ public interface RegistryInfrastructure
      */
     public Object getService(Class serviceInterface, Module module);
 
-    /**
-     * Returns the containter of the specified configuration point.
+     /**
+     * Returns the specified configuration.
      * 
      * @param configurationId
      *            the fully qualified id of the configuration
      * @param module
      *            the referencing module, used for visibility checks (null means no module, which
      *            requires that the configuration be public)
-     * @return  configuration container
+     * @return  the configuration
      * @throws org.apache.hivemind.ApplicationRuntimeException
      *             if no such configuration extension point exists (or visible)
      */
-
     public Object getConfiguration(String configurationId, Module module);
-
+    
+    /**
+     * Finds a configuration of the specified type. Exactly one such configuration may exist or
+     * an exception is thrown.
+     * 
+     * @param configurationType
+     *            the configuration type
+     * @param module
+     *            the referencing module, used for visibility checks (null means no module, which
+     *            requires that the configuration be public)
+     * @return  the configuration
+     * @throws org.apache.hivemind.ApplicationRuntimeException
+     *             if no such configuration extension point exists (or visible)
+     */
+    public Object getConfiguration(Class configurationType, Module module);
+    
     /**
      * Returns the configuration point.
      * 

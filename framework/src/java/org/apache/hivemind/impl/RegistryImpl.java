@@ -52,6 +52,11 @@ public class RegistryImpl implements Registry
         return _infrastructure.containsService(serviceId, serviceInterface, null);
     }
 
+    public Object getConfiguration(Class configurationType)
+    {
+        return _infrastructure.getConfiguration(configurationType, null);
+    }
+    
     public Object getConfiguration(String configurationId)
     {
         return _infrastructure.getConfiguration(configurationId, null);
@@ -104,4 +109,5 @@ public class RegistryImpl implements Registry
         final Module module = _infrastructure.getModule(moduleId);
         return module == null ? null : module.getMessages();
     }
+
 }

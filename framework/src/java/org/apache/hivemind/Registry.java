@@ -23,7 +23,6 @@ import java.util.Locale;
  * 
  * @author Howard Lewis Ship
  */
-
 public interface Registry
 {
     /**
@@ -56,11 +55,23 @@ public interface Registry
      * 
      * @param configurationId
      *            the fully qualified id of the configuration to obtain
-     * @return the configuration container 
+     * @return the configuration 
      * @throws ApplicationRuntimeException
      *             if the configuration does not exist, etc.
      */
     public Object getConfiguration(String configurationId);
+    
+    /**
+     * Finds a configuration of the specified type. Exactly one such configuration may exist or
+     * an exception is thrown.
+     * 
+     * @param configurationType
+     *            the configuration type
+     * @return  the configuration
+     * @throws org.apache.hivemind.ApplicationRuntimeException
+     *             if no such configuration extension point exists (or visible)
+     */
+    public Object getConfiguration(Class configurationType);
 
     /**
      * Obtains a service from the registry. Typically, what's returned is a proxy, but that's

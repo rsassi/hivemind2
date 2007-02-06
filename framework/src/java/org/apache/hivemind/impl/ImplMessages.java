@@ -17,6 +17,7 @@ package org.apache.hivemind.impl;
 import java.net.URL;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.hivemind.ClassResolver;
 import org.apache.hivemind.Location;
@@ -181,6 +182,11 @@ class ImplMessages
         return _formatter.format("no-service-point-for-interface", interfaceClass.getName());
     }
 
+    static String noConfigurationPointForType(Class configurationType)
+    {
+        return _formatter.format("no-configuration-point-for-type", configurationType.getName());
+    }
+
     static String multipleServicePointsForInterface(Class interfaceClass,
             Collection matchingPoints)
     {
@@ -208,7 +214,34 @@ class ImplMessages
                 interfaceClass.getName(),
                 buffer);
     }
+    
+    static String multipleConfigurationPointsForType(Class configurationType, List configurationPoints)
+    {
+        StringBuffer buffer = new StringBuffer("{");
 
+        boolean following = false;
+
+        Iterator i = configurationPoints.iterator();
+        while (i.hasNext())
+        {
+            if (following)
+                buffer.append(", ");
+
+            ServicePoint p = (ServicePoint) i.next();
+
+            buffer.append(p.getExtensionPointId());
+
+            following = true;
+        }
+
+        buffer.append("}");
+
+        return _formatter.format(
+                "multiple-configuration-points-for-type",
+                configurationType.getName(),
+                buffer);
+    }
+    
     private static String convertModule(Module module)
     {
         if (module == null)
@@ -254,4 +287,6 @@ class ImplMessages
     {
         return _formatter.format("servicepointdefinition-without-implementation", sd.getQualifiedId());
     }
+
+
 }

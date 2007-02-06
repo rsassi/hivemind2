@@ -64,6 +64,11 @@ public final class RegistryInfrastructureImpl implements RegistryInfrastructure,
      * Map of List (of {@link ServicePoint}, keyed on class name service interface.
      */
     private Map _servicePointsByInterfaceClassName = new HashMap();
+    
+    /**
+     * Map of List (of {@link ConfigurationPoint}, keyed on class name service interface.
+     */
+    private Map _configurationPointsByTypeName = new HashMap();
 
     /**
      * Map of {@link ConfigurationPoint} keyed on fully qualified configuration id.
@@ -144,6 +149,23 @@ public final class RegistryInfrastructureImpl implements RegistryInfrastructure,
         checkStarted();
 
         _configurationPoints.put(point.getExtensionPointId(), point);
+        
+        addConfigurationPointByType(point);
+    }
+
+    private void addConfigurationPointByType(ConfigurationPoint point)
+    {
+        String key = point.getConfigurationType().getName();
+
+        List l = (List) _configurationPointsByTypeName.get(key);
+
+        if (l == null)
+        {
+            l = new LinkedList();
+            _configurationPointsByTypeName.put(key, l);
+        }
+
+        l.add(point);
     }
 
     /**
@@ -269,6 +291,46 @@ public final class RegistryInfrastructureImpl implements RegistryInfrastructure,
         return point.getConfiguration();
     }
 
+    /**
+     * @see org.apache.hivemind.internal.RegistryInfrastructure#getConfiguration(java.lang.Class, org.apache.hivemind.internal.Module)
+     */
+    public Object getConfiguration(Class configurationType, Module module)
+    {
+        String key = configurationType.getName();
+
+        List configurationPoints = (List) _configurationPointsByTypeName.get(key);
+
+        if (configurationPoints == null)
+            configurationPoints = Collections.EMPTY_LIST;
+
+        ConfigurationPoint point = null;
+        int count = 0;
+
+        Iterator i = configurationPoints.iterator();
+        while (i.hasNext())
+        {
+            ConfigurationPoint cp = (ConfigurationPoint) i.next();
+
+            if (!cp.visibleToModule(module))
+                continue;
+
+            point = cp;
+
+            count++;
+        }
+
+        if (count == 0)
+            throw new ApplicationRuntimeException(ImplMessages
+                    .noConfigurationPointForType(configurationType));
+
+        if (count > 1)
+            throw new ApplicationRuntimeException(ImplMessages.multipleConfigurationPointsForType(
+                    configurationType,
+                    configurationPoints));
+
+        return point.getConfiguration();
+    }
+
     public String toString()
     {
         ToStringBuilder builder = new ToStringBuilder(this);
@@ -312,6 +374,7 @@ public final class RegistryInfrastructureImpl implements RegistryInfrastructure,
 
         _servicePoints = null;
         _servicePointsByInterfaceClassName = null;
+        _configurationPointsByTypeName = null;
         _configurationPoints = null;
         _shutdownCoordinator = null;
         _serviceModelFactories = null;
