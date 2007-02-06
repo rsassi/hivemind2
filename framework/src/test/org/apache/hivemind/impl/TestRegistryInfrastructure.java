@@ -182,6 +182,8 @@ public class TestRegistryInfrastructure extends FrameworkTestCase
         // Training
         cp.getExtensionPointId();
         cpc.setReturnValue( "hivemind.ServiceModels" );
+        cp.getConfigurationType();
+        cpc.setReturnValue(List.class);
         cp.visibleToModule( null );
         cpc.setReturnValue( true );
         cp.getConfiguration();
