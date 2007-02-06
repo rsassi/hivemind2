@@ -14,6 +14,8 @@
 
 package org.apache.hivemind.impl;
 
+import java.util.List;
+
 import hivemind.test.FrameworkTestCase;
 
 import org.apache.hivemind.ApplicationRuntimeException;
@@ -185,6 +187,9 @@ public class TestVisibility extends FrameworkTestCase
         point.getExtensionPointId();
         control.setReturnValue("foo.bar.Baz");
 
+        point.getConfigurationType();
+        control.setReturnValue(List.class);
+        
         point.visibleToModule(m);
         control.setReturnValue(false);
 
