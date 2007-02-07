@@ -18,8 +18,8 @@ import hivemind.test.FrameworkTestCase;
 
 import org.apache.commons.logging.LogFactory;
 import org.apache.hivemind.definition.ConfigurationPointDefinition;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.internal.ConfigurationPoint;
@@ -40,13 +40,13 @@ public class TestRegistryInfrastructureConstructor extends FrameworkTestCase
 
     	RegistryDefinition definition = new RegistryDefinitionImpl();
     	
-        ModuleDefinition fooBar = createModuleDefinition("foo.bar");
+        ModuleDefinitionImpl fooBar = createModuleDefinition("foo.bar");
 
         ServicePointDefinitionImpl spd = createServicePointDefinition(fooBar, "sp1", Runnable.class);
 
         fooBar.addServicePoint(spd);
 
-        ModuleDefinition zipZoop = createModuleDefinition("zip.zoop");
+        ModuleDefinitionImpl zipZoop = createModuleDefinition("zip.zoop");
 
         ConfigurationPointDefinition cpd = createConfigurationPointDefinition(fooBar, "cp1");
         

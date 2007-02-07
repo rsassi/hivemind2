@@ -23,9 +23,9 @@ import java.util.List;
 import org.apache.hivemind.Registry;
 import org.apache.hivemind.definition.Contribution;
 import org.apache.hivemind.definition.ContributionContext;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.impl.StartupImpl;
 import org.apache.hivemind.internal.ServiceModel;
 
@@ -70,7 +70,7 @@ public class TestStartup extends FrameworkTestCase
      */
     private Registry createRegistry()
     {
-        ModuleDefinition module = createModuleDefinition("hivemind.test.services");
+        ModuleDefinitionImpl module = createModuleDefinition("hivemind.test.services");
         ModuleDefinitionHelper helper = new ModuleDefinitionHelper(module);
 
         ServicePointDefinition sp1 = helper.addServicePoint("StartupRunnableFixture", StartupRunnableFixture.class.getName());

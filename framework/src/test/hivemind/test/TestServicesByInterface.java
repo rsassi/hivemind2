@@ -16,8 +16,8 @@ package hivemind.test;
 
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Registry;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 
 /**
@@ -33,7 +33,7 @@ public class TestServicesByInterface extends FrameworkTestCase
     {
     	super.setUp();
     	
-        ModuleDefinition module = createModuleDefinition("hivemind.tests.serviceByInterface");
+        ModuleDefinitionImpl module = createModuleDefinition("hivemind.tests.serviceByInterface");
 
         ServicePointDefinitionImpl sp1 = createServicePointDefinition(module, "uniqueService", IUniqueService.class);
         ImplementationDefinition impl1 = createServiceImplementationDefinition(module, UniqueServiceImpl.class);

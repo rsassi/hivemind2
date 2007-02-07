@@ -21,8 +21,8 @@ import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Registry;
 import org.apache.hivemind.definition.ImplementationConstructionContext;
 import org.apache.hivemind.definition.ImplementationConstructor;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.events.RegistryShutdownListener;
@@ -153,7 +153,7 @@ public class TestShutdown extends FrameworkTestCase
      */
     private Registry createModuleWithShutdownListener(final String serviceModel)
     {
-        ModuleDefinition module = createModuleDefinition("module1");
+        ModuleDefinitionImpl module = createModuleDefinition("module1");
         
         ServicePointDefinitionImpl sp1 = createServicePointDefinition(module, "Listener", Runnable.class);
         

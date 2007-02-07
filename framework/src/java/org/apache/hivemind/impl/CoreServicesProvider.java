@@ -71,7 +71,8 @@ public class CoreServicesProvider implements RegistryProvider
             registryDefinition.addModule(md);
         }
 
-        helper = new ModuleDefinitionHelper(md);
+        // The cast to ModuleDefinitionImpl is save, since we exactly now the origin
+        helper = new ModuleDefinitionHelper((ModuleDefinitionImpl) md);
         
         addClassFactory(md);
 

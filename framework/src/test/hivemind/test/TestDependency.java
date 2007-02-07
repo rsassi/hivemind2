@@ -15,6 +15,7 @@
 package hivemind.test;
 
 import org.apache.hivemind.definition.ModuleDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 
 /**
  * Tests the module dependencies (specified using &lt;dependency.&gt;).
@@ -26,7 +27,7 @@ public class TestDependency extends FrameworkTestCase
 
     public void testMissingRequiredModule() throws Exception
     {
-        ModuleDefinition dependingModule = createModuleDefinition(
+        ModuleDefinitionImpl dependingModule = createModuleDefinition(
                 "dependency.declaring.module");
 
         dependingModule.addDependency("required.module");
@@ -40,7 +41,7 @@ public class TestDependency extends FrameworkTestCase
 
     public void testDependency() throws Exception
     {
-        ModuleDefinition dependingModule = createModuleDefinition(
+        ModuleDefinitionImpl dependingModule = createModuleDefinition(
                 "dependency.declaring.module");
 
         ModuleDefinition requiredModule = createModuleDefinition("required.module");

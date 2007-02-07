@@ -2,6 +2,7 @@ package org.apache.hivemind.definition;
 
 import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
 import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.impl.CreateClassServiceConstructor;
@@ -17,9 +18,9 @@ import org.apache.hivemind.internal.ServiceModel;
  */
 public class ModuleDefinitionHelper
 {
-    private ModuleDefinition _module;
+    private ModuleDefinitionImpl _module;
 
-    public ModuleDefinitionHelper(ModuleDefinition module)
+    public ModuleDefinitionHelper(ModuleDefinitionImpl module)
     {
         _module = module;
     }

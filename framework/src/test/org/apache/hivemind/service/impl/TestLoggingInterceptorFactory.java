@@ -22,9 +22,9 @@ import java.util.Collections;
 import org.apache.commons.logging.Log;
 import org.apache.hivemind.Registry;
 import org.apache.hivemind.definition.ImplementationConstructor;
-import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
@@ -127,7 +127,7 @@ public class TestLoggingInterceptorFactory extends FrameworkTestCase
     {
         RegistryDefinition definition = new RegistryDefinitionImpl();
 
-        ModuleDefinition module = createModuleDefinition("hivemind.tests.serviceByInterface");
+        ModuleDefinitionImpl module = createModuleDefinition("hivemind.tests.serviceByInterface");
         definition.addModule(module);
         
         ServicePointDefinitionImpl sp1 = createServicePointDefinition(module, "BeanInterface", BeanInterface.class);

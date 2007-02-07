@@ -61,12 +61,11 @@ public abstract class FrameworkTestCase extends HiveMindTestCase
     }
 
     /**
-     * Convenience method for creating a
-     * {@link ModuleDefinitionImpl}.
+     * Convenience method for creating a {@link ModuleDefinitionImpl}.
      */
-    protected ModuleDefinition createModuleDefinition(String moduleId)
+    protected ModuleDefinitionImpl createModuleDefinition(String moduleId)
     {
-        ModuleDefinition result = new ModuleDefinitionImpl(moduleId, newLocation(), 
+        ModuleDefinitionImpl result = new ModuleDefinitionImpl(moduleId, newLocation(), 
                 getClassResolver(), "");
 
         return result;

@@ -14,10 +14,9 @@ import org.apache.hivemind.annotations.Module;
 import org.apache.hivemind.annotations.Service;
 import org.apache.hivemind.definition.Contribution;
 import org.apache.hivemind.definition.ImplementationConstructor;
-import org.apache.hivemind.definition.ModuleDefinition;
+import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.Occurances;
 import org.apache.hivemind.definition.RegistryDefinition;
-import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.Visibility;
 import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
 import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
@@ -59,7 +58,7 @@ public class AnnotatedModuleProcessor
      */
     public void processModule(Class moduleClass)
     {
-        ModuleDefinition module = new ModuleDefinitionImpl(determineModuleId(moduleClass),
+        ModuleDefinitionImpl module = new ModuleDefinitionImpl(determineModuleId(moduleClass),
                 createModuleLocation(moduleClass), _classResolver, moduleClass.getPackage().getName());
 
         // processServices(moduleClass);
@@ -75,7 +74,7 @@ public class AnnotatedModuleProcessor
 
     }
 
-    public void processModuleMethods(Class moduleClass, ModuleDefinition module,
+    public void processModuleMethods(Class moduleClass, ModuleDefinitionImpl module,
             ModuleInstanceProvider instanceProvider)
     {
         Method[] methods = moduleClass.getMethods();
@@ -86,7 +85,7 @@ public class AnnotatedModuleProcessor
         }
     }
 
-    public void processMethod(Method method, ModuleDefinition module,
+    public void processMethod(Method method, ModuleDefinitionImpl module,
             ModuleInstanceProvider instanceProvider)
     {
         if (_log.isDebugEnabled())
@@ -128,7 +127,7 @@ public class AnnotatedModuleProcessor
     }
 
     private void processAnnotatedServiceMethod(Method method, Service service,
-            ModuleDefinition module, ModuleInstanceProvider instanceProvider)
+            ModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
     {
         if (_log.isDebugEnabled())
         {
@@ -152,7 +151,7 @@ public class AnnotatedModuleProcessor
 
     }
 
-    private void processAnnotatedConfigurationMethod(Method method, Configuration configuration, ModuleDefinition module, ModuleInstanceProvider instanceProvider)
+    private void processAnnotatedConfigurationMethod(Method method, Configuration configuration, ModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
     {
         if (_log.isDebugEnabled())
         {
@@ -173,7 +172,7 @@ public class AnnotatedModuleProcessor
         cpd.addContribution(cd);
     }
 
-    private void processAnnotatedContributionMethod(Method method, org.apache.hivemind.annotations.Contribution contribution, ModuleDefinition module, ModuleInstanceProvider instanceProvider)
+    private void processAnnotatedContributionMethod(Method method, org.apache.hivemind.annotations.Contribution contribution, ModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
     {
         if (_log.isDebugEnabled())
         {

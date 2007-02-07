@@ -33,10 +33,11 @@ import org.apache.hivemind.Registry;
 import org.apache.hivemind.definition.ImplementationConstructionContext;
 import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.InterceptorConstructor;
+import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
-import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.definition.impl.OrderedServiceInterceptorDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceInterceptorDefinitionImpl;
 import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
@@ -189,7 +190,7 @@ public class TestServices extends FrameworkTestCase
     private Registry createRegistryWithInterceptedService(String serviceName, String serviceInterface, String implementationClass,
             final List interceptedMethods)
     {
-        ModuleDefinition module = createModuleDefinition("hivemind.test.services");
+        ModuleDefinitionImpl module = createModuleDefinition("hivemind.test.services");
         ModuleDefinitionHelper helper = new ModuleDefinitionHelper(module);
         ServicePointDefinition sp = helper.addServicePoint(serviceName, serviceInterface);
         helper.addSimpleServiceImplementation(sp, implementationClass, ServiceModel.SINGLETON);
@@ -299,7 +300,7 @@ public class TestServices extends FrameworkTestCase
      */
     private Registry createRegistryWithRecursiveService()
     {
-        ModuleDefinition module = createModuleDefinition("hivemind.test.services");
+        ModuleDefinitionImpl module = createModuleDefinition("hivemind.test.services");
         ModuleDefinitionHelper helper = new ModuleDefinitionHelper(module);
         ServicePointDefinition sp = helper.addServicePoint("Recursive", SimpleService.class.getName());
 

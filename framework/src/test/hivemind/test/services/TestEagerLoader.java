@@ -23,9 +23,9 @@ import java.util.List;
 import org.apache.hivemind.Registry;
 import org.apache.hivemind.definition.Contribution;
 import org.apache.hivemind.definition.ContributionContext;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.internal.ServiceModel;
 import org.apache.hivemind.internal.ServicePoint;
 import org.apache.hivemind.service.impl.EagerLoader;
@@ -99,7 +99,7 @@ public class TestEagerLoader extends FrameworkTestCase
      */
     private Registry createEagerLoadModule(final String serviceModel)
     {
-        ModuleDefinition module = createModuleDefinition("hivemind.test.services");
+        ModuleDefinitionImpl module = createModuleDefinition("hivemind.test.services");
         ModuleDefinitionHelper helper = new ModuleDefinitionHelper(module);
 
         ServicePointDefinition sp1 = helper.addServicePoint("Loud", Runnable.class.getName());

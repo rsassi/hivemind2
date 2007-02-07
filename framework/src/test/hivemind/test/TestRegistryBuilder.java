@@ -16,8 +16,8 @@ package hivemind.test;
 
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Registry;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.impl.RegistryBuilder;
 import org.apache.hivemind.service.ClassFactory;
@@ -59,7 +59,7 @@ public class TestRegistryBuilder extends FrameworkTestCase
 
     public void testDuplicateExtensionPoints() throws Exception
     {
-        ModuleDefinition testModule = createModuleDefinition("hivemind.test");
+        ModuleDefinitionImpl testModule = createModuleDefinition("hivemind.test");
 
         testModule.addServicePoint(createServicePointDefinition(testModule, "MyService", Comparable.class));
         try

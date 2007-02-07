@@ -15,11 +15,11 @@ import org.apache.hivemind.conditional.Node;
 import org.apache.hivemind.conditional.Parser;
 import org.apache.hivemind.definition.ConfigurationParserDefinition;
 import org.apache.hivemind.definition.ImplementationDefinition;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.impl.ConfigurationParserDefinitionImpl;
 import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
 import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServiceInterceptorDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
@@ -105,7 +105,7 @@ public class XmlModuleDescriptorProcessor
     /**
      * Adds all module dependencies to the module definition.
      */
-    private void addDependencies(ModuleDefinition module, ModuleDescriptor md)
+    private void addDependencies(ModuleDefinitionImpl module, ModuleDescriptor md)
     {
         int count = size(md.getDependencies());
         for (int i = 0; i < count; i++)
@@ -180,7 +180,7 @@ public class XmlModuleDescriptorProcessor
     /**
      * Adds all service implementations to the module definition.
      */
-    private void addImplementations(ModuleDefinition module, ModuleDescriptor md)
+    private void addImplementations(ModuleDefinitionImpl module, ModuleDescriptor md)
     {
         String moduleId = md.getModuleId();
 
@@ -206,7 +206,7 @@ public class XmlModuleDescriptorProcessor
     /**
      * Adds one implementation and its interceptors to a module definition.
      */
-    private void addImplementationAndInterceptors(ModuleDefinition sourceModule, String qualifiedPointId, ImplementationDescriptor id)
+    private void addImplementationAndInterceptors(ModuleDefinitionImpl sourceModule, String qualifiedPointId, ImplementationDescriptor id)
     {
         InstanceBuilder builder = id.getInstanceBuilder();
         List interceptors = id.getInterceptors();
@@ -231,7 +231,7 @@ public class XmlModuleDescriptorProcessor
      * Adds internal service contributions; the contributions provided inplace with the service
      * definition.
      */
-    private void addInternalImplementations(ModuleDefinition module, ServicePointDefinitionImpl point,
+    private void addInternalImplementations(ModuleDefinitionImpl module, ServicePointDefinitionImpl point,
             ServicePointDescriptor spd)
     {
         InstanceBuilder builder = spd.getInstanceBuilder();
@@ -306,7 +306,7 @@ public class XmlModuleDescriptorProcessor
     /**
      * Adds all contributions to a module definition.
      */
-    private void addContributions(ModuleDefinition module, ModuleDescriptor md)
+    private void addContributions(ModuleDefinitionImpl module, ModuleDescriptor md)
     {
         String moduleId = md.getModuleId();
 
@@ -333,7 +333,7 @@ public class XmlModuleDescriptorProcessor
     /**
      * Adds all interceptors to a module definition.
      */
-    private void addInterceptor(ModuleDefinition module, String qualifiedPointId, InterceptorDescriptor id)
+    private void addInterceptor(ModuleDefinitionImpl module, String qualifiedPointId, InterceptorDescriptor id)
     {
         if (_log.isDebugEnabled())
             _log.debug("Adding " + id + " to service extension point " + qualifiedPointId);
@@ -359,7 +359,7 @@ public class XmlModuleDescriptorProcessor
      *            of the expression (used if an error is reported)
      */
 
-    private boolean includeContribution(String expression, ModuleDefinition module, Location location)
+    private boolean includeContribution(String expression, ModuleDefinitionImpl module, Location location)
     {
         if (expression == null)
             return true;

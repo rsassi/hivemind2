@@ -20,6 +20,7 @@ import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
 import org.apache.hivemind.internal.ServiceModel;
 
@@ -41,7 +42,8 @@ public class XmlCoreServicesProvider implements RegistryProvider
         
         // The "hivemind" module is available here only if the HivemoduleProvider
         // has been executed before. This order is defined in the MANIFEST.MF file of the xml module 
-        ModuleDefinition moduleDefinition = registryDefinition.getModule("hivemind");
+        // The cast is safe since the module is defined in the core.
+        ModuleDefinitionImpl moduleDefinition = (ModuleDefinitionImpl) registryDefinition.getModule("hivemind");
         if (moduleDefinition == null) {
             throw new ApplicationRuntimeException("Module 'hivemind' not found.");
         }

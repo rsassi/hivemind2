@@ -128,7 +128,9 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
     
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addServicePoint(org.apache.hivemind.definition.ServicePointDefinition)
+     * Adds a service point definition to the module.
+     * @param servicePoint  the service point
+     * @throws ApplicationRuntimeException  if another service point with the same id has already been defined
      */
     public void addServicePoint(ServicePointDefinition servicePoint)
     {
@@ -156,7 +158,9 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
  
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addConfigurationPoint(org.apache.hivemind.definition.ConfigurationPointDefinition)
+     * Adds a configuration point definition to the module.
+     * @param configurationPoint  the configuration point
+     * @throws ApplicationRuntimeException  if another configuration point with the same id has already been defined
      */
     public void addConfigurationPoint(ConfigurationPointDefinition configurationPoint)
     {
@@ -192,7 +196,10 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
     
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addDependency(java.lang.String)
+     * Defines a dependency on another module. The presence of that module
+     * is checked during registry construction.
+     * 
+     * @param dependsOnModuleId  the id of the module this module depends on
      */
     public void addDependency(String dependsOnModuleId) 
     {
@@ -200,7 +207,11 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
    
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addImplementation(java.lang.String, org.apache.hivemind.definition.ImplementationDefinition)
+     * Adds a implementation for a service point which can be defined in this
+     * module or another module.
+     * 
+     * @param qualifiedServicePointId  the fully qualified service point id
+     * @param implementation  the implementation definition
      */
     public void addImplementation(String qualifiedServicePointId,
             ImplementationDefinition implementation)
@@ -211,7 +222,11 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addInterceptor(java.lang.String, org.apache.hivemind.definition.InterceptorDefinition)
+     * Adds a interceptor for a service point which can be defined in this
+     * module or another module.
+     * 
+     * @param qualifiedServicePointId  the fully qualified service point id
+     * @param interceptor  the interceptor definition
      */
     public void addInterceptor(String qualifiedServicePointId,
             InterceptorDefinition interceptor)
@@ -222,7 +237,11 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addContribution(java.lang.String, org.apache.hivemind.definition.ContributionDefinition)
+     * Adds a contribution for a configuration point which can be defined in this
+     * module or another module.
+     * 
+     * @param qualifiedServicePointId  the fully qualified configuration point id
+     * @param contribution  the contribution definition
      */
     public void addContribution(String qualifiedConfigurationPointId,
             ContributionDefinition contribution)
@@ -233,7 +252,11 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
     
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#addConfigurationParser(java.lang.String, org.apache.hivemind.definition.ConfigurationParserDefinition)
+     * Adds a configuration parser for a configuration point which can be defined in this
+     * module or another module.
+     * 
+     * @param qualifiedServicePointId  the fully qualified configuration point id
+     * @param parser  the parser definition
      */
     public void addConfigurationParser(String qualifiedConfigurationPointId, ConfigurationParserDefinition parser)
     {

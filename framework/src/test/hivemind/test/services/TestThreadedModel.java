@@ -20,9 +20,9 @@ import hivemind.test.services.impl.RegistryShutdownStringHolderImpl;
 
 import org.apache.hivemind.HiveMind;
 import org.apache.hivemind.Registry;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.internal.ServiceModel;
 import org.apache.hivemind.service.ThreadEventNotifier;
 
@@ -187,7 +187,7 @@ public class TestThreadedModel extends FrameworkTestCase
      */
     private Registry createRegistryShutdownListener(Class implementationClass)
     {
-        ModuleDefinition module = createModuleDefinition("hivemind.test.services");
+        ModuleDefinitionImpl module = createModuleDefinition("hivemind.test.services");
         ModuleDefinitionHelper helper = new ModuleDefinitionHelper(module);
 
         ServicePointDefinition sp1 = helper.addServicePoint("StringHolder", StringHolder.class.getName());

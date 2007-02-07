@@ -20,9 +20,9 @@ import org.apache.hivemind.Registry;
 import org.apache.hivemind.ShutdownCoordinator;
 import org.apache.hivemind.definition.ImplementationConstructionContext;
 import org.apache.hivemind.definition.ImplementationConstructor;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
 import org.apache.hivemind.internal.ServiceModel;
 
@@ -95,7 +95,7 @@ public class TestRegistryShutdownListenerServices extends FrameworkTestCase
      */
     private Registry createRegistryWithSimpleService(final String serviceModel, final boolean manual)
     {
-        ModuleDefinition module = createModuleDefinition("hivemind.lib.test");
+        ModuleDefinitionImpl module = createModuleDefinition("hivemind.lib.test");
         ModuleDefinitionHelper helper = new ModuleDefinitionHelper(module);
 
         ServicePointDefinition sp1 = helper.addServicePoint("Simple", Simple.class.getName());
@@ -127,7 +127,7 @@ public class TestRegistryShutdownListenerServices extends FrameworkTestCase
      */
     private Registry createRegistryWithPojo(final String serviceModel)
     {
-        ModuleDefinition module = createModuleDefinition("hivemind.lib.test");
+        ModuleDefinitionImpl module = createModuleDefinition("hivemind.lib.test");
         ModuleDefinitionHelper helper = new ModuleDefinitionHelper(module);
 
         ServicePointDefinition sp1 = helper.addServicePoint("RegistryShutdownBean", RegistryShutdownBean.class.getName());

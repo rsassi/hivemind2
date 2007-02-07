@@ -16,9 +16,9 @@ package org.apache.hivemind;
 
 import hivemind.test.FrameworkTestCase;
 
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.internal.ServiceModel;
 
 /**
@@ -72,7 +72,7 @@ public class TestBeanService extends FrameworkTestCase
      */
     private Registry createRegistryWithPojo(final String serviceModel)
     {
-        ModuleDefinition module = createModuleDefinition("bean");
+        ModuleDefinitionImpl module = createModuleDefinition("bean");
         ModuleDefinitionHelper helper = new ModuleDefinitionHelper(module);
 
         ServicePointDefinition sp1 = helper.addServicePoint("Reverser", Reverser.class.getName());
