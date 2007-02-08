@@ -15,15 +15,15 @@
 -->
 <document>
    <properties>
-      <title>hivemind.lib.PlaceholderFactory Service</title>
+      <title>Module: hivemind.xml</title>
    </properties>
    <body>
-    
-      <p>The <a href="hivedocs/service/hivemind.lib.PlaceholderFactory.html"> 
-      PlaceholderFactory</a> service is a service implementation factory 
-      that uses the <a href="site:hivemind.lib.DefaultImplementationBuilder">DefaultImplementationBuilder</a> 
-      service to create placeholder implementations for services. Placeholders 
-      do nothing at all.</p>
-	
+	  <section name="HiveMind XML" >
+        <p>
+			The HiveMind XML library (module 
+			<a href="hivedocs/module/hivemind.xml.html">hivemind.xml</a>), provides 
+			functionality to define HiveMind modules by xml descriptors.
+		</p>
+	  </section>
    </body>
 </document>

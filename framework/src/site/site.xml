@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="Maven">
-    <bannerLeft>
-        <name>Jakarta</name>
-        <href>http://jakarta.apache.org/</href>
-    </bannerLeft>
-    <bannerRight>
-        <name>HiveMind Framework</name>
-        <href>http://jakarta.apache.org/hivemind/hivemind/</href>
-    </bannerRight>
+<project name="HiveMind Framework">
     <body>
-        <links>
-            <item name="Apache" href="http://www.apache.org/"/>
-        </links>
         <menu name="HiveMind Framework">
             <item name="Introduction" href="index.html"/>
             <item name="ApplicationDefaults" href="ApplicationDefaults.html"/>
@@ -26,5 +15,7 @@
             <item name="ThreadLocale" href="ThreadLocale.html"/>
             <item name="ThreadLocalStorage" href="ThreadLocalStorage.html"/>
             <item name="Translators" href="Translators.html"/>
-        </menu> ${reports} </body>
+        </menu> 
+        ${reports} 
+   </body>
 </project>

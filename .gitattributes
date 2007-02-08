@@ -19,6 +19,8 @@ annotations/src/java/org/apache/hivemind/annotations/internal/ModuleInstanceProv
 annotations/src/java/org/apache/hivemind/annotations/internal/ModuleInstanceProviderImpl.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/RegistryImpl.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/TemplateMethodContributionConstructor.java -text
+annotations/src/site/site.xml -text
+annotations/src/site/xdoc/index.xml -text
 annotations/src/test/org/apache/hivemind/annotations/AnnotationTestCase.java -text
 annotations/src/test/org/apache/hivemind/annotations/AutowiringModule.java -text
 annotations/src/test/org/apache/hivemind/annotations/ModuleWithExplicitId.java -text
@@ -126,29 +128,11 @@ hivebuild/hivedoc-xsl/public.png -text
 hivebuild/report-artifacts/license-report.header.xml.inc -text svneol=unset#application/octet-stream
 hivebuild/report-artifacts/license-report.trailer.xml.inc -text svneol=unset#application/octet-stream
 jmx/pom.xml -text
-jmx/src/documentation/resources/images/jConsoleConnectLocal.png -text
-jmx/src/documentation/resources/images/jConsoleLoggerMBean.png -text
-jmx/src/documentation/resources/images/loggerMBeansView.png -text
-jmx/src/documentation/resources/images/loggerView.png -text
-jmx/src/documentation/resources/images/performanceInterceptorMBean.png -text
 jmx/src/java/org/apache/hivemind/management/log4j/LoggerMBean.java -text
+jmx/src/site/site.xml -text
 jmx/src/test/org/apache/hivemind/management/MBeanNonInterfaceTestService.java -text
 library/pom.xml -text
-library/src/site/resources/images/PipelineCallingSequence.png -text
 library/src/site/site.xml -text
-library/src/site/xdoc/BeanFactoryBuilder.xml -text
-library/src/site/xdoc/ChainBuilder.xml -text
-library/src/site/xdoc/ChainFactory.xml -text
-library/src/site/xdoc/DefaultImplementationBuilder.xml -text
-library/src/site/xdoc/EJBProxyFactory.xml -text
-library/src/site/xdoc/MethodInterceptorFactory.xml -text
-library/src/site/xdoc/NameLookup.xml -text
-library/src/site/xdoc/PipelineFactory.xml -text
-library/src/site/xdoc/PlaceholderFactory.xml -text
-library/src/site/xdoc/RemoteExceptionCoordinator.xml -text
-library/src/site/xdoc/ServicePropertyFactory.xml -text
-library/src/site/xdoc/SpringLookupFactory.xml -text
-library/src/site/xdoc/StrategyFactory.xml -text
 library/src/site/xdoc/index.xml -text
 /pom.xml -text
 src/documentation/classes/CatalogManager.properties -text
@@ -196,6 +180,8 @@ xml/src/java/org/apache/hivemind/xml/definition/impl/HiveMindSchemaParser.java -
 xml/src/java/org/apache/hivemind/xml/definition/impl/HiveMindSchemaParserConstructor.java -text
 xml/src/java/org/apache/hivemind/xml/definition/impl/XmlModuleDefinitionImpl.java -text
 xml/src/java/org/apache/hivemind/xml/definition/impl/XmlServicePointDefinitionImpl.java -text
+xml/src/site/site.xml -text
+xml/src/site/xdoc/index.xml -text
 xml/src/test/hivemind/test/config/Null.xml -text
 xml/src/test/hivemind/test/rules/TestReadAttributeRule.java -text
 xml/src/test/hivemind/test/rules/TestServiceTranslator.java -text

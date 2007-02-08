@@ -18,15 +18,13 @@
       <title>Module: hivemind.lib</title>
    </properties>
    <body>
-
-
-      <p>
-The HiveMind standard library (module 
-<a href="hivedocs/module/hivemind.lib.html">hivemind.lib</a>), provides common
-functionality used in most HiveMind applications.
-</p>
-
-    
-  
+	  <section name="HiveMind Standard Library" >
+        <p>
+			The HiveMind standard library (module 
+			<a href="hivedocs/module/hivemind.lib.html">hivemind.lib</a>), provides common
+			functionality used in most HiveMind applications.
+			The module and its extension points are defined by a xml module descriptor.
+		</p>
+	  </section>
    </body>
 </document>

@@ -15,15 +15,14 @@
 -->
 <document>
    <properties>
-      <title>hivemind.lib.DefaultImplementationBuilder Service</title>
+      <title>HiveMind Annotations</title>
    </properties>
    <body>
-    
-      <p>The <a href="hivedocs/service/hivemind.lib.DefaultImplementationBuilder.html"> 
-      DefaultImplementationBuilder</a> service is used to create default 
-      implementations of interfaces. As described in the <a href="apidocs/org/apache/hivemind/lib/DefaultImplementationBuilder.html"> service interface 
-      JavaDoc</a>, methods return null, 0 or false (depending on return 
-      type) and otherwise do nothing. </p>
-	
+	  <section name="HiveMind Annotations" >
+        <p>
+			The HiveMind Annotations library, provides 
+			functionality to define HiveMind modules by xml descriptors.
+		</p>
+	  </section>
    </body>
 </document>

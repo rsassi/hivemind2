@@ -17,7 +17,7 @@
         <module>jmx</module>
         <module>examples</module>
     </modules>
-    <url>http://jakarta.apache.org/hivemind/</url>
+    <url>http://hivemind.apache.org/hivemind2/</url>
     <developers>
         <developer>
             <id>HLS</id>
@@ -244,7 +244,7 @@
         <!-- Alas, this doesn't work yet -->
         <site>
             <id>apache.org</id>
-            <url>ssh://cvs.apache.org/jakarta/hivemind/%{pom.artifactId}</url>
+            <url>ssh://svn.apache.org/hivemind/</url>
         </site>
         <repository>
             <!-- The "maven" login id, specified in settings.xml, ensures that the Maven
@@ -259,7 +259,7 @@
         <url>http://www.apache.org/</url>
     </organization>
     <scm>
-        <connection>svn:http://svn.apache.org/repos/asf/jakarta/hivemind/trunk/</connection>
-        <url>http://svn.apache.org/viewvc/jakarta/hivemind/trunk/</url>
+        <connection>svn:http://svn.apache.org/repos/asf/hivemind/hivemind2/trunk/</connection>
+        <url>http://svn.apache.org/viewvc/hivemind/hivemind2/trunk/</url>
     </scm>
 </project>
