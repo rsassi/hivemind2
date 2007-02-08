@@ -17,7 +17,7 @@ package hivemind.test.services;
 import java.io.IOException;
 
 /**
- * Used by {@link hivemind.test.services.TestClassFab}.
+ * Used by {@link org.apache.hivemind.service.impl.TestClassFab}.
  *
  * @author Howard Lewis Ship
  */

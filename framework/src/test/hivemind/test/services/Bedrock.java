@@ -15,8 +15,7 @@
 package hivemind.test.services;
 
 /**
- * Interface used to test {@link hivemind.test.services.impl.FilterLoggingInterceptor},
- * which itself tests the ability to pass parameters to a interceptor factory.
+ * Interface used to test the ability to pass parameters to a interceptor factory.
  *
  * @author Howard Lewis Ship
  */

@@ -24,12 +24,11 @@ import org.apache.hivemind.definition.ConfigurationPointDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
-import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.internal.Module;
 import org.apache.hivemind.internal.RegistryInfrastructure;
 
 /**
- * Fed a series of {@link org.apache.hivemind.parse.ModuleDefinitionImpl}s, this class will assemble
+ * Fed a {@link org.apache.hivemind.definition.RegistryDefinition}s, this class will assemble
  * them into a final {@link org.apache.hivemind.internal.RegistryInfrastructure} as well as perform
  * some validations.
  * <p>
@@ -61,9 +60,8 @@ public class RegistryInfrastructureConstructor
     private ShutdownCoordinator _shutdownCoordinator = new ShutdownCoordinatorImpl();
 
     /**
-     * Constructs the registry infrastructure, based on data collected during the prior calls to
-     * {@link #addModuleDefinition(ModuleDefinitionImpl)}. Expects that all post-processing of the
-     * {@link RegistryAssembly} has already occured.
+     * Constructs the registry infrastructure, based on a blueprint defined by a {@link RegistryDefinition}. 
+     * Expects that all extension resolving has already occured.
      */
     public RegistryInfrastructure constructRegistryInfrastructure(RegistryDefinition definition)
     {

@@ -50,7 +50,8 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     /**
      * @param id
      * @param location
-     * @param resolver
+     * @param resolver the {@link ClassResolver} used to resolve all classes referenced from 
+     *          elements inside this module.
      * @param packageName  name of the package to search for class names within. If null, it defaults to the id 
      */
     public ModuleDefinitionImpl(String id, Location location, ClassResolver resolver, String packageName)
@@ -72,7 +73,8 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#setClassResolver(org.apache.hivemind.ClassResolver)
+     * Sets the {@link ClassResolver} used to resolve all classes referenced from elements 
+     * inside the module.
      */
     public void setClassResolver(ClassResolver classResolver)
     {
@@ -240,7 +242,7 @@ public class ModuleDefinitionImpl implements ModuleDefinition
      * Adds a contribution for a configuration point which can be defined in this
      * module or another module.
      * 
-     * @param qualifiedServicePointId  the fully qualified configuration point id
+     * @param qualifiedConfigurationPointId  the fully qualified configuration point id
      * @param contribution  the contribution definition
      */
     public void addContribution(String qualifiedConfigurationPointId,
@@ -255,7 +257,7 @@ public class ModuleDefinitionImpl implements ModuleDefinition
      * Adds a configuration parser for a configuration point which can be defined in this
      * module or another module.
      * 
-     * @param qualifiedServicePointId  the fully qualified configuration point id
+     * @param qualifiedConfigurationPointId  the fully qualified configuration point id
      * @param parser  the parser definition
      */
     public void addConfigurationParser(String qualifiedConfigurationPointId, ConfigurationParserDefinition parser)

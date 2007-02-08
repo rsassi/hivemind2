@@ -17,7 +17,7 @@ public class HivemoduleProvider implements RegistryProvider
     /**
      * The default path, within a JAR or the classpath, to the XML HiveMind module deployment
      * descriptor: <code>META-INF/hivemodule.xml</code>. Use this constant with the
-     * {@link #XmlRegistryProvider(ClassResolver, String)} constructor.
+     * {@link XmlModuleReader#readClassPathModules(String)} constructor.
      */
     public static final String HIVE_MODULE_XML = "META-INF/hivemodule.xml";
 

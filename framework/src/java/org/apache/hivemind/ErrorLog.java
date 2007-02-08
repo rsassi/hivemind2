@@ -26,7 +26,7 @@ package org.apache.hivemind;
 public interface ErrorLog
 {
     /**
-     * Invokes {@link ErrorHandler#error(Log, String, Location, Throwable)}.
+     * Invokes {@link ErrorHandler#error(org.apache.commons.logging.Log, String, Location, Throwable)}.
      */
 
     public void error(String message, Location location, Throwable cause);

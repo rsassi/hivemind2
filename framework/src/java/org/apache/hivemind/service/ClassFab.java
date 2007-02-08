@@ -73,7 +73,7 @@ public interface ClassFab
      * @param modifiers Modifiers for the method (see {@link java.lang.reflect.Modifier}).
      * @param signature defines the name, return type, parameters and exceptions thrown
      * @param body The body of the method.
-     * @throws ApplicationRuntimeException if a method with that signature has already
+     * @throws org.apache.hivemind.ApplicationRuntimeException if a method with that signature has already
      * been added, or if there is a Javassist compilation error
      */
 

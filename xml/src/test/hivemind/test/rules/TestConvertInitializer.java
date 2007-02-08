@@ -22,7 +22,7 @@ import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.schema.rules.RuleUtils;
 
 /**
- * Tests for {@link org.apache.hivemind.HiveMind#convertTranslatorInitializer(String)}.
+ * Tests for {@link RuleUtils#convertInitializer(String)}.
  *
  * @author Howard Lewis Ship
  */

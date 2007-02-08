@@ -67,26 +67,22 @@ public interface ModuleDefinition
     public Collection getDependencies();
     
     /**
-     * @return  all {@link ImplementationDefinition implementations} defined in this module
-     *    by a call to {@link #addServiceImplementation}.
+     * @return  all {@link ImplementationDefinition implementations} contained in this module
      */
     public Collection getImplementations();
 
     /**
-     * @return  all {@link InterceptorDefinition interceptors} defined in this module
-     *    by a call to {@link #addServiceInterceptor}.
+     * @return  all {@link InterceptorDefinition interceptors} contained in this module
      */
     public Collection getInterceptors();
 
     /**
-     * @return  all {@link ContributionDefinition contributions} defined in this module
-     *    by a call to {@link #addContribution}.
+     * @return  all {@link ContributionDefinition contributions}  contained in this module.
      */
     public Collection getContributions();
 
     /**
-     * @return  all {@link ConfigurationParserDefinition parsers} defined in this module
-     *    by a call to {@link #addConfigurationParser}.
+     * @return  all {@link ConfigurationParserDefinition parsers}  contained in this module
      */
     public Collection getConfigurationParsers();
 

@@ -75,7 +75,7 @@ public interface RegistryDefinition
 
     /**
      * Returns a configuration point that is identified by its id.
-     * @param qualifiedServicePointId  the fully qualified configuration point id
+     * @param qualifiedConfigurationPointId  the fully qualified configuration point id
      * @return the configuration point definition
      */
     public ConfigurationPointDefinition getConfigurationPoint(String qualifiedConfigurationPointId);

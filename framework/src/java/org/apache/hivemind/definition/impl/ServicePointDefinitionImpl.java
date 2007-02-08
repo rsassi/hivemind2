@@ -111,7 +111,7 @@ public class ServicePointDefinitionImpl extends ExtensionPointDefinitionImpl imp
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServicePointDefinition#addInterceptor(org.apache.hivemind.definition.ServiceInterceptorDefinitionImpl)
+     * @see org.apache.hivemind.definition.ServicePointDefinition#addInterceptor(org.apache.hivemind.definition.InterceptorDefinition)
      */
     public void addInterceptor(InterceptorDefinition interceptor)
     {

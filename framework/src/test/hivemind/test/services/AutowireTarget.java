@@ -19,9 +19,10 @@ import org.apache.hivemind.ClassResolver;
 import org.apache.hivemind.ErrorHandler;
 import org.apache.hivemind.ErrorLog;
 import org.apache.hivemind.Messages;
+import org.apache.hivemind.service.Autowiring;
 
 /**
- * Usesd by the {@link hivemind.test.services.TestBuilderFactory} suite.
+ * Target for testing the {@link Autowiring} service.
  * 
  * @author Howard Lewis Ship
  * @since 1.0

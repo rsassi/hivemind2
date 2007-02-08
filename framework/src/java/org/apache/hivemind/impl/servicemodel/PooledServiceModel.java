@@ -74,8 +74,6 @@ public class PooledServiceModel extends AbstractServiceModelImpl
         private PoolManageable _managed;
 
         /**
-         * @param service
-         *            the full service implementation, including any interceptors
          * @param core
          *            the core service implementation, which may optionally implement
          *            {@link PoolManageable}

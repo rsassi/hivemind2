@@ -22,7 +22,7 @@ import org.apache.hivemind.service.impl.BuilderFactory;
 import org.apache.hivemind.xml.XmlTestCase;
 
 /**
- * Tests {@link org.apache.hivemind.impl.PooledServiceModel} integrated with {@link BuilderFactory}. 
+ * Tests {@link org.apache.hivemind.impl.servicemodel.PooledServiceModel} integrated with {@link BuilderFactory}. 
  *
  * @author Howard Lewis Ship
  */

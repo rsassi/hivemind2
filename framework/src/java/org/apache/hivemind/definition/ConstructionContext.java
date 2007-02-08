@@ -23,7 +23,7 @@ public interface ConstructionContext
     public Object getService(String serviceId, Class serviceInterface);
     
     /**
-     * @see Module#getService(String)
+     * @see Module#getService(Class)
      */
     public Object getService(Class serviceInterface);
     
@@ -33,7 +33,7 @@ public interface ConstructionContext
     public boolean containsService(Class serviceInterface);
 
     /**
-     * @see Module#getConfiguration(String, Class)
+     * @see Module#getConfiguration(String)
      */
     public Object getConfiguration(String configurationId);
     

@@ -82,7 +82,7 @@ public class TranslatorManagerImpl implements TranslatorManager
     }
 
     /**
-     * @see org.apache.hivemind.impl.TranslatorManager#getTranslator(java.lang.String)
+     * @see TranslatorManager#getTranslator(java.lang.String)
      */
     public synchronized Translator getTranslator(String constructor)
     {

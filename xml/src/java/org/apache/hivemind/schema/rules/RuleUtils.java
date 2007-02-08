@@ -84,7 +84,7 @@ public class RuleUtils
      * <ul>
      * <li>Convert localized message references to localized strings
      * <li>Expand symbols using
-     * {@link org.apache.hivemind.Registry#expandSymbols(String, Location)}
+     * {@link org.apache.hivemind.SymbolExpander#expandSymbols(String, org.apache.hivemind.Location)}
      * </ul>
      * <p>
      * Note: if the input is a localized message then no symbol expansion takes place. Localized
@@ -136,7 +136,7 @@ public class RuleUtils
     }
 
     /**
-     * Convienience for invoking {@link Module#getTranslator(String)}.
+     * Convienience for invoking {@link org.apache.hivemind.TranslatorManager#getTranslator(String)}.
      * 
      * @param processor
      *            the processor for the schema being converted

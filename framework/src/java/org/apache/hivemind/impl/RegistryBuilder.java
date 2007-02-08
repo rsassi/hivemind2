@@ -268,10 +268,8 @@ public final class RegistryBuilder
     /**
      * Constructs a default registry based on just the modules visible to the thread context class
      * loader (this is sufficient is the majority of cases), and using the default locale. If you
-     * have different error handling needs, or wish to pick up HiveMind module deployment
-     * descriptors for non-standard locations, you must create a RegistryBuilder instance yourself.
-     * 
-     * @see #addDefaultModuleDescriptorProvider()
+     * have different error handling needs, or wish to pick up HiveMind modules
+     * for non-standard locations, you must create a RegistryBuilder instance yourself.
      */
     public static Registry constructDefaultRegistry()
     {
