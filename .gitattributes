@@ -125,8 +125,6 @@ framework/src/test/test-data/TestConstructRegistry/testUptoDate.xml.master -text
 framework/src/test/test-data/TestRegistryBuilder.jar -text
 hivebuild/hivedoc-xsl/private.png -text
 hivebuild/hivedoc-xsl/public.png -text
-hivebuild/report-artifacts/license-report.header.xml.inc -text svneol=unset#application/octet-stream
-hivebuild/report-artifacts/license-report.trailer.xml.inc -text svneol=unset#application/octet-stream
 jmx/pom.xml -text
 jmx/src/java/org/apache/hivemind/management/log4j/LoggerMBean.java -text
 jmx/src/site/site.xml -text
@@ -143,14 +141,12 @@ src/documentation/resources/images/FrameworkStack.png -text
 src/documentation/resources/images/HiveMind-Logo.png -text
 src/documentation/resources/images/InterceptorStack.png -text
 src/documentation/resources/images/jakarta-logo.gif -text
-src/documentation/resources/schema/catalog.xcat -text
-src/documentation/resources/schema/dtd/hm-document.dtd -text
-src/documentation/resources/stylesheets/sourceHighlighter.xsl -text
-src/documentation/sitemap.xmap -text
 src/images/HiveMind-Logo.psp -text
 src/images/HiveMindImages.vsd -text
 src/images/InterceptorStack.psp -text
 src/images/private-icon.psp -text
+src/site/site.xml -text
+src/site/xdoc/index.xml -text
 support/forrest2maven-xdoc.xsl -text
 tools/forrest/.classpath -text
 tools/forrest/.project -text

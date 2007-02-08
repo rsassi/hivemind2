@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="HiveMind">
+    <bannerLeft>
+        <name>HiveMind</name>
+        <href>http://hivemind.apache.org/</href>
+        <src>images/hivemind_banner.png</src>
+    </bannerLeft>
+    <bannerRight>
+        <name>Apache Software Foundation</name>
+        <href>http://www.apache.org</href>
+        <src>images/asf_logo_wide.gif</src>
+    </bannerRight>
+    <skin>
+        <groupId>org.apache.hivemind</groupId>
+        <artifactId>maven-skin</artifactId>
+        <version>2.0.0</version>
+    </skin>
+    
+    <publishDate format="dd MMM yyyy"/>
+    
+    <body>
+ 	    <links>
+            <item name="HiveMind 2 Project" href="/index.html"/>
+		    <item name="Framework" href="/framework" />
+		    <item name="XML" href="/xml" />
+		    <item name="Library" href="/library" />
+		    <item name="JMX" href="/jmx" />
+		    <item name="annotations" href="/annotations" />
+        </links>
+        <head>
+        </head>
+        <menu name="Quick Links" inherit="top">
+            <item name="Project Home" href="/index.html"/>
+            <item name="Download" href="http://hivemind.apache.org/download.html"/>
+            <item name="Wiki" href="http://cwiki.apache.org/HIVEMIND2/"/> 
+        </menu>
+        ${modules}
+        ${reports} 
+    </body>
+</project>
