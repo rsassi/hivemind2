@@ -1,5 +1,7 @@
 package org.apache.hivemind.annotations;
 
+import org.apache.hivemind.annotations.definition.Service;
+
 import hivemind.test.services.ServiceAutowireTarget;
 import hivemind.test.services.StringHolder;
 import hivemind.test.services.impl.StringHolderImpl;

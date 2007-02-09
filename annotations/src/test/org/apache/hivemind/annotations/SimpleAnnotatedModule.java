@@ -6,6 +6,10 @@ import hivemind.test.services.impl.StringHolderImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.hivemind.annotations.definition.Configuration;
+import org.apache.hivemind.annotations.definition.Contribution;
+import org.apache.hivemind.annotations.definition.Service;
+
 public class SimpleAnnotatedModule extends AbstractAnnotatedModule
 {
     @Service(id = "Test")
@@ -16,17 +20,17 @@ public class SimpleAnnotatedModule extends AbstractAnnotatedModule
 
             public void run()
             {
-                List<String> demoList = (List<String>) getRegistry().getConfiguration("Demo", List.class);
+                List<String> demoList = (List<String>) getConfiguration("Demo", List.class);
                 for (String entry : demoList)
                 {
                     System.out.println(entry);
                 }
-                String one = (String) getRegistry().getConfiguration("SingleElement", String.class);
+                String one = (String) getConfiguration("SingleElement", String.class);
                 System.out.println(one);
-                StringHolderImpl holder = (StringHolderImpl) getRegistry().getConfiguration("StringHolder", StringHolderImpl.class);
+                StringHolderImpl holder = (StringHolderImpl) getConfiguration("StringHolder", StringHolderImpl.class);
                 System.out.println(holder.getValue());
                 
-                StringHolderImpl holderService = (StringHolderImpl) getRegistry().getService("StringHolder", StringHolderImpl.class);
+                StringHolderImpl holderService = (StringHolderImpl) getService("StringHolder", StringHolderImpl.class);
                 System.out.println(holderService.getValue());
             }
         };

@@ -1,18 +1,18 @@
 package org.apache.hivemind.annotations.internal;
 
-import org.apache.hivemind.annotations.Registry;
+import org.apache.hivemind.annotations.TypedRegistry;
 import org.apache.hivemind.internal.Module;
 import org.apache.hivemind.internal.RegistryInfrastructure;
 import org.apache.hivemind.service.Autowiring;
 import org.apache.hivemind.util.IdUtils;
 
 /**
- * Implementation of {@link Registry}.
+ * Implementation of {@link TypedRegistry}.
  * Wraps an instance of {@link RegistryInfrastructure} to provide registry access.
  * 
  * @author Huegen
  */
-public class RegistryImpl implements Registry
+public class RegistryImpl implements TypedRegistry
 {
     private Module _callingModule;
 
@@ -30,7 +30,7 @@ public class RegistryImpl implements Registry
     }
 
     /**
-     * @see org.apache.hivemind.annotations.Registry#getConfiguration(java.lang.String, java.lang.Class)
+     * @see org.apache.hivemind.annotations.TypedRegistry#getConfiguration(java.lang.String, java.lang.Class)
      */
     public <T> T getConfiguration(String configurationId, Class<T> configurationType)
     {
@@ -44,7 +44,7 @@ public class RegistryImpl implements Registry
     }
 
     /**
-     * @see org.apache.hivemind.annotations.Registry#getConfiguration(java.lang.Class)
+     * @see org.apache.hivemind.annotations.TypedRegistry#getConfiguration(java.lang.Class)
      */
     public <T> T getConfiguration(Class<T> configurationType)
     {
@@ -53,18 +53,7 @@ public class RegistryImpl implements Registry
     }
 
     /**
-     * @see org.apache.hivemind.annotations.Registry#getConfiguration(java.lang.String)
-     */
-    public Object getConfiguration(String configurationId)
-    {
-        String qualifiedConfigurationId = IdUtils.qualify(
-                _callingModule.getModuleId(),
-                configurationId);
-        return _delegate.getConfiguration(qualifiedConfigurationId, _callingModule);
-    }
-
-    /**
-     * @see org.apache.hivemind.annotations.Registry#getService(java.lang.String, java.lang.Class)
+     * @see org.apache.hivemind.annotations.TypedRegistry#getService(java.lang.String, java.lang.Class)
      */
     public <T> T getService(String serviceId, Class<T> serviceInterface)
     {
@@ -76,7 +65,7 @@ public class RegistryImpl implements Registry
     }
 
     /**
-     * @see org.apache.hivemind.annotations.Registry#getService(java.lang.Class)
+     * @see org.apache.hivemind.annotations.TypedRegistry#getService(java.lang.Class)
      */
     public <T> T getService(Class<T> serviceInterface)
     {
@@ -85,7 +74,7 @@ public class RegistryImpl implements Registry
     }
 
     /**
-     * @see org.apache.hivemind.annotations.Registry#getAutowiring()
+     * @see org.apache.hivemind.annotations.TypedRegistry#getAutowiring()
      */
     public Autowiring getAutowiring()
     {

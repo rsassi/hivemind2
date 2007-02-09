@@ -8,7 +8,7 @@ import org.apache.hivemind.service.Autowiring;
  * 
  * @author Achim Huegen
  */
-public interface Registry 
+public interface TypedRegistry 
 {
     /**
      * Returns a service from the registry.
@@ -40,13 +40,7 @@ public interface Registry
      */
     public <T> T getConfiguration(Class<T> configurationType);
     
-    /**
-     * Returns the specified configuration from the registry. The result is untyped.
-     * 
-     * @see org.apache.hivemind.Registry#getConfiguration(String)
-     */
-    public Object getConfiguration(String configurationId);
-    
+
     /**
      * Returns a reference to the {@link Autowiring} service.
      */

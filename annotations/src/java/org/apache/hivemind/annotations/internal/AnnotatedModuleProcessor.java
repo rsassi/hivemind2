@@ -9,10 +9,10 @@ import org.apache.hivemind.ClassResolver;
 import org.apache.hivemind.ErrorHandler;
 import org.apache.hivemind.Location;
 import org.apache.hivemind.Resource;
-import org.apache.hivemind.annotations.Configuration;
-import org.apache.hivemind.annotations.Module;
-import org.apache.hivemind.annotations.Service;
-import org.apache.hivemind.annotations.Submodule;
+import org.apache.hivemind.annotations.definition.Configuration;
+import org.apache.hivemind.annotations.definition.Module;
+import org.apache.hivemind.annotations.definition.Service;
+import org.apache.hivemind.annotations.definition.Submodule;
 import org.apache.hivemind.definition.Contribution;
 import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ImplementationDefinition;
@@ -122,11 +122,11 @@ public class AnnotatedModuleProcessor
                         module,
                         instanceProvider);
             }
-            else if (org.apache.hivemind.annotations.Contribution.class.equals(annotation.annotationType()))
+            else if (org.apache.hivemind.annotations.definition.Contribution.class.equals(annotation.annotationType()))
             {
                 processAnnotatedContributionMethod(
                         method,
-                        (org.apache.hivemind.annotations.Contribution) annotation,
+                        (org.apache.hivemind.annotations.definition.Contribution) annotation,
                         module,
                         instanceProvider);
             }
@@ -188,7 +188,7 @@ public class AnnotatedModuleProcessor
         cpd.addContribution(cd);
     }
 
-    private void processAnnotatedContributionMethod(Method method, org.apache.hivemind.annotations.Contribution contribution, ModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
+    private void processAnnotatedContributionMethod(Method method, org.apache.hivemind.annotations.definition.Contribution contribution, ModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
     {
         if (_log.isDebugEnabled())
         {

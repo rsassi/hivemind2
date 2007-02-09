@@ -4,22 +4,25 @@ import org.apache.hivemind.service.Autowiring;
 
 /**
  * Ancestor for annotated module classes. Provides convenience methods
- * for the access to {@link Registry} and {@link Autowiring}.
+ * for the access to {@link TypedRegistry} and {@link Autowiring}.
  * 
  * @author Achim Huegen
  */
 public class AbstractAnnotatedModule
 {
-    private Registry _registry;
+    private TypedRegistry _typedRegistry;
 
-    public Registry getRegistry()
+    /**
+     * @return  the registry the module is loaded in
+     */
+    public TypedRegistry getRegistry()
     {
-        return _registry;
+        return _typedRegistry;
     }
 
-    public void setRegistry(Registry registry)
+    public void setRegistry(TypedRegistry typedRegistry)
     {
-        _registry = registry;
+        _typedRegistry = typedRegistry;
     }
     
     /**
@@ -27,7 +30,7 @@ public class AbstractAnnotatedModule
      */
     public Autowiring getAutowiring()
     {
-        return _registry.getAutowiring();
+        return _typedRegistry.getAutowiring();
     }
     
     /**
@@ -38,6 +41,48 @@ public class AbstractAnnotatedModule
     public <T> T autowireProperties(T target) 
     {
         return (T) getAutowiring().autowireProperties(target);
+    }
+    
+    /**
+     * Returns a service from the registry.
+     * 
+     * @see org.apache.hivemind.Registry#getService(String, Class)
+     */
+    public <T> T getService(String serviceId, Class<T> serviceInterface)
+    {
+        return _typedRegistry.getService(serviceId, serviceInterface);
+    }
+
+    /**
+     * Finds a service that implements the provided interface. 
+     * Exactly one such service may exist or an exception is thrown.
+     * 
+     * @see org.apache.hivemind.Registry#getService(Class)
+     */
+    public <T> T getService(Class<T> serviceInterface)
+    {
+        return _typedRegistry.getService(serviceInterface);
+    }
+    
+    /**
+     * Returns the specified configuration from the registry.
+     * 
+     * @see org.apache.hivemind.Registry#getConfiguration(String)
+     */
+    public <T> T getConfiguration(String configurationId, Class<T> configurationType)
+    {
+        return _typedRegistry.getConfiguration(configurationId, configurationType);
+    }
+    
+    /**
+     * Finds a configuration by its type. 
+     * Exactly one such configuration may exist or an exception is thrown.
+     * 
+     * @see org.apache.hivemind.Registry#getConfiguration(String)
+     */
+    public <T> T getConfiguration(Class<T> configurationType)
+    {
+        return _typedRegistry.getConfiguration(configurationType);
     }
 
 }

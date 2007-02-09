@@ -1,4 +1,4 @@
-package org.apache.hivemind.annotations;
+package org.apache.hivemind.annotations.definition;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

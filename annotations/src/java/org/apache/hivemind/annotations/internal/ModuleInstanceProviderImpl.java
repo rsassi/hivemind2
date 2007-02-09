@@ -1,7 +1,7 @@
 package org.apache.hivemind.annotations.internal;
 
 import org.apache.hivemind.ApplicationRuntimeException;
-import org.apache.hivemind.annotations.Registry;
+import org.apache.hivemind.annotations.TypedRegistry;
 import org.apache.hivemind.internal.Module;
 import org.apache.hivemind.internal.RegistryInfrastructure;
 import org.apache.hivemind.util.Defense;
@@ -52,10 +52,10 @@ public class ModuleInstanceProviderImpl implements ModuleInstanceProvider
     private void injectRegistry(Object moduleInstance, RegistryInfrastructure _registry)
     {
         if (PropertyUtils.isWritable(moduleInstance, REGISTRY_PROPERTY_NAME) 
-                && PropertyUtils.getPropertyType(moduleInstance, REGISTRY_PROPERTY_NAME).equals(Registry.class)) {
+                && PropertyUtils.getPropertyType(moduleInstance, REGISTRY_PROPERTY_NAME).equals(TypedRegistry.class)) {
             
             Module callingModule = _registry.getModule(_moduleId);
-            Registry annotatedRegistry = new RegistryImpl(callingModule, _registry);
+            TypedRegistry annotatedRegistry = new RegistryImpl(callingModule, _registry);
             PropertyUtils.write(moduleInstance, REGISTRY_PROPERTY_NAME, annotatedRegistry);
         }
     }
