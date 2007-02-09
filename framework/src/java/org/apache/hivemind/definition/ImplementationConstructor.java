@@ -26,6 +26,7 @@ public interface ImplementationConstructor extends Locatable
 {
     /**
      * Creates a new core service implementation.
+     * @param context  the context of the construction
      */
     public Object constructCoreServiceImplementation(ImplementationConstructionContext context);
 }

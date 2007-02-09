@@ -19,8 +19,8 @@ import org.apache.hivemind.Locatable;
 import org.apache.hivemind.internal.Module;
 
 /**
- * Creates an service interceptor for a 
- * {@link org.apache.hivemind.definition.ServicePointDefinition service point}
+ * Creates a service interceptor for a 
+ * {@link org.apache.hivemind.definition.ServicePointDefinition service point}.
  * 
  * @author Achim Huegen
  */

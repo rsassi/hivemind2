@@ -23,15 +23,25 @@ public interface ServicePointDefinition extends ExtensionPointDefinition
     public ImplementationDefinition getDefaultImplementation();
 
     /**
-     * Adds a implementation definition to the module.
+     * Adds an implementation definition to the service point.
      * @param implementation  the implementation
      */
     public void addImplementation(ImplementationDefinition implementation);
 
+    /**
+     * @return the impelementations of this service point as instances of {@link ImplementationDefinition}
+     */
     public Collection getImplementations();
 
+    /**
+     * @return the interceptors of this service point as instances of {@link InterceptorDefinition}
+     */
     public Collection getInterceptors();
 
+    /**
+     * Adds an interceptor definition to the service point.
+     * @param interceptor  the interceptor
+     */
     public void addInterceptor(InterceptorDefinition interceptor);
 
 }

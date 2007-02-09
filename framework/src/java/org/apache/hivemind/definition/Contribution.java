@@ -14,7 +14,6 @@
 
 package org.apache.hivemind.definition;
 
-
 /**
  * Contributes data to a {@link org.apache.hivemind.definition.ConfigurationPointDefinition configuration point}.
  * 

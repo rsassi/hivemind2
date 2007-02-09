@@ -2,6 +2,11 @@ package org.apache.hivemind.definition;
 
 import org.apache.hivemind.Locatable;
 
+/**
+ * Defines an extension to an extension point.
+ * 
+ * @author Huegen
+ */
 public interface ExtensionDefinition extends Locatable
 {
     /**
