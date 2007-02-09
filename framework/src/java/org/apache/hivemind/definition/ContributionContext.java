@@ -28,7 +28,7 @@ public interface ContributionContext extends ConstructionContext
      * Replaces all configuration data with <code>data</code>. Overrides data provided by other contributions
      * so should only be called when getConfigurationData() returns null.
      *  
-     * @param data
+     * @param data  the data
      */
     public void setConfigurationData(Object data);
     

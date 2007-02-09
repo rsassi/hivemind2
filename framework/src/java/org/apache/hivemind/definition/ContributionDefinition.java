@@ -1,8 +1,16 @@
 package org.apache.hivemind.definition;
 
-
+/**
+ * Defines a contribution to a {@link ConfigurationPointDefinition}.
+ * The actual contribution is done by an instance of {@link Contribution}.
+ * 
+ * @author Huegen
+ */
 public interface ContributionDefinition extends ExtensionDefinition
 {
+    /**
+     * @return  the contribution implementation.
+     */
     public Contribution getContribution();
 
     /**

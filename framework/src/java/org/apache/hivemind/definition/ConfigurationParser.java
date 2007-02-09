@@ -2,7 +2,12 @@ package org.apache.hivemind.definition;
 
 import java.io.InputStream;
 
-
+/**
+ * Parses configuration data that is provided in a textual format.
+ * A new instance is created for each parsing operation.
+ * 
+ * @author Huegen
+ */
 public interface ConfigurationParser
 {
     /**

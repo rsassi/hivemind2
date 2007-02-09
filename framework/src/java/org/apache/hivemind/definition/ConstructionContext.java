@@ -37,5 +37,12 @@ public interface ConstructionContext
      */
     public Object getConfiguration(String configurationId);
     
+    /**
+     * Returns a reference to the {@link RegistryInfrastructure}. 
+     * This allows access to services and configurations without the visibility checks
+     * performed by the other getter methods. 
+     * 
+     * @return  the registry 
+     */
     public RegistryInfrastructure getRegistry();
 }

@@ -1,6 +1,7 @@
 package org.apache.hivemind.annotations;
 
 import hivemind.test.services.ServiceAutowireTarget;
+import hivemind.test.services.StringHolder;
 
 import org.apache.hivemind.Registry;
 
@@ -13,4 +14,11 @@ public class TestAnnotatedModules extends AnnotationTestCase
         assertNotNull(service.getStringHolder());
     }
     
+    public void testSubmodule()
+    {
+        Registry registry = constructRegistry(Supermodule.class);
+        StringHolder service = (StringHolder) registry.getService("super.sub.StringHolder", StringHolder.class);
+        assertNotNull(service);
+    }
+
 }

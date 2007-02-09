@@ -7,14 +7,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marks a class as an annotated module and assigns an id to it. 
- * The class must be public, non final and must have a no arguments constructor.
- * 
+ * Defines a submodule of an annotated module. The return type of the annotated method
+ * defines the class of the submodule. This class must be an annotated module class itself.
+ *  
  * @author Achim Huegen
  */
 @Documented
 @Retention(value = RetentionPolicy.RUNTIME)
-@Target(value = ElementType.TYPE)
-public @interface Module {
+@Target(value = ElementType.METHOD)
+public @interface Submodule {
     String id();
 }

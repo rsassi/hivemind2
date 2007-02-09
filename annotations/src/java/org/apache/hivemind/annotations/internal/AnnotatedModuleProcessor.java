@@ -12,6 +12,7 @@ import org.apache.hivemind.Resource;
 import org.apache.hivemind.annotations.Configuration;
 import org.apache.hivemind.annotations.Module;
 import org.apache.hivemind.annotations.Service;
+import org.apache.hivemind.annotations.Submodule;
 import org.apache.hivemind.definition.Contribution;
 import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ImplementationDefinition;
@@ -50,15 +51,22 @@ public class AnnotatedModuleProcessor
         _classResolver = classResolver;
         _errorHandler = errorHandler;
     }
+    
+    public void processModule(Class moduleClass)
+    {
+        String moduleId = determineModuleId(moduleClass);
+        processModule(moduleClass, moduleId);
+    }
 
     /**
-     * Processes a module. Inspects the class
+     * Processes a module. Inspects the class.
+     * 
      * 
      * @param moduleClass
      */
-    public void processModule(Class moduleClass)
+    public void processModule(Class moduleClass, String moduleId)
     {
-        ModuleDefinitionImpl module = new ModuleDefinitionImpl(determineModuleId(moduleClass),
+        ModuleDefinitionImpl module = new ModuleDefinitionImpl(moduleId,
                 createModuleLocation(moduleClass), _classResolver, moduleClass.getPackage().getName());
 
         // processServices(moduleClass);
@@ -74,7 +82,7 @@ public class AnnotatedModuleProcessor
 
     }
 
-    public void processModuleMethods(Class moduleClass, ModuleDefinitionImpl module,
+    private void processModuleMethods(Class moduleClass, ModuleDefinitionImpl module,
             ModuleInstanceProvider instanceProvider)
     {
         Method[] methods = moduleClass.getMethods();
@@ -85,7 +93,7 @@ public class AnnotatedModuleProcessor
         }
     }
 
-    public void processMethod(Method method, ModuleDefinitionImpl module,
+    private void processMethod(Method method, ModuleDefinitionImpl module,
             ModuleInstanceProvider instanceProvider)
     {
         if (_log.isDebugEnabled())
@@ -119,6 +127,14 @@ public class AnnotatedModuleProcessor
                 processAnnotatedContributionMethod(
                         method,
                         (org.apache.hivemind.annotations.Contribution) annotation,
+                        module,
+                        instanceProvider);
+            }
+            else if (Submodule.class.equals(annotation.annotationType()))
+            {
+                processAnnotatedSubmoduleMethod(
+                        method,
+                        (Submodule) annotation,
                         module,
                         instanceProvider);
             }
@@ -191,6 +207,25 @@ public class AnnotatedModuleProcessor
                 contribution.configurationId());
         module.addContribution(qualifiedConfigurationId, cd);
 
+    }
+    
+    /**
+     * Processes a method that is marked as submodule definition.
+     */
+    private void processAnnotatedSubmoduleMethod(Method method, Submodule submodule, ModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
+    {
+        if (_log.isDebugEnabled())
+        {
+            _log.debug("Method " + method.getName() + "classified as submodule.");
+        }
+        
+        String fullModuleId = IdUtils.qualify(
+                module.getId(),
+                submodule.id());
+        // TODO: Check if return type is defined
+        AnnotatedModuleProcessor submoduleProcessor = new AnnotatedModuleProcessor(_registryDefinition,
+                _classResolver, _errorHandler);
+        submoduleProcessor.processModule(method.getReturnType(), fullModuleId);
     }
     
     /**

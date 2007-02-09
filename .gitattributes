@@ -12,6 +12,7 @@ annotations/src/java/org/apache/hivemind/annotations/Contribution.java -text
 annotations/src/java/org/apache/hivemind/annotations/Module.java -text
 annotations/src/java/org/apache/hivemind/annotations/Registry.java -text
 annotations/src/java/org/apache/hivemind/annotations/Service.java -text
+annotations/src/java/org/apache/hivemind/annotations/Submodule.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotatedModuleLocation.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotatedModuleProcessor.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/FactoryMethodImplementationConstructor.java -text
@@ -25,6 +26,8 @@ annotations/src/test/org/apache/hivemind/annotations/AnnotationTestCase.java -te
 annotations/src/test/org/apache/hivemind/annotations/AutowiringModule.java -text
 annotations/src/test/org/apache/hivemind/annotations/ModuleWithExplicitId.java -text
 annotations/src/test/org/apache/hivemind/annotations/SimpleAnnotatedModule.java -text
+annotations/src/test/org/apache/hivemind/annotations/Submodule1.java -text
+annotations/src/test/org/apache/hivemind/annotations/Supermodule.java -text
 annotations/src/test/org/apache/hivemind/annotations/TestAnnotatedModuleReader.java -text
 annotations/src/test/org/apache/hivemind/annotations/TestAnnotatedModules.java -text
 /doap_Hivemind.rdf -text

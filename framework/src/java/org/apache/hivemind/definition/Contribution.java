@@ -16,7 +16,7 @@ package org.apache.hivemind.definition;
 
 
 /**
- * Contributes data to a {@link org.apache.hivemind.definition.ConfigurationPointDefinition}.
+ * Contributes data to a {@link org.apache.hivemind.definition.ConfigurationPointDefinition configuration point}.
  * 
  * @author Achim Huegen
  */
@@ -24,9 +24,10 @@ public interface Contribution
 {
     /**
      * Contributes to the configuration. The context provides methods to manipulate the
-     * configuration data. 
+     * configuration data, that is to merge with or override data already provided 
+     * by other contributions
      * 
-     * @returns   a configuration object whose type is assignable to the configuration type
+     * @param context  provides access to elements of the registry which are needed for the contribution.
      */
     public void contribute(ContributionContext context);
 }

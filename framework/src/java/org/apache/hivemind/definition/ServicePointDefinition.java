@@ -4,8 +4,7 @@ import java.util.Collection;
 
 /**
  * Defines a service extension point.
- * The definition includes the service interface, implementations
- * and interceptors.
+ * The definition includes the service interface, implementations and interceptors.
  * 
  * @author Achim Huegen
  */
