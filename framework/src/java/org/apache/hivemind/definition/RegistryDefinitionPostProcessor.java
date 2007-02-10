@@ -1,9 +1,8 @@
-package org.apache.hivemind.impl;
+package org.apache.hivemind.definition;
 
 import org.apache.hivemind.ErrorHandler;
-import org.apache.hivemind.definition.RegistryDefinition;
 
-public interface RegistryPostProcessor
+public interface RegistryDefinitionPostProcessor
 {
     /**
      * Is called after all registry providers have run through their process method.

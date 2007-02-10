@@ -6,7 +6,6 @@ import java.util.List;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.events.RegistryInitializationListener;
 import org.apache.hivemind.impl.RegistryBuilder;
-import org.apache.hivemind.impl.RegistryPostProcessor;
 
 /**
  * Defines all modules and their service and configuration points 
@@ -43,14 +42,14 @@ public interface RegistryDefinition
     public ModuleDefinition getModule(String id);
 
     /**
-     * Adds a {@link RegistryPostProcessor}. The processor is called after all
+     * Adds a {@link RegistryDefinitionPostProcessor}. The processor is called after all
      * module definitions have been processed.
      * @param postProcessor the processor
      */
-    public void addPostProcessor(RegistryPostProcessor postProcessor);
+    public void addPostProcessor(RegistryDefinitionPostProcessor postProcessor);
 
     /**
-     * @return  a collection of all registered {@link RegistryPostProcessor}s
+     * @return  a collection of all registered {@link RegistryDefinitionPostProcessor}s
      */
     public List getPostProcessors();
 

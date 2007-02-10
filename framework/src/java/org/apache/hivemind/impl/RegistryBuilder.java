@@ -27,6 +27,7 @@ import org.apache.hivemind.definition.DefinitionMessages;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.Occurances;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.RegistryDefinitionPostProcessor;
 import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.events.RegistryInitializationListener;
 import org.apache.hivemind.internal.RegistryInfrastructure;
@@ -149,7 +150,7 @@ public final class RegistryBuilder
         // Notify post processors
         for (Iterator i = _registryDefinition.getPostProcessors().iterator(); i.hasNext();)
         {
-            RegistryPostProcessor processor = (RegistryPostProcessor) i.next();
+            RegistryDefinitionPostProcessor processor = (RegistryDefinitionPostProcessor) i.next();
 
             processor.postprocess(_registryDefinition, _errorHandler);
         }

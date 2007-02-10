@@ -19,6 +19,7 @@ import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.RegistryDefinitionPostProcessor;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
@@ -168,7 +169,7 @@ public class XmlCoreServicesProvider implements RegistryProvider
 
 }
 
-class XmlPostProcessor implements RegistryPostProcessor
+class XmlPostProcessor implements RegistryDefinitionPostProcessor
 {
     public void postprocess(RegistryDefinition registryDefinition, ErrorHandler errorHandler)
     {

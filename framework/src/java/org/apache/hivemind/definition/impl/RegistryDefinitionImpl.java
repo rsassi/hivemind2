@@ -14,9 +14,9 @@ import org.apache.hivemind.definition.ConfigurationPointDefinition;
 import org.apache.hivemind.definition.DefinitionMessages;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
+import org.apache.hivemind.definition.RegistryDefinitionPostProcessor;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.events.RegistryInitializationListener;
-import org.apache.hivemind.impl.RegistryPostProcessor;
 import org.apache.hivemind.util.IdUtils;
 
 /**
@@ -61,9 +61,9 @@ public class RegistryDefinitionImpl implements RegistryDefinition
     }
     
     /**
-     * @see org.apache.hivemind.definition.RegistryDefinition#addPostProcessor(org.apache.hivemind.impl.RegistryPostProcessor)
+     * @see org.apache.hivemind.definition.RegistryDefinition#addPostProcessor(org.apache.hivemind.definition.RegistryDefinitionPostProcessor)
      */
-    public void addPostProcessor(RegistryPostProcessor postProcessor)
+    public void addPostProcessor(RegistryDefinitionPostProcessor postProcessor)
     {
         _postProcessors.add(postProcessor);
     }
