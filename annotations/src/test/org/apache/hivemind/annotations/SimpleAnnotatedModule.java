@@ -20,17 +20,17 @@ public class SimpleAnnotatedModule extends AbstractAnnotatedModule
 
             public void run()
             {
-                List<String> demoList = (List<String>) getConfiguration("Demo", List.class);
+                List<String> demoList = (List<String>) configuration("Demo", List.class);
                 for (String entry : demoList)
                 {
                     System.out.println(entry);
                 }
-                String one = (String) getConfiguration("SingleElement", String.class);
+                String one = (String) configuration("SingleElement", String.class);
                 System.out.println(one);
-                StringHolderImpl holder = (StringHolderImpl) getConfiguration("StringHolder", StringHolderImpl.class);
+                StringHolderImpl holder = (StringHolderImpl) configuration("StringHolder", StringHolderImpl.class);
                 System.out.println(holder.getValue());
                 
-                StringHolderImpl holderService = (StringHolderImpl) getService("StringHolder", StringHolderImpl.class);
+                StringHolderImpl holderService = (StringHolderImpl) service("StringHolder", StringHolderImpl.class);
                 System.out.println(holderService.getValue());
             }
         };

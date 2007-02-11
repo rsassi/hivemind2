@@ -20,6 +20,10 @@ public class AbstractAnnotatedModule
         return _typedRegistry;
     }
 
+    /**
+     * This setter is used to inject the registry reference.
+     * @param typedRegistry  the registry
+     */
     public void setRegistry(TypedRegistry typedRegistry)
     {
         _typedRegistry = typedRegistry;
@@ -28,7 +32,7 @@ public class AbstractAnnotatedModule
     /**
      * @return  a reference to the {@link Autowiring} service.
      */
-    public Autowiring getAutowiring()
+    protected Autowiring getAutowiring()
     {
         return _typedRegistry.getAutowiring();
     }
@@ -38,7 +42,7 @@ public class AbstractAnnotatedModule
      * @param target  the object to wire
      * @return the wired object 
      */
-    public <T> T autowireProperties(T target) 
+    protected <T> T autowireProperties(T target) 
     {
         return (T) getAutowiring().autowireProperties(target);
     }
@@ -48,7 +52,7 @@ public class AbstractAnnotatedModule
      * 
      * @see org.apache.hivemind.Registry#getService(String, Class)
      */
-    public <T> T getService(String serviceId, Class<T> serviceInterface)
+    protected <T> T service(String serviceId, Class<T> serviceInterface)
     {
         return _typedRegistry.getService(serviceId, serviceInterface);
     }
@@ -59,7 +63,7 @@ public class AbstractAnnotatedModule
      * 
      * @see org.apache.hivemind.Registry#getService(Class)
      */
-    public <T> T getService(Class<T> serviceInterface)
+    protected <T> T service(Class<T> serviceInterface)
     {
         return _typedRegistry.getService(serviceInterface);
     }
@@ -69,7 +73,7 @@ public class AbstractAnnotatedModule
      * 
      * @see org.apache.hivemind.Registry#getConfiguration(String)
      */
-    public <T> T getConfiguration(String configurationId, Class<T> configurationType)
+    protected <T> T configuration(String configurationId, Class<T> configurationType)
     {
         return _typedRegistry.getConfiguration(configurationId, configurationType);
     }
@@ -80,7 +84,7 @@ public class AbstractAnnotatedModule
      * 
      * @see org.apache.hivemind.Registry#getConfiguration(String)
      */
-    public <T> T getConfiguration(Class<T> configurationType)
+    protected <T> T configuration(Class<T> configurationType)
     {
         return _typedRegistry.getConfiguration(configurationType);
     }
