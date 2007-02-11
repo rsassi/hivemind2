@@ -34,6 +34,12 @@ annotations/src/test/org/apache/hivemind/annotations/TestAnnotatedModules.java -
 examples/pom.xml -text
 examples/src/descriptor/META-INF/hivemodule.xml -text
 examples/src/documentation/content/xdocs/hivemind-examples/setters.xml -text
+examples/src/java/org/apache/examples/annotations/panorama/PanoramaDiscussionsModule.java -text
+examples/src/java/org/apache/examples/annotations/panorama/PanoramaMailModule.java -text
+examples/src/java/org/apache/examples/annotations/panorama/PanoramaMain.java -text
+examples/src/java/org/apache/examples/annotations/panorama/PanoramaModule.java -text
+examples/src/java/org/apache/examples/annotations/panorama/PanoramaStartupModule.java -text
+examples/src/java/org/apache/examples/annotations/panorama/panorama.properties -text
 examples/src/java/org/apache/examples/panorama/discussions/DiscussionsStartup.java -text
 examples/src/java/org/apache/examples/panorama/mail/MailStartup.java -text
 examples/src/java/org/apache/examples/panorama/startup/Executable.java -text

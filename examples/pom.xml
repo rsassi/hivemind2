@@ -25,6 +25,11 @@
             <artifactId>hivemind-xml</artifactId>
             <version>2.0.0_M1</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.hivemind</groupId>
+            <artifactId>hivemind-annotations</artifactId>
+            <version>2.0.0_M1</version>
+        </dependency>
         <!-- PROVIDED -->
         <dependency>
             <groupId>log4j</groupId>
