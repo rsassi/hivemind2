@@ -11,7 +11,6 @@
 	<classpathentry output="jmx/target/eclipse-classes" kind="src" path="jmx/src/descriptor"/>
 	<classpathentry output="examples/target/eclipse-classes" kind="src" path="examples/src/java"/>
 	<classpathentry output="examples/target/eclipse-test-classes" kind="src" path="examples/src/test"/>
-	<classpathentry kind="src" path="hivebuild/src/java"/>
 	<classpathentry kind="src" path="annotations/src/test"/>
 	<classpathentry kind="src" path="annotations/src/java"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
