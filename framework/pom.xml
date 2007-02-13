@@ -5,11 +5,11 @@
     <groupId>org.apache.hivemind</groupId>
     <artifactId>hivemind</artifactId>
     <packaging>jar</packaging>
-    <version>2.0.0_M1</version>
+    <version>2.0-alpha-1</version>
     <parent>
         <groupId>org.apache.hivemind</groupId>
         <artifactId>hivemind-project</artifactId>
-        <version>2.0.0_M1</version>
+        <version>2.0-alpha-1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <name>HiveMind core framework</name>
