@@ -27,7 +27,7 @@
   <body>
     <p>Anonymous Subversion access is available as:</p>
     <source><![CDATA[
-http://svn.apache.org/repos/asf/jakarta/hivemind]]> </source>
+http://svn.apache.org/repos/asf/hivemind/hivemind2]]> </source>
     <p>The latest version is found under <code>trunk</code>. </p>
     <p>In addition, the <link href="http://svn.apache.org/viewcvs.cgi">Subversion repository may be browsed 
       online</link>.  <link href="http://www.apache.org/dev/version-control.html">More documentation</link> about

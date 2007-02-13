@@ -78,8 +78,8 @@
         </dependency>
     </dependencies>
     <scm>
-        <connection>svn:http://svn.apache.org/repos/asf/jakarta/hivemind/trunk/library</connection>
-        <url>http://svn.apache.org/viewvc/jakarta/hivemind/trunk/library</url>
+        <connection>svn:http://svn.apache.org/repos/asf/hivemind/hivemind2/trunk/library</connection>
+        <url>http://svn.apache.org/viewvc/hivemind/hivemind2/trunk/library</url>
     </scm>
     <reporting>
 		<plugins>

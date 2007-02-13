@@ -46,7 +46,7 @@
         </dependency>
     </dependencies>
     <scm>
-        <connection>svn:http://svn.apache.org/repos/asf/jakarta/hivemind/trunk/examples</connection>
-        <url>http://svn.apache.org/viewvc/jakarta/hivemind/trunk/examples</url>
+        <connection>svn:http://svn.apache.org/repos/asf/hivemind/hivemind2/trunk/examples</connection>
+        <url>http://svn.apache.org/viewvc/hivemind/hivemind2/trunk/examples</url>
     </scm>
 </project>

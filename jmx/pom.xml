@@ -73,8 +73,8 @@
         </dependency>
     </dependencies>
     <scm>
-        <connection>svn:http://svn.apache.org/repos/asf/jakarta/hivemind/trunk/jmx</connection>
-        <url>http://svn.apache.org/viewvc/jakarta/hivemind/trunk/jmx</url>
+        <connection>svn:http://svn.apache.org/repos/asf/hivemind/hivemind2/trunk/jmx</connection>
+        <url>http://svn.apache.org/viewvc/hivemind/hivemind2/trunk/jmx</url>
     </scm>
     <reporting>
 		<plugins>
