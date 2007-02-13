@@ -280,7 +280,7 @@ end
 
 Find.find(*ARGV) do |f|
   
-  if f =~ /(CVS|SVN|target)$/ 
+  if f =~ /(CVS|SVN|target|pom.xml|site.xml)$/ 
     Find.prune
   else
     $matches += 1 if match?(f)

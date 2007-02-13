@@ -40,6 +40,8 @@ import org.apache.tools.ant.types.Path;
  * These tests are *VERY* dependent on JDK version (really, on the version of the XML parser
  * provided with the JDK). Therefore, we skip the tests for JDK 1.3.
  * 
+ * TODO: Fix the tests which are commented out
+ * 
  * @author Howard Lewis Ship
  */
 public class TestConstructRegistry extends FrameworkTestCase
