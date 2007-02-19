@@ -26,7 +26,7 @@ import org.apache.hivemind.util.IdUtils;
  * 
  * @author Huegen
  */
-public class RegistryImpl implements TypedRegistry
+public class TypedRegistryImpl implements TypedRegistry
 {
     private Module _callingModule;
 
@@ -35,9 +35,10 @@ public class RegistryImpl implements TypedRegistry
     /**
      * @param callingModule  the module that gets access registry access by this instance.
      *                       Used for visibility checks when services and configurations are retrieved.
+     *                       Can be null, in this case only public extension points are visible.
      * @param delegate
      */
-    public RegistryImpl(Module callingModule, RegistryInfrastructure delegate)
+    public TypedRegistryImpl(Module callingModule, RegistryInfrastructure delegate)
     {
         _callingModule = callingModule;
         _delegate = delegate;
@@ -48,13 +49,22 @@ public class RegistryImpl implements TypedRegistry
      */
     public <T> T getConfiguration(String configurationId, Class<T> configurationType)
     {
-        String qualifiedConfigurationId = IdUtils.qualify(
-                _callingModule.getModuleId(),
-                configurationId);
+        String qualifiedConfigurationId = qualifyExtensionPointId(configurationId);
         Object configuration = _delegate.getConfiguration(
                 qualifiedConfigurationId,
                 _callingModule);
         return (T) configuration;
+    }
+
+    private String qualifyExtensionPointId(String extensionPointId)
+    {
+        if (_callingModule == null) {
+            return extensionPointId;
+        } else {
+            return IdUtils.qualify(
+                    _callingModule.getModuleId(),
+                    extensionPointId);
+        }
     }
 
     /**
@@ -71,9 +81,7 @@ public class RegistryImpl implements TypedRegistry
      */
     public <T> T getService(String serviceId, Class<T> serviceInterface)
     {
-        String qualifiedServiceId = IdUtils.qualify(
-                _callingModule.getModuleId(),
-                serviceId);
+        String qualifiedServiceId = qualifyExtensionPointId(serviceId);
         Object service = _delegate.getService(qualifiedServiceId, serviceInterface, _callingModule);
         return (T) service;
     }
@@ -93,6 +101,15 @@ public class RegistryImpl implements TypedRegistry
     public Autowiring getAutowiring()
     {
         return getService(Autowiring.class);
+    }
+
+    /**
+     * @see org.apache.hivemind.annotations.TypedRegistry#shutdown()
+     */
+    public void shutdown()
+    {
+        _delegate.shutdown();
+        
     }
 
 }

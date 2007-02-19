@@ -29,14 +29,14 @@ import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
  * 
  * @author Achim Huegen
  */
-public class FactoryMethodImplementationConstructor extends AbstractServiceImplementationConstructor implements
+public class MethodCallImplementationConstructor extends AbstractServiceImplementationConstructor implements
         ImplementationConstructor
 {
     private Method _factoryMethod;
 
     private ModuleInstanceProvider _moduleInstanceProvider;
 
-    public FactoryMethodImplementationConstructor(Location location, Method factoryMethod,
+    public MethodCallImplementationConstructor(Location location, Method factoryMethod,
             ModuleInstanceProvider moduleInstanceProvider)
     {
         super(location);

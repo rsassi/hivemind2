@@ -14,9 +14,6 @@
 
 package org.apache.hivemind.annotations;
 
-import org.apache.hivemind.Registry;
-import org.apache.hivemind.annotations.AnnotatedModuleReader;
-import org.apache.hivemind.annotations.AnnotatedRegistryBuilder;
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
 import org.apache.hivemind.impl.DefaultErrorHandler;
@@ -24,13 +21,13 @@ import org.apache.hivemind.test.HiveMindTestCase;
 
 public class AnnotationTestCase extends HiveMindTestCase
 {
-    protected Registry constructRegistry(String ... moduleClassNames)
+    protected TypedRegistry constructRegistry(String ... moduleClassNames)
     {
         AnnotatedRegistryBuilder builder = new AnnotatedRegistryBuilder();
         return builder.constructRegistry(moduleClassNames);
     }
 
-    protected Registry constructRegistry(Class ... moduleClasses)
+    protected TypedRegistry constructRegistry(Class ... moduleClasses)
     {
         AnnotatedRegistryBuilder builder = new AnnotatedRegistryBuilder();
         return builder.constructRegistry(moduleClasses);

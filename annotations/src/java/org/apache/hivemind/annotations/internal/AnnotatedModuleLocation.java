@@ -21,7 +21,7 @@ import org.apache.hivemind.Resource;
 
 /**
  * Implementation of the {@link org.apache.hivemind.Location} interface.
- * Uses a method name in a class as position.
+ * Uses a method name of a class as position.
  *
  * @author Achim Huegen
  */

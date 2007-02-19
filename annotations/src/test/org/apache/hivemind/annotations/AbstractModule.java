@@ -12,20 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.apache.hivemind.annotations.internal;
+package org.apache.hivemind.annotations;
 
-import org.apache.hivemind.events.RegistryInitializationListener;
+import org.apache.hivemind.annotations.definition.Module;
 
-/**
- * Reponsible for the creation of the single instance of an annotated module class.
- * Provides the module instance with a reference to the {@link org.apache.hivemind.internal.RegistryInfrastructure}.
- * 
- * @author Achim Huegen
- */
-public interface ModuleInstanceProvider extends RegistryInitializationListener
+@Module(id = "AbstractModule")
+public abstract class AbstractModule
 {
-    /**
-     * @return  the module instance
-     */
-    public Object getModuleInstance();
 }

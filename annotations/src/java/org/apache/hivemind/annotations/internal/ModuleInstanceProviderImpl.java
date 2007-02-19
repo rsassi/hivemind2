@@ -21,6 +21,11 @@ import org.apache.hivemind.internal.RegistryInfrastructure;
 import org.apache.hivemind.util.Defense;
 import org.apache.hivemind.util.PropertyUtils;
 
+/**
+ * Implementation of {@link ModuleInstanceProvider}.
+ * 
+ * @author Achim Huegen
+ */
 public class ModuleInstanceProviderImpl implements ModuleInstanceProvider
 {
     private static final String REGISTRY_PROPERTY_NAME = "registry";
@@ -43,7 +48,7 @@ public class ModuleInstanceProviderImpl implements ModuleInstanceProvider
         return _instance;
     }
     
-    public void createModuleInstance(RegistryInfrastructure _registry)
+    private void createModuleInstance(RegistryInfrastructure _registry)
     {
         try
         {
@@ -69,7 +74,7 @@ public class ModuleInstanceProviderImpl implements ModuleInstanceProvider
                 && PropertyUtils.getPropertyType(moduleInstance, REGISTRY_PROPERTY_NAME).equals(TypedRegistry.class)) {
             
             Module callingModule = _registry.getModule(_moduleId);
-            TypedRegistry annotatedRegistry = new RegistryImpl(callingModule, _registry);
+            TypedRegistry annotatedRegistry = new TypedRegistryImpl(callingModule, _registry);
             PropertyUtils.write(moduleInstance, REGISTRY_PROPERTY_NAME, annotatedRegistry);
         }
     }

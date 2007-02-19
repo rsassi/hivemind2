@@ -12,23 +12,36 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.apache.examples.annotations.panorama;
+package org.apache.examples.annotations.calculator;
 
+import org.apache.examples.Calculator;
 import org.apache.hivemind.annotations.AnnotatedRegistryBuilder;
 import org.apache.hivemind.annotations.TypedRegistry;
 
 /**
- * Builds the Registry for Panorama example based on annotations, then exits. 
+ * Builds the Registry for Calculator example based on annotations, then exits. 
  * 
  * @author Achim Huegen
  */
-public class PanoramaMain
+public class CalculatorMain
 {
 
     public static void main(String[] args)
     {
+        double arg0 = Double.parseDouble(args[0]);
+        double arg1 = Double.parseDouble(args[1]);
+
         AnnotatedRegistryBuilder builder = new AnnotatedRegistryBuilder();
-        TypedRegistry registry = builder.constructRegistry(PanoramaModule.class);
+        TypedRegistry registry = builder.constructRegistry(CalculatorModule.class);
+        
+        Calculator calculator = registry.getService(Calculator.class);
+
+        System.out.println("Inputs:   " + arg0 + " and " + arg1);
+        System.out.println("Add:      " + calculator.add(arg0, arg1));
+        System.out.println("Subtract: " + calculator.subtract(arg0, arg1));
+        System.out.println("Multiply: " + calculator.multiply(arg0, arg1));
+        System.out.println("Divide:   " + calculator.divide(arg0, arg1));
+
 
         registry.shutdown();
     }

@@ -27,7 +27,7 @@ import org.apache.hivemind.definition.ContributionContext;
  * 
  * @author Achim Huegen
  */
-public class TemplateMethodContributionConstructor implements
+public class MethodCallContributionConstructor implements
         Contribution
 {
     private Method _templateMethod;
@@ -36,7 +36,7 @@ public class TemplateMethodContributionConstructor implements
 
     private Location _location;
 
-    public TemplateMethodContributionConstructor(Location location, Method factoryMethod,
+    public MethodCallContributionConstructor(Location location, Method factoryMethod,
             ModuleInstanceProvider moduleInstanceProvider)
     {
         _location = location;

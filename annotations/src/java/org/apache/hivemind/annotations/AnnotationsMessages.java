@@ -14,8 +14,12 @@
 
 package org.apache.hivemind.annotations;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+
 import org.apache.hivemind.ClassResolver;
 import org.apache.hivemind.impl.MessageFormatter;
+import org.apache.hivemind.service.MethodSignature;
 
 
 /**
@@ -23,7 +27,7 @@ import org.apache.hivemind.impl.MessageFormatter;
  * 
  * @author Achim Huegen
  */
-class AnnotationsMessages
+public class AnnotationsMessages
 {
     private static final MessageFormatter _formatter = new MessageFormatter(AnnotationsMessages.class,
             "AnnotationsStrings");
@@ -32,4 +36,29 @@ class AnnotationsMessages
     {
         return _formatter.format("unable-to-find-module-class", resolver, moduleClassName);
     }
+    
+    public static String moduleClassHasInvalidModifiers(Class moduleClass, int invalidModifiers)
+    {
+        String modifierStr = Modifier.toString(invalidModifiers);
+        return _formatter.format("module-class-has-invalid-modifiers", moduleClass.getName(), modifierStr);
+    }
+    
+    public static String moduleClassIsPackagePrivate(Class moduleClass)
+    {
+        return _formatter.format("module-class-is-package-private", moduleClass.getName());
+    }
+
+    public static String annotatedMethodHasInvalidModifiers(Method method, String methodType, int invalidModifiers)
+    {
+        MethodSignature methodSig = new MethodSignature(method);
+        String modifierStr = Modifier.toString(invalidModifiers);
+        return _formatter.format("annotated-method-has-invalid-modifiers", methodSig.toString(), methodType, modifierStr);
+    }
+
+    public static String annotatedMethodIsProtectedAndNotAccessible(Method method, String methodType)
+    {
+        MethodSignature methodSig = new MethodSignature(method);
+        return _formatter.format("annotated-method-protected-not-accessible", methodSig.toString());
+    }
+
 }

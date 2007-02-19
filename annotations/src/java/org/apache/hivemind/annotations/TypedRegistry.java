@@ -17,7 +17,7 @@ package org.apache.hivemind.annotations;
 import org.apache.hivemind.service.Autowiring;
 
 /**
- * Specialized interface for the registry access from annotated modules.
+ * Specialized interface for the {@link org.apache.hivemind.Registry} access from annotated modules.
  * Implements typed access to services and configurations by use of Generics. 
  * 
  * @author Achim Huegen
@@ -59,4 +59,9 @@ public interface TypedRegistry
      * Returns a reference to the {@link Autowiring} service.
      */
     public Autowiring getAutowiring();
+    
+    /**
+     * @see org.apache.hivemind.Registry#shutdown()
+     */
+    public void shutdown();
 }

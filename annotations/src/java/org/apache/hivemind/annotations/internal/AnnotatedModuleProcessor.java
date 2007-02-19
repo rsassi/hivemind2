@@ -16,13 +16,16 @@ package org.apache.hivemind.annotations.internal;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.ClassResolver;
 import org.apache.hivemind.ErrorHandler;
 import org.apache.hivemind.Location;
 import org.apache.hivemind.Resource;
+import org.apache.hivemind.annotations.AnnotationsMessages;
 import org.apache.hivemind.annotations.definition.Configuration;
 import org.apache.hivemind.annotations.definition.Module;
 import org.apache.hivemind.annotations.definition.Service;
@@ -45,6 +48,9 @@ import org.apache.hivemind.util.IdUtils;
  * Does the work for {@link org.apache.hivemind.annotations.AnnotatedModuleReader}. Processes an
  * annotated class and registers the defined extension and extension points in a registry
  * definition.
+ * The construction of extension points and extensions bases on reflective method calls
+ * to an instance of the module class. The module instance is created by a 
+ * {@link ModuleInstanceProvider} during registry construction. 
  * 
  * @author Achim Huegen
  */
@@ -75,11 +81,12 @@ public class AnnotatedModuleProcessor
     /**
      * Processes a module. Inspects the class.
      * 
-     * 
      * @param moduleClass
      */
     public void processModule(Class moduleClass, String moduleId)
     {
+        checkModuleClassPrerequisites(moduleClass);
+        
         ModuleDefinitionImpl module = new ModuleDefinitionImpl(moduleId,
                 createModuleLocation(moduleClass), _classResolver, moduleClass.getPackage().getName());
 
@@ -95,15 +102,43 @@ public class AnnotatedModuleProcessor
         _registryDefinition.addModule(module);
 
     }
+    
+    /**
+     * Ensures that a module class fulfills all prerequisites.
+     * 
+     * @param moduleClass
+     */
+    protected void checkModuleClassPrerequisites(Class moduleClass)
+    {
+        // These modifiers are allowed
+        final int validModifiers = Modifier.PUBLIC;
+        
+        int invalidModifiers = moduleClass.getModifiers() & ~validModifiers;
+        if (invalidModifiers > 0) {
+            throw new ApplicationRuntimeException(AnnotationsMessages.moduleClassHasInvalidModifiers(moduleClass, invalidModifiers));
+        }
+        
+        // Check for package-private access
+        if ((moduleClass.getModifiers() & (Modifier.PUBLIC | Modifier.PROTECTED | Modifier.PRIVATE)) == 0) {
+            throw new ApplicationRuntimeException(AnnotationsMessages.moduleClassIsPackagePrivate(moduleClass));
+        }
+    }
 
     private void processModuleMethods(Class moduleClass, ModuleDefinitionImpl module,
             ModuleInstanceProvider instanceProvider)
     {
-        Method[] methods = moduleClass.getMethods();
+        // We need access to protected methods via getDeclaredMethods
+        // That means we must visit all superclasses manually
+        Method[] methods = moduleClass.getDeclaredMethods();
         for (int i = 0; i < methods.length; i++)
         {
             Method method = methods[i];
             processMethod(method, module, instanceProvider);
+            // Process superclass
+            Class superClass = moduleClass.getSuperclass();
+            if (!superClass.equals(Object.class)) {
+                processModuleMethods(superClass, module, instanceProvider);
+            }
         }
     }
 
@@ -155,10 +190,45 @@ public class AnnotatedModuleProcessor
         }
 
     }
+    
+    /**
+     * Ensures that an annotated method has only allowed modifiers.
+     * By default Modifier.PUBLIC and Modifier.PROTECTED are allowed.
+     * @param method  the method
+     * @param allowedModifiers  allowed {@link Modifier modifiers}. 
+     * @param methodType  used in error messages to describe what the method is used for
+     */
+    protected void checkMethodModifiers(Method method, int allowedModifiers, String methodType)
+    {
+        // These modifiers are allowed
+        final int validModifiers = Modifier.PUBLIC | Modifier.PROTECTED | allowedModifiers;
+        
+        int invalidModifiers = method.getModifiers() & ~validModifiers;
+        if (invalidModifiers > 0) {
+            throw new ApplicationRuntimeException(AnnotationsMessages.annotatedMethodHasInvalidModifiers(method, methodType, invalidModifiers));
+        }
+
+        // TODO: Check for package access
+        
+        // Check for setAccessible-Errors when Modifier.PROTECTED is used
+        if (Modifier.isProtected(method.getModifiers())) {
+            // Try to set method accessible
+            try
+            {
+                method.setAccessible(true);
+            }
+            catch (SecurityException e)
+            {
+                throw new ApplicationRuntimeException(AnnotationsMessages.annotatedMethodIsProtectedAndNotAccessible(method, methodType));
+            }
+        }
+    }
 
     private void processAnnotatedServiceMethod(Method method, Service service,
             ModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
     {
+        checkMethodModifiers(method, 0, "service point");
+        
         if (_log.isDebugEnabled())
         {
             _log.debug("Method " + method.getName() + "classified as service point.");
@@ -167,11 +237,15 @@ public class AnnotatedModuleProcessor
         Location location = new AnnotatedModuleLocation(module.getLocation().getResource(), 
                 method.getDeclaringClass(), method);
 
+        Visibility visibility = Visibility.PUBLIC;
+        if (Modifier.isProtected(method.getModifiers())) {
+            visibility = Visibility.PRIVATE;
+        }
         ServicePointDefinitionImpl spd = new ServicePointDefinitionImpl(module, service.id(), location, 
-                Visibility.PUBLIC, method.getReturnType().getName());
+                visibility, method.getReturnType().getName());
         module.addServicePoint(spd);
 
-        ImplementationConstructor constructor = new FactoryMethodImplementationConstructor(location, 
+        ImplementationConstructor constructor = new MethodCallImplementationConstructor(location, 
                 method, instanceProvider);
 
         ImplementationDefinition sid = new ServiceImplementationDefinitionImpl(module, location, 
@@ -183,6 +257,8 @@ public class AnnotatedModuleProcessor
 
     private void processAnnotatedConfigurationMethod(Method method, Configuration configuration, ModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
     {
+        checkMethodModifiers(method, 0, "configuration point");
+
         if (_log.isDebugEnabled())
         {
             _log.debug("Method " + method.getName() + "classified as configuration point.");
@@ -191,12 +267,16 @@ public class AnnotatedModuleProcessor
         Location location = new AnnotatedModuleLocation(module.getLocation().getResource(), 
                 method.getDeclaringClass(), method);
         
+        Visibility visibility = Visibility.PUBLIC;
+        if (Modifier.isProtected(method.getModifiers())) {
+            visibility = Visibility.PRIVATE;
+        }
         ConfigurationPointDefinitionImpl cpd = new ConfigurationPointDefinitionImpl(module, configuration.id(), 
-                location, Visibility.PUBLIC, method.getReturnType().getName(), Occurances.UNBOUNDED);
+                location, visibility, method.getReturnType().getName(), Occurances.UNBOUNDED);
         module.addConfigurationPoint(cpd);
         
         // Add method implementation as initial contribution
-        Contribution contribution = new TemplateMethodContributionConstructor(
+        Contribution contribution = new MethodCallContributionConstructor(
                 location, method, instanceProvider);
         ContributionDefinitionImpl cd = new ContributionDefinitionImpl(module, location, contribution, true);
         cpd.addContribution(cd);
@@ -204,6 +284,8 @@ public class AnnotatedModuleProcessor
 
     private void processAnnotatedContributionMethod(Method method, org.apache.hivemind.annotations.definition.Contribution contribution, ModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
     {
+        checkMethodModifiers(method, 0, "contribution");
+
         if (_log.isDebugEnabled())
         {
             _log.debug("Method " + method.getName() + "classified as contribution.");
@@ -212,7 +294,7 @@ public class AnnotatedModuleProcessor
         Location location = new AnnotatedModuleLocation(module.getLocation().getResource(), 
                 method.getDeclaringClass(), method);
         
-        Contribution constructor = new TemplateMethodContributionConstructor(
+        Contribution constructor = new MethodCallContributionConstructor(
                 location, method, instanceProvider);
 
         ContributionDefinitionImpl cd = new ContributionDefinitionImpl(module, location, constructor, false);
@@ -228,6 +310,8 @@ public class AnnotatedModuleProcessor
      */
     private void processAnnotatedSubmoduleMethod(Method method, Submodule submodule, ModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
     {
+        checkMethodModifiers(method, 0, "submodule");
+
         if (_log.isDebugEnabled())
         {
             _log.debug("Method " + method.getName() + "classified as submodule.");
