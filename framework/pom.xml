@@ -3,7 +3,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.hivemind</groupId>
-    <artifactId>hivemind</artifactId>
+    <artifactId>hivemind-framework</artifactId>
     <packaging>jar</packaging>
     <version>2.0-alpha-1</version>
     <parent>
@@ -23,39 +23,48 @@
             <groupId>jboss</groupId>
             <artifactId>javassist</artifactId>
         </dependency>
-        <dependency>
-            <groupId>oro</groupId>
-            <artifactId>oro</artifactId>
-        </dependency>
-        <!-- PROVIDED -->
+    		<!-- RUNTIME -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
         </dependency>
+        <!-- PROVIDED -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
-            <scope>compile</scope>
+        </dependency>
+        <!-- TEST -->
+        <!-- Actually these dependencies are used for tests only, but the classes
+             resides in the main source trunk, so "provided" is used -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>easymock</groupId>
             <artifactId>easymock</artifactId>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>easymock</groupId>
             <artifactId>easymockclassextension</artifactId>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>compile</scope>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <scope>provided</scope>
         </dependency>
-        <!-- TEST -->
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib-full</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>oro</groupId>
+            <artifactId>oro</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <reporting>

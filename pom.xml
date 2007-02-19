@@ -39,11 +39,30 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.0.3</version>
+            </dependency>
+            <dependency>
+                <groupId>jboss</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.4.ga</version>
+            </dependency>
+        		<!-- PROVIDED -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.3</version>
+                <scope>provided</scope>
+            </dependency>
+        		<!-- RUNTIME -->
+            <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
                 <version>1.2.8</version>
-                <scope>provided</scope>
+                <scope>runtime</scope>
             </dependency>
+        		<!-- TEST -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -63,47 +82,16 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>xerces</groupId>
-                <artifactId>xercesImpl</artifactId>
-                <version>2.6.2</version>
+                <groupId>oro</groupId>
+                <artifactId>oro</artifactId>
+                <version>2.0.8</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>cglib</groupId>
                 <artifactId>cglib-full</artifactId>
                 <version>2.0.1</version>
                 <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>xml-apis</groupId>
-                <artifactId>xml-apis</artifactId>
-                <version>1.3.02</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>1.0.3</version>
-            </dependency>
-            <dependency>
-                <groupId>jboss</groupId>
-                <artifactId>javassist</artifactId>
-                <version>3.0</version>
-            </dependency>
-            <dependency>
-                <groupId>oro</groupId>
-                <artifactId>oro</artifactId>
-                <version>2.0.8</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>servlet-api</artifactId>
-                <version>2.3</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.hivemind</groupId>
-                <artifactId>hivemind</artifactId>
-                <version>2.0-alpha-1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
