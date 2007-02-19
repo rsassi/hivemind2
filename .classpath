@@ -23,7 +23,7 @@
 	<classpathentry kind="var" path="M2_REPO/easymock/easymock/1.1/easymock-1.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/easymock/easymockclassextension/1.1/easymockclassextension-1.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/groovy/groovy-all/1.0-jsr-03/groovy-all-1.0-jsr-03.jar"/>
-	<classpathentry kind="var" path="M2_REPO/jboss/javassist/3.0/javassist-3.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/jboss/javassist/3.4.ga/javassist-3.4.ga.jar"/>
 	<classpathentry kind="var" path="M2_REPO/jboss/jboss-j2ee/3.2.1/jboss-j2ee-3.2.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.8/log4j-1.2.8.jar"/>
