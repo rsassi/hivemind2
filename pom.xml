@@ -28,6 +28,14 @@
             </roles>
             <timezone>-8</timezone>
         </developer>
+        <developer>
+            <id>AH</id>
+            <email>achim.huegen@gmx.de</email>
+            <roles>
+                <role>dev</role>
+            </roles>
+            <timezone>+1</timezone>
+        </developer>
     </developers>
     <licenses>
         <license>
@@ -36,6 +44,46 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    <organization>
+        <name>Apache Software Foundation</name>
+        <url>http://www.apache.org/</url>
+    </organization>
+    <issueManagement>
+        <system>jira</system>
+        <url>http://issues.apache.org/jira/browse/HIVEMIND</url>
+    </issueManagement>
+    <scm>
+        <connection>svn:http://svn.apache.org/repos/asf/hivemind/hivemind2/trunk/</connection>
+        <url>http://svn.apache.org/viewvc/hivemind/hivemind2/trunk/</url>
+    </scm>
+    
+    <mailingLists>
+        <mailingList>
+            <name>HiveMind User List</name>
+            <subscribe>user-subscribe@hivemind.apache.org</subscribe>
+            <unsubscribe>user-unsubscribe@hivemind.apache.org</unsubscribe>
+            <archive>http://mail-archives.apache.org/mod_mbox/hivemind-user/</archive>
+            <otherArchives>
+                <otherArchive>http://www.nabble.com/Hivemind---User-f324.html</otherArchive>
+            </otherArchives>
+        </mailingList>
+        <mailingList>
+            <name>HiveMind Developer List</name>
+            <subscribe>dev-subscribe@hivemind.apache.org</subscribe>
+            <unsubscribe>dev-unsubscribe@hivemind.apache.org</unsubscribe>
+            <archive>http://mail-archives.apache.org/mod_mbox/hivemind-dev/</archive>
+            <otherArchives>
+                <otherArchive>http://www.nabble.com/HiveMind---Dev-f323.html</otherArchive>
+            </otherArchives>
+        </mailingList>
+        <mailingList>
+            <name>HiveMind Commits List</name>
+            <subscribe>commits-subscribe@hivemind.apache.org</subscribe>
+            <unsubscribe>commits-unsubscribe@hivemind.apache.org</unsubscribe>
+            <archive>http://mail-archives.apache.org/mod_mbox/hivemind-commits/</archive>
+        </mailingList>
+    </mailingLists>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -229,25 +277,17 @@
         </plugins>
     </reporting>
     <distributionManagement>
-        <!-- Alas, this doesn't work yet -->
         <site>
-            <id>apache.org</id>
-            <url>ssh://svn.apache.org/hivemind/</url>
+            <id>apache-www</id>
+            <url>scpexe://people.apache.org/www/hivemind.apache.org/hivemind2</url>
         </site>
         <repository>
-            <!-- The "maven" login id, specified in settings.xml, ensures that the Maven
-                repository (i.e. http://howardlewisship.com/repository) is accessed. -->
-            <!-- This is temporary, until HiveMind 1.2 is stable. -->
-            <id>howardlewisship.com</id>
-            <url>ftp://howardlewisship.com/repository</url>
+            <id>apache-repo</id>
+            <url>scpexe://people.apache.org/www/people.apache.org/repo/m2-ibiblio-rsync-repository</url>
         </repository>
+        <snapshotRepository>
+            <id>apache-snapshot-repo</id>
+            <url>scpexe://people.apache.org/www/people.apache.org/repo/m2-snapshot-repository</url>
+        </snapshotRepository>
     </distributionManagement>
-    <organization>
-        <name>Apache Software Foundation</name>
-        <url>http://www.apache.org/</url>
-    </organization>
-    <scm>
-        <connection>svn:http://svn.apache.org/repos/asf/hivemind/hivemind2/trunk/</connection>
-        <url>http://svn.apache.org/viewvc/hivemind/hivemind2/trunk/</url>
-    </scm>
 </project>

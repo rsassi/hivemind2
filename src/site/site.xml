@@ -20,21 +20,27 @@
     
     <body>
  	    <links>
-            <item name="HiveMind 2 Project" href="/index.html"/>
-		    <item name="Framework" href="/framework" />
-		    <item name="XML" href="/xml" />
-		    <item name="Library" href="/library" />
-		    <item name="JMX" href="/jmx" />
-		    <item name="annotations" href="/annotations" />
-        </links>
-        <head>
-        </head>
+        <item name="HiveMind 2 Project" href="/index.html"/>
+		    <item name="Framework" href="/hivemind-framework" />
+		    <item name="XML" href="/hivemind-xml" />
+		    <item name="Annotations" href="/hivemind-annotations" />
+		    <item name="Library" href="/hivemind-library" />
+		    <item name="JMX" href="/hivemind-jmx" />
+      </links>
+	    <head>
+	    </head>
         <menu name="Quick Links" inherit="top">
             <item name="Project Home" href="/index.html"/>
             <item name="Download" href="http://hivemind.apache.org/download.html"/>
             <item name="Wiki" href="http://cwiki.apache.org/HIVEMIND2/"/> 
         </menu>
-        ${modules}
+        <menu name="Module">
+			    <item name="Framework" href="/hivemind-framework" />
+			    <item name="XML" href="/hivemind-xml" />
+			    <item name="Annotations" href="/hivemind-annotations" />
+			    <item name="Library" href="/hivemind-library" />
+			    <item name="JMX" href="/hivemind-jmx" />
+        </menu>
         ${reports} 
     </body>
 </project>

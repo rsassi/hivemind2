@@ -45,6 +45,22 @@
             <artifactId>easymock</artifactId>
         </dependency>
     </dependencies>
+    <reporting>
+			<plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-project-info-reports-plugin</artifactId>
+              <reportSets>
+                 <reportSet>
+                    <reports>
+                       <report>dependencies</report>
+                       <report>scm</report>
+                    </reports>
+                 </reportSet>
+              </reportSets>
+           </plugin>
+      	</plugins>
+    </reporting>
     <scm>
         <connection>svn:http://svn.apache.org/repos/asf/hivemind/hivemind2/trunk/examples</connection>
         <url>http://svn.apache.org/viewvc/hivemind/hivemind2/trunk/examples</url>
