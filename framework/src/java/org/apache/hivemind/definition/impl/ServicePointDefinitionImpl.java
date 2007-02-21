@@ -23,12 +23,17 @@ import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Location;
 import org.apache.hivemind.definition.DefinitionMessages;
 import org.apache.hivemind.definition.ExtensionDefinition;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.InterceptorDefinition;
+import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.definition.Visibility;
 
+/**
+ * Default implementation of {@link ServicePointDefinition}.
+ * 
+ * @author Achim Huegen
+ */
 public class ServicePointDefinitionImpl extends ExtensionPointDefinitionImpl implements ServicePointDefinition
 {
     private String _interfaceClassName;
@@ -57,7 +62,10 @@ public class ServicePointDefinitionImpl extends ExtensionPointDefinitionImpl imp
     }
 
     /**
-     * @see org.apache.hivemind.definition.ServicePointDefinition#setInterfaceClassName(java.lang.String)
+     * Sets the class name of the service interface.
+     * 
+     * @param interfaceClassName the fully qualified class name of the service interface. 
+     *          This may be the name of a ordinary class or an interface.
      */
     public void setInterfaceClassName(String interfaceClassName)
     {

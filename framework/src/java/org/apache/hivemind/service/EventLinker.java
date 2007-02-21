@@ -37,8 +37,6 @@ public interface EventLinker
      *            the object which will be added as a listener.
      * @param location
      *            used when reporting errors, may be null
-     * @return true on success, false if there was any failure (which may mean only partial
-     *         registration).
      */
     public void addEventListener(Object producer, String eventSetName, Object consumer,
             Location location);

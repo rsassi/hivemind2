@@ -16,8 +16,8 @@ package org.apache.hivemind;
 
 import hivemind.test.FrameworkTestCase;
 
-import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.internal.ServiceModel;
 

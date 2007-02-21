@@ -19,6 +19,11 @@ import org.apache.hivemind.definition.ConfigurationParserConstructor;
 import org.apache.hivemind.definition.ConfigurationParserDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
 
+/**
+ * Default implementation of {@link ConfigurationParserDefinition}.
+ * 
+ * @author Achim Huegen
+ */
 public class ConfigurationParserDefinitionImpl extends ExtensionDefinitionImpl implements ConfigurationParserDefinition
 {
     private String _inputFormat;

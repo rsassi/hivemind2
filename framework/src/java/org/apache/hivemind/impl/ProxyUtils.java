@@ -179,7 +179,7 @@ public final class ProxyUtils
 
     /**
      * We construct a method that always goes through this service model's
-     * {@link #getServiceImplementationForCurrentThread())} method.
+     * {@link #getServiceImplementationForCurrentThread()} method.
      */
     private static void addServiceAccessor(ClassFab classFab, String serviceModelMethodName,
             ServicePoint servicePoint)

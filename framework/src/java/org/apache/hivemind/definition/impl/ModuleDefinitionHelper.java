@@ -12,13 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.apache.hivemind.definition;
+package org.apache.hivemind.definition.impl;
 
-import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
-import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
-import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
+import org.apache.hivemind.definition.ConfigurationPointDefinition;
+import org.apache.hivemind.definition.Contribution;
+import org.apache.hivemind.definition.ContributionDefinition;
+import org.apache.hivemind.definition.ImplementationConstructor;
+import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.ModuleDefinition;
+import org.apache.hivemind.definition.Occurances;
+import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.Visibility;
 import org.apache.hivemind.impl.CreateClassServiceConstructor;
 import org.apache.hivemind.internal.ServiceModel;
 
@@ -62,7 +66,7 @@ public class ModuleDefinitionHelper
             )
     {
         // These implementations override the inline implementations, so default is true here
-        ImplementationDefinition result = new ServiceImplementationDefinitionImpl(_module, _module
+        ImplementationDefinition result = new ImplementationDefinitionImpl(_module, _module
                 .getLocation(), constructor, serviceModel, true);
         servicePoint.addImplementation(result);
         return result;

@@ -465,7 +465,7 @@ public abstract class HiveMindTestCase extends TestCase
      * Accesses the control for a previously created mock object. Iterates over the list of managed
      * controls until one is found whose mock object identity equals the mock object provided.
      * 
-     * @param Mock
+     * @param mock
      *            object whose control is needed
      * @return the corresponding MockControl if found
      * @throws IllegalArgumentException

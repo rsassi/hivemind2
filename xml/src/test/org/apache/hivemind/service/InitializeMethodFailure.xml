@@ -18,7 +18,7 @@
 <module id="hivemind.test.services" version="1.0.0">
     <service-point id="Runnable" interface="java.lang.Runnable">
         <invoke-factory>
-            <construct class="hivemind.test.services.impl.MockRunnable" initialize-method="doesNotExist"/>
+            <construct class="org.apache.hivemind.service.impl.MockRunnable" initialize-method="doesNotExist"/>
         </invoke-factory>
     </service-point>
 </module>

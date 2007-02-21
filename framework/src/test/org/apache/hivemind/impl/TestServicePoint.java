@@ -25,7 +25,7 @@ import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.Location;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.Visibility;
-import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
+import org.apache.hivemind.definition.impl.ImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.internal.Module;
 import org.apache.hivemind.internal.ServiceModel;
@@ -87,7 +87,7 @@ public class TestServicePoint extends FrameworkTestCase
 
         ModuleDefinition moduleDef = createModuleDefinition("foo");
         ServicePointDefinitionImpl definition = new ServicePointDefinitionImpl(moduleDef, "bar", l, Visibility.PUBLIC, "java.util.List");
-        definition.addImplementation(new ServiceImplementationDefinitionImpl(moduleDef, l, null, "fred", true));
+        definition.addImplementation(new ImplementationDefinitionImpl(moduleDef, l, null, "fred", true));
         ServicePointImpl sp = new ServicePointImpl(module, definition);
 
         Object service = new ArrayList();

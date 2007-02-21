@@ -16,28 +16,33 @@ package org.apache.hivemind.definition.impl;
 
 import org.apache.hivemind.Location;
 import org.apache.hivemind.definition.ImplementationConstructor;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ImplementationDefinition;
+import org.apache.hivemind.definition.ModuleDefinition;
 
-public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl implements
+/**
+ * Default implementation of {@link ImplementationDefinition}.
+ * 
+ * @author Achim Huegen
+ */
+public class ImplementationDefinitionImpl extends ExtensionDefinitionImpl implements
         ImplementationDefinition
 {
     private String _serviceModel;
 
-    private ImplementationConstructor _serviceConstructor;
+    private ImplementationConstructor _implementationConstructor;
 
     private boolean _isDefault;
 
-    public ServiceImplementationDefinitionImpl(ModuleDefinition module)
+    public ImplementationDefinitionImpl(ModuleDefinition module)
     {
         super(module);
     }
 
-    public ServiceImplementationDefinitionImpl(ModuleDefinition module, Location location,
-            ImplementationConstructor serviceConstructor, String serviceModel, boolean isDefault)
+    public ImplementationDefinitionImpl(ModuleDefinition module, Location location,
+            ImplementationConstructor implementationConstructor, String serviceModel, boolean isDefault)
     {
         super(module, location);
-        _serviceConstructor = serviceConstructor;
+        _implementationConstructor = implementationConstructor;
         _serviceModel = serviceModel;
         _isDefault = isDefault;
     }
@@ -51,11 +56,11 @@ public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl
     }
 
     /**
-     * @see org.apache.hivemind.definition.ImplementationDefinition#setServiceModel(java.lang.String)
+     * Sets the service model of the implementation.
      */
-    public void setServiceModel(String interfaceClassName)
+    public void setServiceModel(String serviceModel)
     {
-        _serviceModel = interfaceClassName;
+        _serviceModel = serviceModel;
     }
 
     /**
@@ -67,7 +72,8 @@ public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl
     }
 
     /**
-     * @see org.apache.hivemind.definition.ImplementationDefinition#setDefault(boolean)
+     * Sets the default attribute of the implementation.
+     * @param isDefault   true, if this implementation is the default one
      */
     public void setDefault(boolean isDefault)
     {
@@ -79,15 +85,16 @@ public class ServiceImplementationDefinitionImpl extends ExtensionDefinitionImpl
      */
     public ImplementationConstructor getServiceConstructor()
     {
-        return _serviceConstructor;
+        return _implementationConstructor;
     }
 
     /**
-     * @see org.apache.hivemind.definition.ImplementationDefinition#setServiceConstructor(org.apache.hivemind.definition.ImplementationConstructor)
+     * Sets the constructor implementation that is used for the creation of
+     * the implementation instance.
      */
-    public void setServiceConstructor(ImplementationConstructor serviceConstructor)
+    public void setImplementationConstructor(ImplementationConstructor serviceConstructor)
     {
-        _serviceConstructor = serviceConstructor;
+        _implementationConstructor = serviceConstructor;
     }
 
 }

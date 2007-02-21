@@ -16,10 +16,10 @@
 -->
 
 <module id="hivemind.test.services" version="1.0.0">
-    <service-point id="SetClassResolver" interface="hivemind.test.services.ClassResolverHolder">
+    <service-point id="SetClassResolver" interface="org.apache.hivemind.service.ClassResolverHolder">
         <invoke-factory>
             <construct
-                class="hivemind.test.services.impl.ClassResolverHolderImpl" class-resolver-property="classResolver"/>
+                class="org.apache.hivemind.service.impl.ClassResolverHolderImpl" class-resolver-property="classResolver"/>
         </invoke-factory>
     </service-point>
 </module>

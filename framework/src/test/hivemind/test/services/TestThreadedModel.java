@@ -20,8 +20,8 @@ import hivemind.test.services.impl.RegistryShutdownStringHolderImpl;
 
 import org.apache.hivemind.HiveMind;
 import org.apache.hivemind.Registry;
-import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.internal.ServiceModel;
 import org.apache.hivemind.service.ThreadEventNotifier;

@@ -26,7 +26,7 @@ import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
+import org.apache.hivemind.definition.impl.ImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.impl.InterceptorStackImpl;
 import org.apache.hivemind.internal.ServiceModel;
@@ -131,7 +131,7 @@ public class TestLoggingInterceptorFactory extends FrameworkTestCase
         definition.addModule(module);
         
         ServicePointDefinitionImpl sp1 = createServicePointDefinition(module, "BeanInterface", BeanInterface.class);
-        ImplementationDefinition impl = new ServiceImplementationDefinitionImpl(module, newLocation(),
+        ImplementationDefinition impl = new ImplementationDefinitionImpl(module, newLocation(),
                 constructor, ServiceModel.SINGLETON, true);
         sp1.addImplementation(impl);
         module.addServicePoint(sp1);

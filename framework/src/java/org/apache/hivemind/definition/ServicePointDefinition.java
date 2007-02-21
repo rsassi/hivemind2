@@ -16,6 +16,8 @@ package org.apache.hivemind.definition;
 
 import java.util.Collection;
 
+import org.apache.hivemind.ApplicationRuntimeException;
+
 /**
  * Defines a service extension point.
  * The definition includes the service interface, implementations and interceptors.
@@ -39,6 +41,8 @@ public interface ServicePointDefinition extends ExtensionPointDefinition
     /**
      * Adds an implementation definition to the service point.
      * @param implementation  the implementation
+     * @throws ApplicationRuntimeException  if this point is not visible from the module
+     *    that defines the implementation
      */
     public void addImplementation(ImplementationDefinition implementation);
 
@@ -55,6 +59,8 @@ public interface ServicePointDefinition extends ExtensionPointDefinition
     /**
      * Adds an interceptor definition to the service point.
      * @param interceptor  the interceptor
+     * @throws ApplicationRuntimeException  if this point is not visible from the module 
+     *   that defines the interceptor.
      */
     public void addInterceptor(InterceptorDefinition interceptor);
 

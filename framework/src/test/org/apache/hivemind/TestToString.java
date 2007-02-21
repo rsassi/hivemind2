@@ -22,7 +22,7 @@ import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.Visibility;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
+import org.apache.hivemind.definition.impl.ImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.impl.InterceptorStackImpl;
 import org.apache.hivemind.impl.ModuleImpl;
@@ -56,7 +56,7 @@ public class TestToString extends FrameworkTestCase
         ModuleDefinition md = new ModuleDefinitionImpl("module", null, null, null);
         ServicePointDefinitionImpl spd = new ServicePointDefinitionImpl(md, "service", null,
                 Visibility.PUBLIC, Runnable.class.getName());
-        ImplementationDefinition sid = new ServiceImplementationDefinitionImpl(md, 
+        ImplementationDefinition sid = new ImplementationDefinitionImpl(md, 
                 null, null, ServiceModel.PRIMITIVE, true);
         spd.addImplementation(sid);
         new ServicePointImpl(module, spd).toString();

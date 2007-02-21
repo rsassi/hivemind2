@@ -22,7 +22,7 @@ import org.apache.hivemind.internal.ServiceModel;
 import org.apache.hivemind.service.ThreadEventNotifier;
 
 /**
- * Tests {@link org.apache.hivemind.impl.PooledServiceModel}. 
+ * Tests {@link org.apache.hivemind.impl.servicemodel.PooledServiceModel}. 
  *
  * @author Howard Lewis Ship
  */

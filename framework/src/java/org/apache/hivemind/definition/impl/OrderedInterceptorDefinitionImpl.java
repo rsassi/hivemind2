@@ -23,16 +23,15 @@ import org.apache.hivemind.definition.InterceptorConstructor;
 import org.apache.hivemind.definition.ModuleDefinition;
 
 /**
- * Specialization of {@link ServiceInterceptorDefinitionImpl} that implements the {@link Orderable}
+ * Specialization of {@link InterceptorDefinitionImpl} that implements the {@link Orderable}
  * interface.
  */
-public class OrderedServiceInterceptorDefinitionImpl extends ServiceInterceptorDefinitionImpl implements Orderable
+public class OrderedInterceptorDefinitionImpl extends InterceptorDefinitionImpl implements Orderable
 {
-
     private String _precedingInterceptorIds;
     private String _followingInterceptorIds;
 
-    public OrderedServiceInterceptorDefinitionImpl(ModuleDefinition module, String name, Location location, InterceptorConstructor interceptorConstructor,
+    public OrderedInterceptorDefinitionImpl(ModuleDefinition module, String name, Location location, InterceptorConstructor interceptorConstructor,
             String precedingInterceptorIds, String followingInterceptorIds)
     {
         super(module, name, location, interceptorConstructor);

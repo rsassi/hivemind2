@@ -31,6 +31,11 @@ import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.Occurances;
 import org.apache.hivemind.definition.Visibility;
 
+/**
+ * Default implementation of {@link ConfigurationPointDefinition}.
+ * 
+ * @author Achim Huegen
+ */
 public class ConfigurationPointDefinitionImpl extends ExtensionPointDefinitionImpl implements ConfigurationPointDefinition
 {
     private String _containerClassName;
@@ -79,7 +84,7 @@ public class ConfigurationPointDefinitionImpl extends ExtensionPointDefinitionIm
     }
 
     /**
-     * @see org.apache.hivemind.definition.ConfigurationPointDefinition#setExpectedContributions(org.apache.hivemind.definition.Occurances)
+     * Sets the expected number of contributions to the configuration.
      */
     public void setExpectedContributions(Occurances expectedContributions)
     {

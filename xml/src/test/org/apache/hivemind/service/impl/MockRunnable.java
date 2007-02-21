@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package hivemind.test.services.impl;
+package org.apache.hivemind.service.impl;
 
 /**
- * Used by {@link hivemind.test.services.TestBuilderFactory}.
+ * Used by {@link org.apache.hivemind.service.TestBuilderFactory}.
  *
  * @author Howard Lewis Ship
  */

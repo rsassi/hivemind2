@@ -34,8 +34,8 @@ import org.apache.hivemind.definition.impl.ConfigurationParserDefinitionImpl;
 import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
 import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServiceInterceptorDefinitionImpl;
+import org.apache.hivemind.definition.impl.ImplementationDefinitionImpl;
+import org.apache.hivemind.definition.impl.InterceptorDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.parse.ConfigurationPointDescriptor;
 import org.apache.hivemind.parse.ContributionDescriptor;
@@ -226,7 +226,7 @@ public class XmlModuleDescriptorProcessor
         List interceptors = id.getInterceptors();
 
         if (builder != null) {
-            ServiceImplementationDefinitionImpl implementation = new ServiceImplementationDefinitionImpl(
+            ImplementationDefinitionImpl implementation = new ImplementationDefinitionImpl(
                     sourceModule, builder.getLocation(), builder.createConstructor(sourceModule.getId()),
                     builder.getServiceModel(), false);
             sourceModule.addImplementation(qualifiedPointId, implementation); 
@@ -256,7 +256,7 @@ public class XmlModuleDescriptorProcessor
             return;
 
         if (builder != null) {
-            ImplementationDefinition implementation = new ServiceImplementationDefinitionImpl(
+            ImplementationDefinition implementation = new ImplementationDefinitionImpl(
                     module, builder.getLocation(), builder.createConstructor(module.getId()),
                     builder.getServiceModel(), false);
             point.addImplementation(implementation);
@@ -357,7 +357,7 @@ public class XmlModuleDescriptorProcessor
         constructor.setParameters(id.getParameters());
         constructor.setPrecedingInterceptorIds(id.getAfter());
         constructor.setFollowingInterceptorIds(id.getBefore());
-        ServiceInterceptorDefinitionImpl interceptor = new ServiceInterceptorDefinitionImpl(
+        InterceptorDefinitionImpl interceptor = new InterceptorDefinitionImpl(
                 module, id.getName(), id.getLocation(), constructor);
         module.addInterceptor(qualifiedPointId, interceptor);
     }

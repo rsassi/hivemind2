@@ -19,9 +19,14 @@ import org.apache.hivemind.definition.Contribution;
 import org.apache.hivemind.definition.ContributionDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
 
+/**
+ * Default implementation of {@link ContributionDefinition}.
+ * 
+ * @author Achim Huegen
+ */
 public class ContributionDefinitionImpl extends ExtensionDefinitionImpl implements ContributionDefinition
 {
-    private Contribution _contributionConstructor;
+    private Contribution _contribution;
     private boolean _initial;
 
     public ContributionDefinitionImpl(ModuleDefinition module)
@@ -30,10 +35,10 @@ public class ContributionDefinitionImpl extends ExtensionDefinitionImpl implemen
     }
 
     public ContributionDefinitionImpl(ModuleDefinition module, Location location,
-            Contribution contributionConstructor, boolean initial)
+            Contribution contribution, boolean initial)
     {
         super(module, location);
-        _contributionConstructor = contributionConstructor;
+        _contribution = contribution;
         _initial = initial;
     }
 
@@ -42,15 +47,15 @@ public class ContributionDefinitionImpl extends ExtensionDefinitionImpl implemen
      */
     public Contribution getContribution()
     {
-        return _contributionConstructor;
+        return _contribution;
     }
 
     /**
-     * @see org.apache.hivemind.definition.ContributionDefinition#setContributionConstructor(org.apache.hivemind.definition.Contribution)
+     * Sets the contribution implementation.
      */
-    public void setContributionConstructor(Contribution contributionConstructor)
+    public void setContribution(Contribution contribution)
     {
-        _contributionConstructor = contributionConstructor;
+        _contribution = contribution;
     }
 
     /**

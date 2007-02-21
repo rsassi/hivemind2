@@ -72,6 +72,6 @@ public class HiveMindClassPool extends ClassPool
      */
     public Class toClass(CtClass ctClass) throws CannotCompileException
     {
-        return ctClass.toClass(_loader);
+        return ctClass.toClass(_loader, this.getClass().getProtectionDomain());
     }
 }

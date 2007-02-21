@@ -39,7 +39,7 @@ import org.apache.hivemind.definition.Visibility;
 import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
 import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
+import org.apache.hivemind.definition.impl.ImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.util.ClasspathResource;
 import org.apache.hivemind.util.IdUtils;
@@ -248,7 +248,7 @@ public class AnnotatedModuleProcessor
         ImplementationConstructor constructor = new MethodCallImplementationConstructor(location, 
                 method, instanceProvider);
 
-        ImplementationDefinition sid = new ServiceImplementationDefinitionImpl(module, location, 
+        ImplementationDefinition sid = new ImplementationDefinitionImpl(module, location, 
                 constructor, service.serviceModel(), true);
 
         spd.addImplementation(sid);

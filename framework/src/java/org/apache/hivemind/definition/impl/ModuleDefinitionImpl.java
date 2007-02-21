@@ -27,12 +27,18 @@ import org.apache.hivemind.definition.ConfigurationParserDefinition;
 import org.apache.hivemind.definition.ConfigurationPointDefinition;
 import org.apache.hivemind.definition.ContributionDefinition;
 import org.apache.hivemind.definition.DefinitionMessages;
+import org.apache.hivemind.definition.ExtensionDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.definition.UnresolvedExtension;
 
+/**
+ * Default implementation of {@link ExtensionDefinition}.
+ * 
+ * @author Achim Huegen
+ */
 public class ModuleDefinitionImpl implements ModuleDefinition
 {
     private String _id;
@@ -62,8 +68,8 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
 
     /**
-     * @param id
-     * @param location
+     * @param id  the id of the module 
+     * @param location  the location of the module 
      * @param resolver the {@link ClassResolver} used to resolve all classes referenced from 
      *          elements inside this module.
      * @param packageName  name of the package to search for class names within. If null, it defaults to the id 
@@ -104,7 +110,7 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#setLocation(org.apache.hivemind.Location)
+     * Sets the location of the module.
      */
     public void setLocation(Location location)
     {
@@ -120,7 +126,7 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#setId(java.lang.String)
+     * Sets the id of the module.
      */
     public void setId(String moduleId)
     {
@@ -136,7 +142,7 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ModuleDefinition#setPackageName(java.lang.String)
+     * Sets the package name of the module.
      */
     public void setPackageName(String packageName)
     {

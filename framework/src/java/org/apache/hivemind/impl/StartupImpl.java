@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Startup service for the HiveMind Registry. This service is invoked as the
  * {@link org.apache.hivemind.internal.RegistryInfrastructure#startup() last step} of the
- * {@link org.apache.hivemind.impl.RegistryBuilder#constructRegistry(Locale) registry construction}.
+ * {@link org.apache.hivemind.impl.RegistryBuilder#constructRegistry(java.util.Locale) registry construction}.
  * All contributions (java.lang.Runnable objects) to the <code>hivemind.Startup</code>
  * configuration point are executed serially in an arbitrary order. Note that the contributions are
  * <em>not</em> executed in separate Threads.

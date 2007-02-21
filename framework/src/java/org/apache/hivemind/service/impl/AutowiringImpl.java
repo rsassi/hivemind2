@@ -64,8 +64,9 @@ public class AutowiringImpl implements Autowiring
     }
     
     /**
-     * @param context
+     * @param registry  reference to registry 
      * @param strategyContributions  list with instances of {@link AutowiringStrategyContribution}
+     * @param errorHandler  handler for dealing with recoverable errors.
      */
     public AutowiringImpl(RegistryInfrastructure registry, List strategyContributions, ErrorHandler errorHandler)
     {

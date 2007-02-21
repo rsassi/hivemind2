@@ -12,14 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package hivemind.test.services.impl;
+package org.apache.hivemind.service.impl;
 
-import hivemind.test.services.ClassResolverHolder;
 
 import org.apache.hivemind.ClassResolver;
+import org.apache.hivemind.service.ClassResolverHolder;
+import org.apache.hivemind.service.TestBuilderFactory;
 
 /**
- * Used with {@link hivemind.test.services.TestBuilderFactory}.
+ * Used with {@link org.apache.hivemind.service.TestBuilderFactory}.
  *
  * @author Howard Lewis Ship
  */

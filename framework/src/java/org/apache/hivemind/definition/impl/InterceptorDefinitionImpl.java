@@ -16,24 +16,27 @@ package org.apache.hivemind.definition.impl;
 
 import org.apache.hivemind.Location;
 import org.apache.hivemind.definition.InterceptorConstructor;
-import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.InterceptorDefinition;
+import org.apache.hivemind.definition.ModuleDefinition;
 
 /**
+ * Default implementation of {@link InterceptorDefinition}.
  * Implementations of this interface may additionally implement the {@link org.apache.hivemind.Orderable}
  * interface if a certain interceptor order is required.
+ * 
+ * @author Achim Huegen
  */
-public class ServiceInterceptorDefinitionImpl extends ExtensionDefinitionImpl implements InterceptorDefinition
+public class InterceptorDefinitionImpl extends ExtensionDefinitionImpl implements InterceptorDefinition
 {
     private InterceptorConstructor _interceptorConstructor;
     private String _name;
 
-    public ServiceInterceptorDefinitionImpl(ModuleDefinition module)
+    public InterceptorDefinitionImpl(ModuleDefinition module)
     {
         super(module);
     }
 
-    public ServiceInterceptorDefinitionImpl(ModuleDefinition module, String name, Location location,
+    public InterceptorDefinitionImpl(ModuleDefinition module, String name, Location location,
             InterceptorConstructor interceptorConstructor)
     {
         super(module, location);
@@ -50,11 +53,11 @@ public class ServiceInterceptorDefinitionImpl extends ExtensionDefinitionImpl im
     }
 
     /**
-     * @see org.apache.hivemind.definition.InterceptorDefinition#setInterceptorConstructor(org.apache.hivemind.definition.InterceptorConstructor)
+     * Sets the constructor implementation responsible for the creation of interceptor instances.
      */
-    public void setInterceptorConstructor(InterceptorConstructor serviceConstructor)
+    public void setInterceptorConstructor(InterceptorConstructor interceptorConstructor)
     {
-        _interceptorConstructor = serviceConstructor;
+        _interceptorConstructor = interceptorConstructor;
     }
 
     /**
@@ -66,7 +69,7 @@ public class ServiceInterceptorDefinitionImpl extends ExtensionDefinitionImpl im
     }
 
     /**
-     * @see org.apache.hivemind.definition.InterceptorDefinition#setName(java.lang.String)
+     * Sets the name of the interceptor.
      */
     public void setName(String name)
     {

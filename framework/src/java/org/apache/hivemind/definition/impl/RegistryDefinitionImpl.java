@@ -34,11 +34,7 @@ import org.apache.hivemind.events.RegistryInitializationListener;
 import org.apache.hivemind.util.IdUtils;
 
 /**
- * Implementation of {@link RegistryDefinition}.
- * 
- * The order of additions of 
- * registry parts is arbitrary. For example there is no guarantee that a configuration
- * point is added before a corresponding contribution is added. 
+ * Default implementation of {@link RegistryDefinition}.
  * 
  * @author Achim Huegen
  */

@@ -25,7 +25,7 @@ import org.apache.hivemind.service.MethodSignature;
 
 /**
  * Implementation of {@link org.apache.hivemind.service.MethodFab}, which is returned from
- * {@link org.apache.hivemind.service.ClassFab#addMethod(int, String, Class, Class[], Class[], String)},
+ * {@link org.apache.hivemind.service.ClassFab#addMethod(int, MethodSignature, String)},
  * so that additional exception handlers may be attached to the added method.
  * 
  * @author Howard Lewis Ship

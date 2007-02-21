@@ -74,7 +74,6 @@ framework/src/java/org/apache/hivemind/definition/ImplementationDefinition.java 
 framework/src/java/org/apache/hivemind/definition/InterceptorConstructor.java -text
 framework/src/java/org/apache/hivemind/definition/InterceptorDefinition.java -text
 framework/src/java/org/apache/hivemind/definition/ModuleDefinition.java -text
-framework/src/java/org/apache/hivemind/definition/ModuleDefinitionHelper.java -text
 framework/src/java/org/apache/hivemind/definition/RegistryDefinition.java -text
 framework/src/java/org/apache/hivemind/definition/RegistryDefinitionPostProcessor.java -text
 framework/src/java/org/apache/hivemind/definition/ServicePointDefinition.java -text
@@ -84,12 +83,14 @@ framework/src/java/org/apache/hivemind/definition/impl/ConfigurationPointDefinit
 framework/src/java/org/apache/hivemind/definition/impl/ContributionDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/ExtensionDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/ExtensionPointDefinitionImpl.java -text
+framework/src/java/org/apache/hivemind/definition/impl/ImplementationDefinitionImpl.java -text
+framework/src/java/org/apache/hivemind/definition/impl/InterceptorDefinitionImpl.java -text
+framework/src/java/org/apache/hivemind/definition/impl/ModuleDefinitionHelper.java -text
 framework/src/java/org/apache/hivemind/definition/impl/ModuleDefinitionImpl.java -text
-framework/src/java/org/apache/hivemind/definition/impl/OrderedServiceInterceptorDefinitionImpl.java -text
+framework/src/java/org/apache/hivemind/definition/impl/OrderedInterceptorDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/RegistryDefinitionImpl.java -text
-framework/src/java/org/apache/hivemind/definition/impl/ServiceImplementationDefinitionImpl.java -text
-framework/src/java/org/apache/hivemind/definition/impl/ServiceInterceptorDefinitionImpl.java -text
 framework/src/java/org/apache/hivemind/definition/impl/ServicePointDefinitionImpl.java -text
+framework/src/java/org/apache/hivemind/definition/impl/package.html -text
 framework/src/java/org/apache/hivemind/definition/package.html -text
 framework/src/java/org/apache/hivemind/events/RegistryInitializationListener.java -text
 framework/src/java/org/apache/hivemind/impl/CoreServicesProvider.java -text

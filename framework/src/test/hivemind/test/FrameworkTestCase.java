@@ -25,7 +25,7 @@ import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.Visibility;
 import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServiceImplementationDefinitionImpl;
+import org.apache.hivemind.definition.impl.ImplementationDefinitionImpl;
 import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.impl.CreateClassServiceConstructor;
 import org.apache.hivemind.impl.DefaultClassResolver;
@@ -87,7 +87,7 @@ public abstract class FrameworkTestCase extends HiveMindTestCase
      */
     protected ImplementationDefinition createServiceImplementationDefinition(ModuleDefinition module, Class serviceImplementationClass)
     {
-        ImplementationDefinition result = new ServiceImplementationDefinitionImpl(module, newLocation(),
+        ImplementationDefinition result = new ImplementationDefinitionImpl(module, newLocation(),
                 new CreateClassServiceConstructor(newLocation(), serviceImplementationClass.getName()), 
                 "singleton", true);
 

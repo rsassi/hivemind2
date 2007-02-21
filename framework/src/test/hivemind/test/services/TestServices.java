@@ -35,11 +35,11 @@ import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.InterceptorConstructor;
 import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
-import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
-import org.apache.hivemind.definition.impl.OrderedServiceInterceptorDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServiceInterceptorDefinitionImpl;
+import org.apache.hivemind.definition.impl.OrderedInterceptorDefinitionImpl;
+import org.apache.hivemind.definition.impl.InterceptorDefinitionImpl;
 import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
 import org.apache.hivemind.internal.AbstractServiceInterceptorConstructor;
 import org.apache.hivemind.internal.Module;
@@ -95,11 +95,11 @@ public class TestServices extends FrameworkTestCase
         ModuleDefinition module = new SimpleModule();
         ServicePointDefinition servicePoint = module.getServicePoint("Simple");
         
-        InterceptorDefinition interceptor1 = new OrderedServiceInterceptorDefinitionImpl(module, "Fred", newLocation(), new TrackerServiceInterceptorConstructor("Fred"), "Barney", null);
+        InterceptorDefinition interceptor1 = new OrderedInterceptorDefinitionImpl(module, "Fred", newLocation(), new TrackerServiceInterceptorConstructor("Fred"), "Barney", null);
         servicePoint.addInterceptor(interceptor1);
-        InterceptorDefinition interceptor2 = new OrderedServiceInterceptorDefinitionImpl(module, "Barney", newLocation(), new TrackerServiceInterceptorConstructor("Barney"), null, null);
+        InterceptorDefinition interceptor2 = new OrderedInterceptorDefinitionImpl(module, "Barney", newLocation(), new TrackerServiceInterceptorConstructor("Barney"), null, null);
         servicePoint.addInterceptor(interceptor2);
-        InterceptorDefinition interceptor3 = new OrderedServiceInterceptorDefinitionImpl(module, "Wilma", newLocation(), new TrackerServiceInterceptorConstructor("Wilma"), null, "Barney");
+        InterceptorDefinition interceptor3 = new OrderedInterceptorDefinitionImpl(module, "Wilma", newLocation(), new TrackerServiceInterceptorConstructor("Wilma"), null, "Barney");
         servicePoint.addInterceptor(interceptor3);
         
         Registry r =
@@ -216,7 +216,7 @@ public class TestServices extends FrameworkTestCase
                 }
                 interceptorStack.push(interceptor);
             }};
-        InterceptorDefinition interceptor = new ServiceInterceptorDefinitionImpl(module, "hivemind.LoggingInterceptor", module.getLocation(), constructor);
+        InterceptorDefinition interceptor = new InterceptorDefinitionImpl(module, "hivemind.LoggingInterceptor", module.getLocation(), constructor);
         sp.addInterceptor(interceptor);
         return buildFrameworkRegistry(module);
     }

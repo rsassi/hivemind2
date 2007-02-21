@@ -15,7 +15,6 @@
 package org.apache.hivemind.service;
 
 import hivemind.test.services.AutowireTarget;
-import hivemind.test.services.ClassResolverHolder;
 import hivemind.test.services.ConstructorAutowireTarget;
 import hivemind.test.services.ErrorHandlerHolder;
 import hivemind.test.services.InitializeFixture;
@@ -82,7 +81,7 @@ public class TestBuilderFactory extends XmlTestCase
 
         assertLoggedMessagePattern("Error at .*?: Unable to initialize service hivemind\\.test\\.services\\.Runnable "
                 + "\\(by invoking method doesNotExist on "
-                + "hivemind\\.test\\.services\\.impl\\.MockRunnable\\):");
+                + "org\\.apache\\.hivemind\\.service\\.impl\\.MockRunnable\\):");
     }
 
     public void testBuilderErrorHandlerFacet()

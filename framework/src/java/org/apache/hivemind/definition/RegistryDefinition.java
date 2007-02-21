@@ -26,9 +26,8 @@ import org.apache.hivemind.impl.RegistryBuilder;
  * which build a registry. The definition is a blueprint from which
  * a registry instance is constructed. 
  * 
- * After the complete definition of all elements of a registry
- * the definition is passed to {@link RegistryBuilder} for
- * the next phase: the registry construction. 
+ * The definition is passed to {@link RegistryBuilder} for the next phase: 
+ * the registry construction. 
  * From that moment on the definition shouldn't be changed any longer.
  * 
  * @author Achim Huegen

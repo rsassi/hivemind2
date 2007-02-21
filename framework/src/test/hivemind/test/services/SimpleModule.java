@@ -18,8 +18,8 @@ import hivemind.test.services.impl.SimpleServiceImpl;
 
 import org.apache.hivemind.Location;
 import org.apache.hivemind.Resource;
-import org.apache.hivemind.definition.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.ServicePointDefinition;
+import org.apache.hivemind.definition.impl.ModuleDefinitionHelper;
 import org.apache.hivemind.definition.impl.ModuleDefinitionImpl;
 import org.apache.hivemind.impl.DefaultClassResolver;
 import org.apache.hivemind.impl.LocationImpl;

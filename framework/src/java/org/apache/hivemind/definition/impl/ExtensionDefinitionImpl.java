@@ -19,6 +19,11 @@ import org.apache.hivemind.definition.ExtensionDefinition;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.util.Defense;
 
+/**
+ * Default implementation of {@link ExtensionDefinition}.
+ * 
+ * @author Achim Huegen
+ */
 public class ExtensionDefinitionImpl implements ExtensionDefinition
 {
     private Location _location;
@@ -61,7 +66,7 @@ public class ExtensionDefinitionImpl implements ExtensionDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionDefinition#setLocation(org.apache.hivemind.Location)
+     * Sets the location of the extension.
      */
     public void setLocation(Location location)
     {

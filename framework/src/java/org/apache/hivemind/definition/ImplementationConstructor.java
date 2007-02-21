@@ -25,7 +25,9 @@ import org.apache.hivemind.Locatable;
 public interface ImplementationConstructor extends Locatable
 {
     /**
-     * Creates a new core service implementation.
+     * Creates a new core service implementation. Can be called multiple times
+     * for service models like pooled or threaded.
+     * 
      * @param context  the context of the construction
      */
     public Object constructCoreServiceImplementation(ImplementationConstructionContext context);

@@ -20,6 +20,11 @@ import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.Visibility;
 import org.apache.hivemind.util.Defense;
 
+/**
+ * Default implementation of {@link ExtensionPointDefinition}.
+ * 
+ * @author Achim Huegen
+ */
 public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
 {
     private ModuleDefinition _module;
@@ -52,6 +57,9 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
         return _module.getId();
     }
 
+    /**
+     * @return the module that defined this extension point.
+     */
     protected ModuleDefinition getModule()
     {
         return _module;
@@ -74,7 +82,8 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinition#setId(java.lang.String)
+     * Sets the id of the extension point.
+     * @param id  the id (unqualified without module id)
      */
     public void setId(String id)
     {
@@ -90,7 +99,7 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinition#setLocation(org.apache.hivemind.Location)
+     * Sets the location of the extension point.
      */
     public void setLocation(Location location)
     {
@@ -106,7 +115,7 @@ public class ExtensionPointDefinitionImpl implements ExtensionPointDefinition
     }
 
     /**
-     * @see org.apache.hivemind.definition.ExtensionPointDefinition#setVisibility(org.apache.hivemind.definition.Visibility)
+     * Sets the visibility of the extension point.
      */
     public void setVisibility(Visibility visibility)
     {

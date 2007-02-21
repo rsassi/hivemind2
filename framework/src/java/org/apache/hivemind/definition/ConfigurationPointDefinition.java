@@ -44,15 +44,16 @@ public interface ConfigurationPointDefinition extends ExtensionPointDefinition
     /**
      * Adds a contribution.
      * @param contribution  the contribution
-     * @throws ApplicationRuntimeException  if this point is not visible from contribution
+     * @throws ApplicationRuntimeException  if this point is not visible from the 
+     *   module that defines the contribution
      */
     public void addContribution(ContributionDefinition contribution);
 
     /**
      * Adds a parser definition.
      * @param parser  the parser
-     * @throws ApplicationRuntimeException  if this point is not visible from parser
-     *   or if a parser for the specified format is already defined
+     * @throws ApplicationRuntimeException  if this point is not visible from the module 
+     *   that defines the parser or if a parser for the specified format is already defined
      */
     public void addParser(ConfigurationParserDefinition parser);
     

@@ -16,9 +16,9 @@
 -->
 
 <module id="hivemind.test.services" version="1.0.0">
-    <service-point id="ConstructClassResolver" interface="hivemind.test.services.ClassResolverHolder">
+    <service-point id="ConstructClassResolver" interface="org.apache.hivemind.service.ClassResolverHolder">
         <invoke-factory>
-            <construct class="hivemind.test.services.impl.ClassResolverHolderImpl">
+            <construct class="org.apache.hivemind.service.impl.ClassResolverHolderImpl">
                 <class-resolver/>
             </construct>
         </invoke-factory>

@@ -16,6 +16,13 @@ package org.apache.hivemind.definition;
 
 import org.apache.hivemind.ErrorHandler;
 
+/**
+ * Interface for post processors that want to get after the definition phase
+ * of a registry before the registry is started up.
+ * A post processor is allowed to alter the definition structure.
+ * 
+ * @author Huegen
+ */
 public interface RegistryDefinitionPostProcessor
 {
     /**
@@ -23,8 +30,8 @@ public interface RegistryDefinitionPostProcessor
      * That means, all extension points of all modules are now known to the registry
      * definition.
      * 
-     * @param registryDefinition
-     * @param errorHandler
+     * @param registryDefinition  the definition
+     * @param errorHandler  an handler for the reporting of recoverable errors
      */
     public void postprocess(RegistryDefinition registryDefinition, ErrorHandler errorHandler);
 
