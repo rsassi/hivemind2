@@ -39,7 +39,7 @@ public class HiveMindClassPool extends ClassPool
      */
     private Set _loaders = new HashSet();
 
-    public HiveMindClassPool()
+    public HiveMindClassPool() 
     {
         super(null);
 
