@@ -24,7 +24,7 @@
 		    <item name="Framework" href="/hivemind-framework" />
 		    <item name="XML" href="/hivemind-xml" />
 		    <item name="Annotations" href="/hivemind-annotations" />
-		    <item name="Library" href="/hivemind-library" />
+		    <item name="Library" href="/hivemind-lib" />
 		    <item name="JMX" href="/hivemind-jmx" />
       </links>
 	    <head>
@@ -38,7 +38,7 @@
 			    <item name="Framework" href="/hivemind-framework" />
 			    <item name="XML" href="/hivemind-xml" />
 			    <item name="Annotations" href="/hivemind-annotations" />
-			    <item name="Library" href="/hivemind-library" />
+			    <item name="Library" href="/hivemind-lib" />
 			    <item name="JMX" href="/hivemind-jmx" />
         </menu>
         ${reports} 
