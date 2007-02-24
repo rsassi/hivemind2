@@ -148,7 +148,6 @@ library/pom.xml -text
 library/src/site/site.xml -text
 library/src/site/xdoc/index.xml -text
 /pom.xml -text
-src/documentation/classes/CatalogManager.properties -text
 src/documentation/content/HiveMind-QuickReference.doc -text
 src/documentation/content/xdocs/subversion.xml -text
 src/documentation/resources/images/Bootstrap-ProjectLayout.png -text
