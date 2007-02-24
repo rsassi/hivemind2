@@ -162,12 +162,6 @@ src/images/InterceptorStack.psp -text
 src/images/private-icon.psp -text
 src/site/site.xml -text
 src/site/xdoc/index.xml -text
-support/forrest2maven-xdoc.xsl -text
-tools/forrest/.classpath -text
-tools/forrest/.project -text
-tools/forrest/src/org/apache/hivemind/tools/forrest/Java2XmlRenderer.java -text
-tools/forrest/src/org/apache/hivemind/tools/forrest/SourceHighlighterTransformer.java -text
-tools/forrest/src/org/apache/hivemind/tools/forrest/Xml2XmlRenderer.java -text
 xml/pom.xml -text
 xml/src/descriptor/META-INF/MANIFEST.MF -text
 xml/src/descriptor/META-INF/test-jar-dummy/MANIFEST.MF -text

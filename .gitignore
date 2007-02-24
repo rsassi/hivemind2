@@ -17,6 +17,5 @@ library/*.log
 library/bin
 library/target
 /target
-tools/forrest/target
 /velocity.log*
 xml/target
