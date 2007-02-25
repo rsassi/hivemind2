@@ -183,6 +183,7 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.1</version>
                 <configuration>
+                    <finalName>hivemind-${pom.version}</finalName>
                     <descriptors>
                         <descriptor>src/main/assembly/bin.xml</descriptor>
                         <descriptor>src/main/assembly/src.xml</descriptor>
