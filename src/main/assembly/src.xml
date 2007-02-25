@@ -1,0 +1,31 @@
+<assembly>
+    <id>project</id>
+    <formats>
+        <format>tar.gz</format>
+        <format>tar.bz2</format>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>.</directory>
+            <outputDirectory></outputDirectory>
+            <excludes>
+                <exclude>**/target/**</exclude>
+                <exclude>**/bin/**</exclude>
+            </excludes>
+        </fileSet>
+    </fileSets>
+    <moduleSets>
+        <moduleSet>
+            <includes>
+                <include>org.apache.hivemind:hivemind-framework</include>
+                <include>org.apache.hivemind:hivemind-xml</include>
+                <include>org.apache.hivemind:hivemind-annotations</include>
+                <include>org.apache.hivemind:hivemind-lib</include>
+                <include>org.apache.hivemind:hivemind-jmx</include>
+                <include>org.apache.hivemind:hivemind-examples</include>
+            </includes>
+        </moduleSet>
+    </moduleSets>
+</assembly>

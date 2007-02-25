@@ -159,6 +159,8 @@ src/images/HiveMind-Logo.psp -text
 src/images/HiveMindImages.vsd -text
 src/images/InterceptorStack.psp -text
 src/images/private-icon.psp -text
+src/main/assembly/bin.xml -text
+src/main/assembly/src.xml -text
 src/site/site.xml -text
 src/site/xdoc/index.xml -text
 xml/pom.xml -text

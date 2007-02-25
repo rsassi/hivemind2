@@ -12,8 +12,8 @@
     <modules>
         <module>framework</module>
         <module>xml</module>
-        <module>library</module>
         <module>annotations</module>
+        <module>library</module>
         <module>jmx</module>
         <module>examples</module>
     </modules>
@@ -155,9 +155,9 @@
             </resource>
             <resource>
                 <directory>src/descriptor</directory>
-				<excludes>
-          			<exclude>**/test-jar-dummy/*.*</exclude>
-        		</excludes>
+								<excludes>
+          				<exclude>**/test-jar-dummy/*.*</exclude>
+        				</excludes>
             </resource>
         </resources>
         <testSourceDirectory>src/test</testSourceDirectory>
@@ -177,6 +177,16 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <configuration>
                     <locales>en</locales>
+                </configuration>
+            </plugin>
+						<plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/bin.xml</descriptor>
+                        <descriptor>src/main/assembly/src.xml</descriptor>
+                    </descriptors>
                 </configuration>
             </plugin>
         </plugins>
@@ -225,21 +235,6 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <phase>package</phase>
-                            <configuration>
-                                <descriptorId>src</descriptorId>
-                            </configuration>
-                            <goals>
-                                <goal>assembly</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
                     <executions>
                         <execution>
@@ -276,6 +271,14 @@
             </plugin>
         </plugins>
     </reporting>
+    <!--
+    <repositories>
+        <repository>
+            <id>apache.snapshots</id>
+            <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+        </repository>
+    </repositories>
+    -->
     <distributionManagement>
         <site>
             <id>apache-www</id>
