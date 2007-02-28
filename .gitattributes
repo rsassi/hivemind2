@@ -45,6 +45,7 @@ examples/src/java/org/apache/examples/annotations/panorama/PanoramaMain.java -te
 examples/src/java/org/apache/examples/annotations/panorama/PanoramaModule.java -text
 examples/src/java/org/apache/examples/annotations/panorama/PanoramaStartupModule.java -text
 examples/src/java/org/apache/examples/annotations/panorama/panorama.properties -text
+examples/src/java/org/apache/examples/definition/JavaDefinitionExample.java -text
 examples/src/java/org/apache/examples/panorama/discussions/DiscussionsStartup.java -text
 examples/src/java/org/apache/examples/panorama/mail/MailStartup.java -text
 examples/src/java/org/apache/examples/panorama/startup/Executable.java -text

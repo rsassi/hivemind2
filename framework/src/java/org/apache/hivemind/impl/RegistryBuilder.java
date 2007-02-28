@@ -127,7 +127,7 @@ public final class RegistryBuilder
      */
     public Registry constructRegistry()
     {
-        return constructRegistry();
+        return constructRegistry(Locale.getDefault());
     }
     
     /**

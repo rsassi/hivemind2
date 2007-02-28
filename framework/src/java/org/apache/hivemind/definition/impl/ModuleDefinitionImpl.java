@@ -33,6 +33,7 @@ import org.apache.hivemind.definition.ImplementationDefinition;
 import org.apache.hivemind.definition.InterceptorDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
 import org.apache.hivemind.definition.UnresolvedExtension;
+import org.apache.hivemind.impl.DefaultClassResolver;
 
 /**
  * Default implementation of {@link ExtensionDefinition}.
@@ -63,10 +64,14 @@ public class ModuleDefinitionImpl implements ModuleDefinition
     
     private Collection _unresolvedConfigurationParsers = new ArrayList();
     
-    public ModuleDefinitionImpl()
+    /**
+     * @param id  the id of the module 
+     */
+    public ModuleDefinitionImpl(String id, Location location)
     {
-    }
-
+        this(id, location, new DefaultClassResolver(), null);
+    }    
+    
     /**
      * @param id  the id of the module 
      * @param location  the location of the module 
