@@ -288,7 +288,7 @@ public class XmlModuleDescriptorProcessor
 
             ConfigurationPointDefinitionImpl configurationPoint = new ConfigurationPointDefinitionImpl(
                     module, cpd.getId(), cpd.getLocation(), cpd.getVisibility(), 
-                    cpd.getType(), cpd.getCount());
+                    cpd.getType(), cpd.getCount(), cpd.isLazy());
             module.addConfigurationPoint(configurationPoint);
             
             // If schema is embedded we can add a parser now, otherwise it must

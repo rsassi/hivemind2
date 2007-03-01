@@ -45,6 +45,8 @@ public class ConfigurationPointDefinitionImpl extends ExtensionPointDefinitionIm
     private Collection _contributions = new ArrayList();
     
     private Map _parsers = new HashMap();
+    
+    private boolean _lazy;
 
     public ConfigurationPointDefinitionImpl(ModuleDefinition module)
     {
@@ -52,11 +54,12 @@ public class ConfigurationPointDefinitionImpl extends ExtensionPointDefinitionIm
     }
 
     public ConfigurationPointDefinitionImpl(ModuleDefinition module, String id, Location location, Visibility visibility,
-            String containerClassName, Occurances expectedContributions)
+            String containerClassName, Occurances expectedContributions, boolean lazy)
     {
         super(module, id, location, visibility);
         _containerClassName = containerClassName;
         _expectedContributions = expectedContributions;
+        _lazy = lazy;
     }
 
     /**
@@ -151,6 +154,24 @@ public class ConfigurationPointDefinitionImpl extends ExtensionPointDefinitionIm
     public ConfigurationParserDefinition getParser(String inputFormat)
     {
         return (ConfigurationParserDefinition) _parsers.get(inputFormat);
+    }
+
+    /**
+     * @see org.apache.hivemind.definition.ConfigurationPointDefinition#isLazy()
+     */
+    public boolean isLazy()
+    {
+        return _lazy;
+    }
+
+    /**
+     * Sets the lazy mode of the configuration. Lazy construction is supported only if
+     * the configuration type is an interface.
+     * @param lazy  true if if the configuration should be created on first call to one of its methods.
+     */
+    protected void setLazy(boolean lazy)
+    {
+        _lazy = lazy;
     }
 
 

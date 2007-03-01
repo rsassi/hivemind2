@@ -81,10 +81,10 @@ public class ModuleDefinitionHelper
                 serviceModel);
     }
     
-    public ConfigurationPointDefinition addConfigurationPoint(String configurationPointId, String containerType)
+    public ConfigurationPointDefinition addConfigurationPoint(String configurationPointId, String containerType, boolean lazy)
     {
         ConfigurationPointDefinitionImpl result = new ConfigurationPointDefinitionImpl(_module, configurationPointId, _module
-                .getLocation(), Visibility.PUBLIC, containerType, Occurances.UNBOUNDED);
+                .getLocation(), Visibility.PUBLIC, containerType, Occurances.UNBOUNDED, lazy);
 
         _module.addConfigurationPoint(result);
         return result;

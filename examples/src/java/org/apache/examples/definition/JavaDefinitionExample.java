@@ -23,6 +23,10 @@ import org.apache.hivemind.impl.LocationImpl;
 import org.apache.hivemind.impl.RegistryBuilder;
 import org.apache.hivemind.internal.AbstractServiceImplementationConstructor;
 import org.apache.hivemind.internal.ServiceModel;
+import org.apache.hivemind.service.Autowiring;
+import org.apache.hivemind.service.ClassFactory;
+import org.apache.hivemind.service.ThreadEventNotifier;
+import org.apache.hivemind.service.ThreadLocalStorage;
 import org.apache.hivemind.util.ClasspathResource;
 
 /**
@@ -40,6 +44,11 @@ public class JavaDefinitionExample
         Calculator calculator = (Calculator) registry.getService(Calculator.class);
         double result = calculator.add(10, 20);
         System.out.println("Result: " + result);
+        
+        registry.getService("hivemind.ClassFactory", ClassFactory.class);
+        registry.getService("hivemind.ThreadEventNotifier", ThreadEventNotifier.class);
+        registry.getService("hivemind.ThreadLocalStorage", ThreadLocalStorage.class);
+        registry.getService("hivemind.Autowiring", Autowiring.class);
     }
     
     private Registry constructRegistry()
@@ -49,6 +58,7 @@ public class JavaDefinitionExample
         registryDefinition.addModule(module);
         
         RegistryBuilder builder = new RegistryBuilder(registryDefinition);
+        builder.autoDetectModules();
         Registry registry = builder.constructRegistry();
         return registry;
     }

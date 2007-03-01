@@ -113,12 +113,13 @@ public final class ConfigurationPointImpl extends AbstractExtensionPoint impleme
      */
     public boolean isLazy()
     {
-        // TODO annotations: make configurable
         // exclude ServiceModels, otherwise a cycle occurs because the proxy generation
         // requires the {@link ClassFactory service}
+        // non interface types are not supported because this gets just too expensive
+        // in terms of cpu and memory: 3 proxy classes would be needed
         return !getExtensionPointId().equals("hivemind.ServiceModels") && 
           getConfigurationType().isInterface() &&
-          !Modifier.isFinal(getConfigurationType().getModifiers());
+          getConfigurationPointDefinition().isLazy();
     }
 
     /**

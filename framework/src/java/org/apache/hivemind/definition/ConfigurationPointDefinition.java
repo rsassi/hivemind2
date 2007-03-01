@@ -68,4 +68,9 @@ public interface ConfigurationPointDefinition extends ExtensionPointDefinition
      * @return  returns all parsers as instances of {@link ConfigurationParserDefinition}
      */
     public Collection getParsers();
+    
+    /**
+     * @return  returns true if the configuration should be created on first call to one of its methods.
+     */
+    public boolean isLazy();
 }

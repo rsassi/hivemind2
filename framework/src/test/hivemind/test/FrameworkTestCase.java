@@ -101,7 +101,7 @@ public abstract class FrameworkTestCase extends HiveMindTestCase
     {
         ConfigurationPointDefinitionImpl result = new ConfigurationPointDefinitionImpl(module, pointId,
                 newLocation(), Visibility.PUBLIC, ArrayList.class.getName(),
-                Occurances.UNBOUNDED);
+                Occurances.UNBOUNDED, false);
 
         return result;
     }

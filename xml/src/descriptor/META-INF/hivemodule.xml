@@ -443,7 +443,7 @@
       </element>
   </schema>
   
-  <configuration-point id="Translators">
+  <configuration-point id="Translators" lazy="true">
     
     Used to define new translators that can be used in contribution conversion rules. 
     Translators must have unique names.

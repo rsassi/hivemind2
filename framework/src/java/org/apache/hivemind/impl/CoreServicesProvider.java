@@ -204,7 +204,7 @@ public class CoreServicesProvider implements RegistryProvider
         // Configuration to which services may be contributed. The corresponding services are instantiated eagerly, as the Registry is started. 
         // The order in which services are instantiated is not specified.
 
-        helper.addConfigurationPoint("EagerLoad", List.class.getName());
+        helper.addConfigurationPoint("EagerLoad", List.class.getName(), false);
     }
 
     /**
@@ -231,7 +231,7 @@ public class CoreServicesProvider implements RegistryProvider
         // A configuration to which startup objects may be contributed (as objects or services). 
         // Startup objects must implement the java.lang.Runnable interface. Order of execution is expliclitly NOT defined.
 
-        ConfigurationPointDefinition cpd = helper.addConfigurationPoint("Startup", List.class.getName());
+        ConfigurationPointDefinition cpd = helper.addConfigurationPoint("Startup", List.class.getName(), false);
         
         final List services = getDefaultStartupServices();
         helper.addContributionDefinition(cpd, new Contribution() {
@@ -255,7 +255,7 @@ public class CoreServicesProvider implements RegistryProvider
     {
 
         ConfigurationPointDefinition cpd = helper.addConfigurationPoint("ServiceModels", 
-                Map.class.getName());
+                Map.class.getName(), false);
         
         final List serviceModels = getDefaultServiceModels();
         helper.addContributionDefinition(cpd, new Contribution() {
@@ -344,7 +344,7 @@ public class CoreServicesProvider implements RegistryProvider
     private void addAutowiringStrategiesConfiguration()
     {
 
-        ConfigurationPointDefinition cpd = helper.addConfigurationPoint("AutowiringStrategies", List.class.getName());
+        ConfigurationPointDefinition cpd = helper.addConfigurationPoint("AutowiringStrategies", List.class.getName(), false);
         
         final List serviceModels = getDefaultAutowiringStrategies();
         helper.addContributionDefinition(cpd, new Contribution() {

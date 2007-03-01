@@ -105,8 +105,8 @@ public class XmlCoreServicesProvider implements RegistryProvider
      */
     private void addSymbolSourcesConfiguration(ModuleDefinition md)
     {
-        ConfigurationPointDefinition cpd = helper.addConfigurationPoint("SymbolSources", List.class.getName());
-
+        ConfigurationPointDefinition cpd = helper.addConfigurationPoint("SymbolSources", List.class.getName(), true);
+        
         helper.addContributionDefinition(cpd, new Contribution()
         {
 
@@ -156,7 +156,7 @@ public class XmlCoreServicesProvider implements RegistryProvider
         
         // Configuration point for setting defaults for symbol values.
 
-        helper.addConfigurationPoint(configurationId, Map.class.getName());
+        helper.addConfigurationPoint(configurationId, Map.class.getName(), false);
     }  
     
     /**

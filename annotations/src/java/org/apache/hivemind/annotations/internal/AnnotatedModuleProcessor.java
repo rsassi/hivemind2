@@ -272,7 +272,8 @@ public class AnnotatedModuleProcessor
             visibility = Visibility.PRIVATE;
         }
         ConfigurationPointDefinitionImpl cpd = new ConfigurationPointDefinitionImpl(module, configuration.id(), 
-                location, visibility, method.getReturnType().getName(), Occurances.UNBOUNDED);
+                location, visibility, method.getReturnType().getName(), Occurances.UNBOUNDED,
+                false);
         module.addConfigurationPoint(cpd);
         
         // Add method implementation as initial contribution

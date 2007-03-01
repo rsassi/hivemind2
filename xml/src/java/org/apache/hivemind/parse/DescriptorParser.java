@@ -783,10 +783,13 @@ public final class DescriptorParser extends AbstractParser
         // Qualify the interface name with the defined package name (which will
         // often implicitly or explicitly match the module id).
 
-        String fullContainerTypeName = IdUtils.qualify(
+        String fullTypeName = IdUtils.qualify(
                 _moduleDescriptor.getPackageName(),
                 typeName);
-        cpd.setType(fullContainerTypeName);
+        cpd.setType(fullTypeName);
+        
+        Boolean lazy = getBooleanAttribute("lazy", false);
+        cpd.setLazy(lazy);
 
         md.addConfigurationPoint(cpd);
     }

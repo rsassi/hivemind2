@@ -38,6 +38,9 @@ public final class ConfigurationPointDescriptor extends BaseAnnotationHolder
 
     /** @since 1.1 */
     private Visibility _visibility = Visibility.PUBLIC;
+    
+    /** @since 2.0 */
+    private boolean _lazy;
 
     /**
      * Type of the configuration
@@ -53,6 +56,7 @@ public final class ConfigurationPointDescriptor extends BaseAnnotationHolder
         builder.append("contributionsSchema", _contributionsSchema);
         builder.append("contributionsSchemaId", _contributionsSchemaId);
         builder.append("visibility", _visibility);
+        builder.append("lazy", _lazy);
 
         return builder.toString();
     }
@@ -123,5 +127,18 @@ public final class ConfigurationPointDescriptor extends BaseAnnotationHolder
     public void setType(String type)
     {
         _type = type;
+    }
+
+    public void setLazy(Boolean lazy)
+    {
+        _lazy = lazy;
+    }
+
+    /**
+     * @since 2.0
+     */
+    public boolean isLazy()
+    {
+        return _lazy;
     }
 }

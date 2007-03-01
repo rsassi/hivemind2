@@ -16,7 +16,7 @@
 -->
 
 <module id="hivemind.test.config" version="1.0.0">
-	<configuration-point id="Simple" schema-id="Datum"/>
+	<configuration-point id="Simple" schema-id="Datum" lazy="true"/>
 
 		<schema id="Datum">
 			<element name="datum">
