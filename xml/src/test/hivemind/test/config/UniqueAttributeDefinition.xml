@@ -29,7 +29,7 @@
 		</element>
 	</schema>
 
-	<configuration-point id="MyExtensionPoint" occurs="1..n" schema-id="UniqueAttributeBroken">
+	<configuration-point id="MyExtensionPoint" occurs="1..n" schema-id="UniqueAttributeBroken" lazy="true">
 		Description of MyExtensionPoint.
 	</configuration-point>
 
