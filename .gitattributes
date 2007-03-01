@@ -198,4 +198,5 @@ xml/src/test/org/apache/hivemind/service/TestBuilderFactoryBeanService.java -tex
 xml/src/test/org/apache/hivemind/service/TestBuilderFactoryServiceModel.java -text
 xml/src/test/org/apache/hivemind/service/TestEventLinker.java -text
 xml/src/test/org/apache/hivemind/servlet/TestHiveMindFilter.java -text
+xml/src/test/org/apache/hivemind/xml/OverrideService.xml -text
 xml/src/test/org/apache/hivemind/xml/XmlTestCase.java -text

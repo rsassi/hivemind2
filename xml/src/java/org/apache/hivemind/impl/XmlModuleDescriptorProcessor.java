@@ -218,7 +218,8 @@ public class XmlModuleDescriptorProcessor
     }
 
     /**
-     * Adds one implementation and its interceptors to a module definition.
+     * Adds one standalone implementation and its interceptors to a module definition.
+     * This implementation overrides inline implementations of the service point.
      */
     private void addImplementationAndInterceptors(ModuleDefinitionImpl sourceModule, String qualifiedPointId, ImplementationDescriptor id)
     {
@@ -228,7 +229,7 @@ public class XmlModuleDescriptorProcessor
         if (builder != null) {
             ImplementationDefinitionImpl implementation = new ImplementationDefinitionImpl(
                     sourceModule, builder.getLocation(), builder.createConstructor(sourceModule.getId()),
-                    builder.getServiceModel(), false);
+                    builder.getServiceModel(), true);
             sourceModule.addImplementation(qualifiedPointId, implementation); 
         }
         
