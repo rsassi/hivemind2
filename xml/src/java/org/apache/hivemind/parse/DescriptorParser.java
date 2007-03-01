@@ -788,7 +788,7 @@ public final class DescriptorParser extends AbstractParser
                 typeName);
         cpd.setType(fullTypeName);
         
-        Boolean lazy = getBooleanAttribute("lazy", false);
+        boolean lazy = getBooleanAttribute("lazy", false);
         cpd.setLazy(lazy);
 
         md.addConfigurationPoint(cpd);
