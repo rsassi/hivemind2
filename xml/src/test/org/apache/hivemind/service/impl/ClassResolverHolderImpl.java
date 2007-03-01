@@ -17,7 +17,6 @@ package org.apache.hivemind.service.impl;
 
 import org.apache.hivemind.ClassResolver;
 import org.apache.hivemind.service.ClassResolverHolder;
-import org.apache.hivemind.service.TestBuilderFactory;
 
 /**
  * Used with {@link org.apache.hivemind.service.TestBuilderFactory}.
