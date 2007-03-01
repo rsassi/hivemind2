@@ -129,7 +129,7 @@ public final class ConfigurationPointDescriptor extends BaseAnnotationHolder
         _type = type;
     }
 
-    public void setLazy(Boolean lazy)
+    public void setLazy(boolean lazy)
     {
         _lazy = lazy;
     }
