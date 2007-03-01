@@ -29,7 +29,7 @@ public class AbstractAnnotatedModule
     /**
      * @return  the registry the module is loaded in
      */
-    public TypedRegistry getRegistry()
+    protected TypedRegistry getRegistry()
     {
         return _typedRegistry;
     }

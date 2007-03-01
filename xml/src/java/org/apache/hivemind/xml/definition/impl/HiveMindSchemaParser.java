@@ -42,7 +42,7 @@ public final class HiveMindSchemaParser implements ConfigurationParser
     }
 
     /**
-     * @param  a list of {@link Element}s
+     * @param data  a list of {@link Element}s
      * @see org.apache.hivemind.definition.ConfigurationParser#parse(org.apache.hivemind.definition.ContributionContext, java.lang.Object)
      */
     public Object parse(ContributionContext context, Object data)
