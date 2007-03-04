@@ -61,7 +61,7 @@ public class URLResource extends AbstractResource
             try
             {
                 URL test = new URL( getPath() );
-                InputStream stream = test.openStream();
+                InputStream stream = IOUtils.openStreamWithoutCaching(test);
                 if( stream != null )
                 {
                     stream.close();

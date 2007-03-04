@@ -15,6 +15,7 @@
 package org.apache.hivemind.impl;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.ClassResolver;
+import org.apache.hivemind.util.IOUtils;
 import org.apache.hivemind.util.URLResource;
 
 /**
@@ -100,15 +102,21 @@ public class RegistryProviderAutoDetector
     private void processManifestFile(ClassResolver resolver, URLResource resource)
     {
         URL url = resource.getResourceURL();
+        InputStream manifestStream = null;
         Manifest manifest;
         try
         {
-            manifest = new Manifest(url.openStream());
+            manifestStream = IOUtils.openStreamWithoutCaching(url);
+            manifest = new Manifest(manifestStream);
         }
         catch (IOException e)
         {
             throw new ApplicationRuntimeException(ImplMessages.unableToReadManifest(url, e),
                     e);
+        }
+        finally
+        {
+            IOUtils.close(manifestStream);
         }
         // Search for an entry that defines a provider class
         Attributes attributes = manifest.getMainAttributes();

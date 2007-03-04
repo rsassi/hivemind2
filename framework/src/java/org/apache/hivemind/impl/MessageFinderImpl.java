@@ -160,7 +160,7 @@ public class MessageFinderImpl implements MessageFinder
 
         try
         {
-            stream = new BufferedInputStream(url.openStream());
+            stream = new BufferedInputStream(IOUtils.openStreamWithoutCaching(url));
 
             result.load(stream);
 

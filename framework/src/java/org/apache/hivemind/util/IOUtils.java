@@ -16,6 +16,8 @@ package org.apache.hivemind.util;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 
 /**
  * Tiny utilities used with InputStream and friends.
@@ -41,4 +43,21 @@ public class IOUtils
                 // Ignored.
             }
     }
+    
+    /**
+     * Opens the input stream of an URL. To prevent jar locking the cache
+     * is disabled before. Jar locking is experiencied under servlet containers on Windows.
+     * (http://tomcat.apache.org/faq/windows.html#lock).
+     * @param url  the url
+     * @return the input stream
+     * @throws IOException 
+     */
+    public static InputStream openStreamWithoutCaching(URL url) throws IOException
+    {
+        // These call should are equivalent to URL#openStream()
+        URLConnection conn = url.openConnection();
+        conn.setUseCaches(false);
+        return conn.getInputStream();
+    }
+    
 }

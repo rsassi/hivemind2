@@ -28,6 +28,7 @@ import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.ClassResolver;
 import org.apache.hivemind.ErrorHandler;
 import org.apache.hivemind.Resource;
+import org.apache.hivemind.util.IOUtils;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
@@ -115,7 +116,11 @@ public class XmlResourceProcessor
     {
         InputSource source = getInputSource(resource);
 
-        parser.parse(source, contentHandler);
+        try {
+            parser.parse(source, contentHandler);
+        } finally {
+            IOUtils.close(source.getByteStream());
+        }
 
         return contentHandler.getModuleDescriptor();
     }
@@ -126,7 +131,7 @@ public class XmlResourceProcessor
         {
             URL url = resource.getResourceURL();
 
-            return new InputSource(url.openStream());
+            return new InputSource(IOUtils.openStreamWithoutCaching(url));
         }
         catch (Exception e)
         {
