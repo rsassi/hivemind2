@@ -60,5 +60,15 @@ public class AnnotationsMessages
         MethodSignature methodSig = new MethodSignature(method);
         return _formatter.format("annotated-method-protected-not-accessible", methodSig.toString());
     }
+    
+    public static String unableToCreateAnnotationProcessor(String processorClassName, Exception cause)
+    {
+        return _formatter.format("unable-to-create-annotation-processor", processorClassName, cause);
+    }
+
+    public static String annotationProcessorWrongType(String processorClassName, Class requiredInterface)
+    {
+        return _formatter.format("annotation-processor-wrong-type", processorClassName, requiredInterface.getName());
+    }
 
 }

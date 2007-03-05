@@ -16,6 +16,7 @@ package org.apache.hivemind.annotations;
 
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.annotations.internal.AnnotatedModuleProcessor;
+import org.apache.hivemind.annotations.internal.AnnotationProcessorRegistryFactory;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.ServicePointDefinition;
@@ -56,7 +57,7 @@ public class TestAnnotatedModuleReader extends AnnotationTestCase
     public void testModuleClassNotFinal()
     {
         AnnotatedModuleProcessor processor = new AnnotatedModuleProcessor(new RegistryDefinitionImpl(),
-                new DefaultClassResolver());
+                new DefaultClassResolver(), AnnotationProcessorRegistryFactory.createDefaultRegistry());
         try
         {
             processor.processModule(FinalModule.class);
@@ -70,7 +71,7 @@ public class TestAnnotatedModuleReader extends AnnotationTestCase
     public void testModuleClassNotAbstract()
     {
         AnnotatedModuleProcessor processor = new AnnotatedModuleProcessor(new RegistryDefinitionImpl(),
-                new DefaultClassResolver());
+                new DefaultClassResolver(), AnnotationProcessorRegistryFactory.createDefaultRegistry());
         try
         {
             processor.processModule(AbstractModule.class);
@@ -84,7 +85,7 @@ public class TestAnnotatedModuleReader extends AnnotationTestCase
     public void testModuleClassPublic()
     {
         AnnotatedModuleProcessor processor = new AnnotatedModuleProcessor(new RegistryDefinitionImpl(),
-                new DefaultClassResolver());
+                new DefaultClassResolver(), AnnotationProcessorRegistryFactory.createDefaultRegistry());
         try
         {
             processor.processModule(NotPublicModule.class);

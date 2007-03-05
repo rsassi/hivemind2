@@ -100,6 +100,11 @@ class ImplMessages
         return _formatter.format("unable-to-parse", resource, cause);
     }
 
+    static String unableToFindManifests(ClassResolver resolver, Throwable cause)
+    {
+        return _formatter.format("unable-to-find-manifests", resolver, cause);
+    }
+
     static String unableToFindProviders(ClassResolver resolver, Throwable cause)
     {
         return _formatter.format("unable-to-find-providers", resolver, cause);

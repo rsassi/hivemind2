@@ -108,6 +108,7 @@ framework/src/java/org/apache/hivemind/definition/package.html -text
 framework/src/java/org/apache/hivemind/events/RegistryInitializationListener.java -text
 framework/src/java/org/apache/hivemind/impl/CoreServicesProvider.java -text
 framework/src/java/org/apache/hivemind/impl/ExtensionResolver.java -text
+framework/src/java/org/apache/hivemind/impl/ManifestReader.java -text
 framework/src/java/org/apache/hivemind/impl/RegistryProvider.java -text
 framework/src/java/org/apache/hivemind/impl/RegistryProviderAutoDetector.java -text
 framework/src/java/org/apache/hivemind/internal/AbstractConstructionContext.java -text
