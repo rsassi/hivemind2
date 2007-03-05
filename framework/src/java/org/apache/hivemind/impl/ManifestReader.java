@@ -50,14 +50,16 @@ public class ManifestReader
         {
             Manifest manifest = manifests[i];
             String value = getAttributeValue(manifest, attributeName);
-            results.add(value);
+            if (value != null) {
+                results.add(value);
+            }
         }
         return (String[]) results.toArray(new String[results.size()]);
     }
     
     /**
      * Searches a manifest for a attribute of the given name.
-     * @return  the attribute value
+     * @return  the attribute value or null if the attribute is not defined
      */
     private static String getAttributeValue(Manifest manifest, String attributeName)
     {
