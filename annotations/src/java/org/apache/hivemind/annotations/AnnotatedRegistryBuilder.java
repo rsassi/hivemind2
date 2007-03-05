@@ -91,7 +91,7 @@ public class AnnotatedRegistryBuilder
         for (int i = 0; i < moduleClassNames.length; i++)
         {
             AnnotatedModuleReader reader = new AnnotatedModuleReader(definition,
-                    _classResolver, _errorHandler);
+                    _classResolver);
             reader.readModule(moduleClassNames[i]);
         }
 
@@ -105,7 +105,7 @@ public class AnnotatedRegistryBuilder
         for (int i = 0; i < moduleClasses.length; i++)
         {
             AnnotatedModuleReader reader = new AnnotatedModuleReader(definition,
-                    _classResolver, _errorHandler);
+                    _classResolver);
             reader.readModule(moduleClasses[i]);
         }
 

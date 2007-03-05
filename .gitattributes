@@ -16,11 +16,16 @@ annotations/src/java/org/apache/hivemind/annotations/definition/Submodule.java -
 annotations/src/java/org/apache/hivemind/annotations/definition/impl/AnnotatedModuleDefinitionImpl.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/processors/AnnotationProcessingContext.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/processors/AnnotationProcessor.java -text
+annotations/src/java/org/apache/hivemind/annotations/definition/processors/ConfigurationProcessor.java -text
+annotations/src/java/org/apache/hivemind/annotations/definition/processors/ContributionProcessor.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/processors/ServiceProcessor.java -text
+annotations/src/java/org/apache/hivemind/annotations/definition/processors/SubmoduleProcessor.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotatedModuleLocation.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotatedModuleProcessor.java -text
+annotations/src/java/org/apache/hivemind/annotations/internal/AnnotationExtensionLoader.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotationProcessingContextImpl.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotationProcessorRegistry.java -text
+annotations/src/java/org/apache/hivemind/annotations/internal/AnnotationProcessorRegistryFactory.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/CheckTools.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/MethodCallContributionConstructor.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/MethodCallImplementationConstructor.java -text

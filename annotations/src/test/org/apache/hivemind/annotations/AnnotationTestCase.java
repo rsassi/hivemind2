@@ -16,9 +16,13 @@ package org.apache.hivemind.annotations;
 
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.definition.impl.RegistryDefinitionImpl;
-import org.apache.hivemind.impl.DefaultErrorHandler;
 import org.apache.hivemind.test.HiveMindTestCase;
 
+/**
+ * Ancestor for test cases that use annotated modules.
+ * 
+ * @author Achim Huegen
+ */
 public class AnnotationTestCase extends HiveMindTestCase
 {
     protected TypedRegistry constructRegistry(String ... moduleClassNames)
@@ -39,8 +43,7 @@ public class AnnotationTestCase extends HiveMindTestCase
 
         for (int i = 0; i < moduleClasses.length; i++)
         {
-            AnnotatedModuleReader reader = new AnnotatedModuleReader(definition, getClassResolver(),
-                    new DefaultErrorHandler());
+            AnnotatedModuleReader reader = new AnnotatedModuleReader(definition, getClassResolver());
             reader.readModule(moduleClasses[i]);
         }
 

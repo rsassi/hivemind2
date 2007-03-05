@@ -2,6 +2,12 @@ package org.apache.hivemind.annotations.definition.processors;
 
 import org.apache.hivemind.ApplicationRuntimeException;
 
+/**
+ * The same instance is used for all annotations of one kind which are loaded
+ * by the same AnnotatedModuleProcessor or AnnotatedModuleReader.
+ * 
+ * @author Achim Huegen
+ */
 public interface AnnotationProcessor
 {
     /**

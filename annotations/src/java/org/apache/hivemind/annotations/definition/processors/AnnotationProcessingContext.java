@@ -3,8 +3,10 @@ package org.apache.hivemind.annotations.definition.processors;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
 
+import org.apache.hivemind.ClassResolver;
 import org.apache.hivemind.Location;
 import org.apache.hivemind.annotations.definition.impl.AnnotatedModuleDefinitionImpl;
+import org.apache.hivemind.annotations.internal.AnnotatedModuleProcessor;
 import org.apache.hivemind.annotations.internal.ModuleInstanceProvider;
 
 public interface AnnotationProcessingContext
@@ -15,4 +17,6 @@ public interface AnnotationProcessingContext
     public Location getLocation();
     public AnnotatedModuleDefinitionImpl getModule(); 
     public ModuleInstanceProvider getModuleInstanceProvider();
+    public ClassResolver getClassResolver();
+    public AnnotatedModuleProcessor createSubmoduleProcessor();
 }

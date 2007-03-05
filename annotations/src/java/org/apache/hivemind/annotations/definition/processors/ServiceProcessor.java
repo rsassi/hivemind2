@@ -5,10 +5,8 @@ import java.lang.reflect.Modifier;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.hivemind.Location;
 import org.apache.hivemind.annotations.definition.Service;
 import org.apache.hivemind.annotations.definition.impl.AnnotatedModuleDefinitionImpl;
-import org.apache.hivemind.annotations.internal.AnnotatedModuleLocation;
 import org.apache.hivemind.annotations.internal.CheckTools;
 import org.apache.hivemind.annotations.internal.MethodCallImplementationConstructor;
 import org.apache.hivemind.definition.ImplementationConstructor;

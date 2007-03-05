@@ -23,35 +23,27 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.ClassResolver;
-import org.apache.hivemind.ErrorHandler;
 import org.apache.hivemind.Location;
 import org.apache.hivemind.Resource;
 import org.apache.hivemind.annotations.AnnotationsMessages;
-import org.apache.hivemind.annotations.definition.Configuration;
 import org.apache.hivemind.annotations.definition.Module;
-import org.apache.hivemind.annotations.definition.Service;
-import org.apache.hivemind.annotations.definition.Submodule;
 import org.apache.hivemind.annotations.definition.impl.AnnotatedModuleDefinitionImpl;
 import org.apache.hivemind.annotations.definition.processors.AnnotationProcessingContext;
 import org.apache.hivemind.annotations.definition.processors.AnnotationProcessor;
-import org.apache.hivemind.annotations.definition.processors.ServiceProcessor;
-import org.apache.hivemind.definition.Contribution;
-import org.apache.hivemind.definition.ImplementationConstructor;
-import org.apache.hivemind.definition.ImplementationDefinition;
-import org.apache.hivemind.definition.Occurances;
 import org.apache.hivemind.definition.RegistryDefinition;
-import org.apache.hivemind.definition.Visibility;
-import org.apache.hivemind.definition.impl.ConfigurationPointDefinitionImpl;
-import org.apache.hivemind.definition.impl.ContributionDefinitionImpl;
-import org.apache.hivemind.definition.impl.ImplementationDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
 import org.apache.hivemind.util.ClasspathResource;
-import org.apache.hivemind.util.IdUtils;
 
 /**
- * Does the work for {@link org.apache.hivemind.annotations.AnnotatedModuleReader}. Processes an
- * annotated class and registers the defined extension and extension points in a registry
- * definition.
+ * Does the work for {@link org.apache.hivemind.annotations.AnnotatedModuleReader}. 
+ * Processes an annotated class and registers the defined extension and extension points 
+ * in a registry definition. For each module class a new instance of this processor is created.
+ * 
+ * The processor iterates over the methods of the module class and their annotations.
+ * Annotations defined in ancestors are included too.
+ * For each found annotation a list of registered processors for the annotation type 
+ * is requested from the associated {@link AnnotationProcessorRegistry}. 
+ * The processors are called and can contribute to the module definition.
+ * 
  * The construction of extension points and extensions bases on reflective method calls
  * to an instance of the module class. The module instance is created by a 
  * {@link ModuleInstanceProvider} during registry construction. 
@@ -64,19 +56,16 @@ public class AnnotatedModuleProcessor
 
     private ClassResolver _classResolver;
 
-    private ErrorHandler _errorHandler;
-
     private RegistryDefinition _registryDefinition;
     
     private AnnotationProcessorRegistry _annotationProcessorRegistry;
 
     public AnnotatedModuleProcessor(RegistryDefinition registryDefinition,
-            ClassResolver classResolver, ErrorHandler errorHandler)
+            ClassResolver classResolver, AnnotationProcessorRegistry annotationProcessorRegistry)
     {
         _registryDefinition = registryDefinition;
         _classResolver = classResolver;
-        _errorHandler = errorHandler;
-        _annotationProcessorRegistry = createAnnotationProcessorRegistry();
+        _annotationProcessorRegistry = annotationProcessorRegistry;
     }
     
     public void processModule(Class moduleClass)
@@ -108,13 +97,6 @@ public class AnnotatedModuleProcessor
         processModuleMethods(moduleClass, module, instanceProvider);
         _registryDefinition.addModule(module);
 
-    }
-    
-    private AnnotationProcessorRegistry createAnnotationProcessorRegistry()
-    {
-        AnnotationProcessorRegistry result = new AnnotationProcessorRegistry();
-        result.registerProcessor(Service.class, new ServiceProcessor());
-        return result;
     }
     
     /**
@@ -172,160 +154,22 @@ public class AnnotatedModuleProcessor
             Location location = new AnnotatedModuleLocation(module.getLocation().getResource(), 
                     method.getDeclaringClass(), method);
 
-            AnnotationProcessingContext context = new AnnotationProcessingContextImpl(module,
-                    annotation, method, location, instanceProvider);
+            AnnotationProcessingContext context = new AnnotationProcessingContextImpl(
+                    _registryDefinition, module, _classResolver,
+                    annotation, method, location, instanceProvider,
+                    _annotationProcessorRegistry);
             
-            List<AnnotationProcessor> processors = _annotationProcessorRegistry.getProcessors(annotation.getClass());
+            List<AnnotationProcessor> processors = _annotationProcessorRegistry.getProcessors(annotation.annotationType());
             if (processors != null) {
                 for (AnnotationProcessor processor : processors)
                 {
-                    processor.processAnnotation(null);
+                    processor.processAnnotation(context);
                 }
             }
-            
-            if (Service.class.equals(annotation.annotationType()))
-            {
-                processAnnotatedServiceMethod(
-                        method,
-                        (Service) annotation,
-                        module,
-                        instanceProvider);
-            }
-            else if (Configuration.class.equals(annotation.annotationType()))
-            {
-                processAnnotatedConfigurationMethod(
-                        method,
-                        (Configuration) annotation,
-                        module,
-                        instanceProvider);
-            }
-            else if (org.apache.hivemind.annotations.definition.Contribution.class.equals(annotation.annotationType()))
-            {
-                processAnnotatedContributionMethod(
-                        method,
-                        (org.apache.hivemind.annotations.definition.Contribution) annotation,
-                        module,
-                        instanceProvider);
-            }
-            else if (Submodule.class.equals(annotation.annotationType()))
-            {
-                processAnnotatedSubmoduleMethod(
-                        method,
-                        (Submodule) annotation,
-                        module,
-                        instanceProvider);
-            }
         }
 
     }
-    
 
-    private void processAnnotatedServiceMethod(Method method, Service service,
-            AnnotatedModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
-    {
-        CheckTools.checkMethodModifiers(method, 0, "service point");
-        
-        if (_log.isDebugEnabled())
-        {
-            _log.debug("Method " + method.getName() + "classified as service point.");
-        }
-        
-        Location location = new AnnotatedModuleLocation(module.getLocation().getResource(), 
-                method.getDeclaringClass(), method);
-
-        Visibility visibility = Visibility.PUBLIC;
-        if (Modifier.isProtected(method.getModifiers())) {
-            visibility = Visibility.PRIVATE;
-        }
-        ServicePointDefinitionImpl spd = new ServicePointDefinitionImpl(module, service.id(), location, 
-                visibility, method.getReturnType().getName());
-        module.addServicePoint(spd);
-
-        ImplementationConstructor constructor = new MethodCallImplementationConstructor(location, 
-                method, instanceProvider);
-
-        ImplementationDefinition sid = new ImplementationDefinitionImpl(module, location, 
-                constructor, service.serviceModel(), true);
-
-        spd.addImplementation(sid);
-
-    }
-
-    private void processAnnotatedConfigurationMethod(Method method, Configuration configuration, 
-            AnnotatedModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
-    {
-        CheckTools.checkMethodModifiers(method, 0, "configuration point");
-
-        if (_log.isDebugEnabled())
-        {
-            _log.debug("Method " + method.getName() + "classified as configuration point.");
-        }
-        
-        Location location = new AnnotatedModuleLocation(module.getLocation().getResource(), 
-                method.getDeclaringClass(), method);
-        
-        Visibility visibility = Visibility.PUBLIC;
-        if (Modifier.isProtected(method.getModifiers())) {
-            visibility = Visibility.PRIVATE;
-        }
-        ConfigurationPointDefinitionImpl cpd = new ConfigurationPointDefinitionImpl(module, configuration.id(), 
-                location, visibility, method.getReturnType().getName(), Occurances.UNBOUNDED,
-                false);
-        module.addConfigurationPoint(cpd);
-        
-        // Add method implementation as initial contribution
-        Contribution contribution = new MethodCallContributionConstructor(
-                location, method, instanceProvider);
-        ContributionDefinitionImpl cd = new ContributionDefinitionImpl(module, location, contribution, true);
-        cpd.addContribution(cd);
-    }
-
-    private void processAnnotatedContributionMethod(Method method, org.apache.hivemind.annotations.definition.Contribution contribution, 
-            AnnotatedModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
-    {
-        CheckTools.checkMethodModifiers(method, 0, "contribution");
-
-        if (_log.isDebugEnabled())
-        {
-            _log.debug("Method " + method.getName() + "classified as contribution.");
-        }
-        
-        Location location = new AnnotatedModuleLocation(module.getLocation().getResource(), 
-                method.getDeclaringClass(), method);
-        
-        Contribution constructor = new MethodCallContributionConstructor(
-                location, method, instanceProvider);
-
-        ContributionDefinitionImpl cd = new ContributionDefinitionImpl(module, location, constructor, false);
-        String qualifiedConfigurationId = IdUtils.qualify(
-                module.getId(),
-                contribution.configurationId());
-        module.addContribution(qualifiedConfigurationId, cd);
-
-    }
-    
-    /**
-     * Processes a method that is marked as submodule definition.
-     */
-    private void processAnnotatedSubmoduleMethod(Method method, Submodule submodule, 
-            AnnotatedModuleDefinitionImpl module, ModuleInstanceProvider instanceProvider)
-    {
-        CheckTools.checkMethodModifiers(method, 0, "submodule");
-
-        if (_log.isDebugEnabled())
-        {
-            _log.debug("Method " + method.getName() + "classified as submodule.");
-        }
-        
-        String fullModuleId = IdUtils.qualify(
-                module.getId(),
-                submodule.id());
-        // TODO: Check if return type is defined
-        AnnotatedModuleProcessor submoduleProcessor = new AnnotatedModuleProcessor(_registryDefinition,
-                _classResolver, _errorHandler);
-        submoduleProcessor.processModule(method.getReturnType(), fullModuleId);
-    }
-    
     /**
      * Creates a location pointing at the module class. 
      */
