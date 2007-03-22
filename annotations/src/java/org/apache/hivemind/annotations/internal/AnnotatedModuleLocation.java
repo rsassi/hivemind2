@@ -99,4 +99,20 @@ public final class AnnotatedModuleLocation implements Location
         return getPosition();
     }
 
+    /**
+     * @see org.apache.hivemind.Location#getColumnNumber()
+     */
+    public int getColumnNumber()
+    {
+        return -1;
+    }
+
+    /**
+     * @see org.apache.hivemind.Location#getLineNumber()
+     */
+    public int getLineNumber()
+    {
+        return -1;
+    }
+
  }

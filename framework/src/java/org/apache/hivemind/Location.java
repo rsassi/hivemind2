@@ -31,8 +31,21 @@ public interface Location
     
     /**
      * A position inside the resource. The format of the position
-     * is implementation specific.
+     * is implementation specific. It should include linenumber and column
+     * if known.
      */
     public String getPosition();
+    
+    /**
+     * The line within the resource containing the location,
+     * or -1 if the line number is not known.
+     * 
+     */
+    public int getLineNumber();
+    
+    /**
+     * The column number, or -1 if not known.
+     */
+    public int getColumnNumber();
     
 }
