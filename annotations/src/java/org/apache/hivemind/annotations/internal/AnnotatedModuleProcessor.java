@@ -36,7 +36,8 @@ import org.apache.hivemind.util.ClasspathResource;
 /**
  * Does the work for {@link org.apache.hivemind.annotations.AnnotatedModuleReader}. 
  * Processes an annotated class and registers the defined extension and extension points 
- * in a registry definition. For each module class a new instance of this processor is created.
+ * in a registry definition. For each module class a new instance of this processor must
+ * be created.
  * 
  * The processor iterates over the methods of the module class and their annotations.
  * Annotations defined in ancestors are included too.
@@ -59,13 +60,14 @@ public class AnnotatedModuleProcessor
     private RegistryDefinition _registryDefinition;
     
     private AnnotationProcessorRegistry _annotationProcessorRegistry;
+    private AnnotationProcessorFactory _annotationProcessorFactory;
 
     public AnnotatedModuleProcessor(RegistryDefinition registryDefinition,
             ClassResolver classResolver, AnnotationProcessorRegistry annotationProcessorRegistry)
     {
         _registryDefinition = registryDefinition;
         _classResolver = classResolver;
-        _annotationProcessorRegistry = annotationProcessorRegistry;
+        _annotationProcessorFactory = new AnnotationProcessorFactory(annotationProcessorRegistry);
     }
     
     public void processModule(Class moduleClass)
@@ -159,7 +161,7 @@ public class AnnotatedModuleProcessor
                     annotation, method, location, instanceProvider,
                     _annotationProcessorRegistry);
             
-            List<AnnotationProcessor> processors = _annotationProcessorRegistry.getProcessors(annotation.annotationType());
+            List<AnnotationProcessor> processors = _annotationProcessorFactory.getProcessors(annotation.annotationType());
             if (processors != null) {
                 for (AnnotationProcessor processor : processors)
                 {

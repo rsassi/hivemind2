@@ -16,6 +16,7 @@ package org.apache.hivemind.annotations;
 
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.annotations.internal.AnnotatedModuleProcessor;
+import org.apache.hivemind.annotations.internal.AnnotationProcessorRegistry;
 import org.apache.hivemind.annotations.internal.AnnotationProcessorRegistryFactory;
 import org.apache.hivemind.definition.ModuleDefinition;
 import org.apache.hivemind.definition.RegistryDefinition;
@@ -54,10 +55,16 @@ public class TestAnnotatedModuleReader extends AnnotationTestCase
         assertNotNull(registry.getModule("Test"));
     }
   
+    private AnnotationProcessorRegistry getAnnotationProcessorRegistry()
+    {
+        AnnotationProcessorRegistryFactory factory = new AnnotationProcessorRegistryFactory();
+        return factory.createDefaultRegistry(new DefaultClassResolver());
+    }
+    
     public void testModuleClassNotFinal()
     {
         AnnotatedModuleProcessor processor = new AnnotatedModuleProcessor(new RegistryDefinitionImpl(),
-                new DefaultClassResolver(), AnnotationProcessorRegistryFactory.createDefaultRegistry());
+                new DefaultClassResolver(), getAnnotationProcessorRegistry());
         try
         {
             processor.processModule(FinalModule.class);
@@ -71,7 +78,7 @@ public class TestAnnotatedModuleReader extends AnnotationTestCase
     public void testModuleClassNotAbstract()
     {
         AnnotatedModuleProcessor processor = new AnnotatedModuleProcessor(new RegistryDefinitionImpl(),
-                new DefaultClassResolver(), AnnotationProcessorRegistryFactory.createDefaultRegistry());
+                new DefaultClassResolver(), getAnnotationProcessorRegistry());
         try
         {
             processor.processModule(AbstractModule.class);
@@ -85,7 +92,7 @@ public class TestAnnotatedModuleReader extends AnnotationTestCase
     public void testModuleClassPublic()
     {
         AnnotatedModuleProcessor processor = new AnnotatedModuleProcessor(new RegistryDefinitionImpl(),
-                new DefaultClassResolver(), AnnotationProcessorRegistryFactory.createDefaultRegistry());
+                new DefaultClassResolver(), getAnnotationProcessorRegistry());
         try
         {
             processor.processModule(NotPublicModule.class);

@@ -3,8 +3,12 @@ package org.apache.hivemind.annotations.definition.processors;
 import org.apache.hivemind.ApplicationRuntimeException;
 
 /**
- * The same instance is used for all annotations of one kind which are loaded
- * by the same AnnotatedModuleProcessor or AnnotatedModuleReader.
+ * Processes a method in an module class which is annotated with a specific
+ * annotation type. The processor gets full access to the module definition
+ * and can add extension points and extensions.
+ * 
+ * The same instance is used for all annotations of one kind which are defined
+ * in the same module.
  * 
  * @author Achim Huegen
  */

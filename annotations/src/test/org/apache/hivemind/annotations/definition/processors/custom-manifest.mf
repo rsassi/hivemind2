@@ -1,0 +1,1 @@
+annotations-extension-providers: org.apache.hivemind.Test1

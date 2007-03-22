@@ -5,6 +5,7 @@ annotations/pom.xml -text
 annotations/src/java/org/apache/hivemind/annotations/AbstractAnnotatedModule.java -text
 annotations/src/java/org/apache/hivemind/annotations/AnnotatedModuleReader.java -text
 annotations/src/java/org/apache/hivemind/annotations/AnnotatedRegistryBuilder.java -text
+annotations/src/java/org/apache/hivemind/annotations/AnnotationsExtensionProvider.java -text
 annotations/src/java/org/apache/hivemind/annotations/AnnotationsMessages.java -text
 annotations/src/java/org/apache/hivemind/annotations/AnnotationsStrings.properties -text
 annotations/src/java/org/apache/hivemind/annotations/TypedRegistry.java -text
@@ -22,10 +23,11 @@ annotations/src/java/org/apache/hivemind/annotations/definition/processors/Servi
 annotations/src/java/org/apache/hivemind/annotations/definition/processors/SubmoduleProcessor.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotatedModuleLocation.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotatedModuleProcessor.java -text
-annotations/src/java/org/apache/hivemind/annotations/internal/AnnotationExtensionLoader.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotationProcessingContextImpl.java -text
+annotations/src/java/org/apache/hivemind/annotations/internal/AnnotationProcessorFactory.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotationProcessorRegistry.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotationProcessorRegistryFactory.java -text
+annotations/src/java/org/apache/hivemind/annotations/internal/AnnotationsExtensionLoader.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/CheckTools.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/MethodCallContributionConstructor.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/MethodCallImplementationConstructor.java -text
@@ -45,6 +47,9 @@ annotations/src/test/org/apache/hivemind/annotations/Submodule1.java -text
 annotations/src/test/org/apache/hivemind/annotations/Supermodule.java -text
 annotations/src/test/org/apache/hivemind/annotations/TestAnnotatedModuleReader.java -text
 annotations/src/test/org/apache/hivemind/annotations/TestAnnotatedModules.java -text
+annotations/src/test/org/apache/hivemind/annotations/definition/processors/MappedClassLoader.java -text
+annotations/src/test/org/apache/hivemind/annotations/definition/processors/TestCustomProcessor.java -text
+annotations/src/test/org/apache/hivemind/annotations/definition/processors/custom-manifest.mf -text
 /doap_Hivemind.rdf -text
 examples/pom.xml -text
 examples/src/descriptor/META-INF/hivemodule.xml -text

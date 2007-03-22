@@ -12,63 +12,56 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package org.apache.hivemind.impl;
+package org.apache.hivemind.annotations.internal;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.ClassResolver;
+import org.apache.hivemind.annotations.AnnotationsExtensionProvider;
+import org.apache.hivemind.annotations.AnnotationsMessages;
+import org.apache.hivemind.impl.ManifestReader;
 
 /**
- * Searches for {@link org.apache.hivemind.impl.RegistryProvider} implementations
- * that are defined in manifest files. Creates an instance of each 
- * implementation and returns them in the getProviders method.
- * The manifest file must contain a global attribute <code>hivemind-providers</code>
- * which contains a comma separated list of classes that implement 
- * the {@link org.apache.hivemind.impl.RegistryProvider} interface. 
+ * Loads all implementations of {@link AnnotationsExtensionProvider} that are defined
+ * in MANIFEST.MF files in the classpath.
+ * The providers get passed in a reference to {@link AnnotationProcessorRegistry} to which
+ * they can add {@link org.apache.hivemind.annotations.definition.processors.AnnotationProcessor} classes.
  * 
  * @author Achim Huegen
  */
-public class RegistryProviderAutoDetector
+public class AnnotationsExtensionLoader
 {
-    private static final Log LOG = LogFactory.getLog(RegistryProviderAutoDetector.class);
-    public static final String PROVIDER_ATTRIBUTE_NAME = "hivemind-providers";
-    
-    private List _providers = new ArrayList();
-    
-    public RegistryProviderAutoDetector(ClassResolver resolver)
+    private static final Log LOG = LogFactory.getLog(AnnotationsExtensionLoader.class);
+    public static final String PROVIDER_ATTRIBUTE_NAME = "annotations-extension-providers";
+
+    public AnnotationsExtensionLoader()
+    {
+    }
+   
+    public void loadExtensions(ClassResolver resolver, AnnotationProcessorRegistry annotationProcessorRegistry)
     {
         String[] providerValues = ManifestReader.getAttributeValues(resolver, PROVIDER_ATTRIBUTE_NAME);
         for (int i = 0; i < providerValues.length; i++)
         {
             String providerValue = providerValues[i];
-            handleProviderValue(resolver, providerValue);
+            handleProviderValue(resolver, annotationProcessorRegistry, providerValue);
         }
-    }
-    
-    /**
-     * @return  list with instances of {@link RegistryProvider}
-     */
-    public List getProviders()
-    {
-        return _providers;
     }
 
     /**
-     * Parse the provider list in an attribute and load all classes.
+     * Parse the providers list in an attribute and load all classes.
      */
-    private void handleProviderValue(ClassResolver resolver, String providers)
+    private void handleProviderValue(ClassResolver resolver, AnnotationProcessorRegistry annotationProcessorRegistry, String providers)
     {
         StringTokenizer tokenizer = new StringTokenizer(providers, ",");
         while (tokenizer.hasMoreTokens())
         {   
             String providerClassName = tokenizer.nextToken();
-            loadProvider(resolver, providerClassName);
+            loadProvider(resolver, annotationProcessorRegistry, providerClassName);
         }
     }
     
@@ -78,7 +71,7 @@ public class RegistryProviderAutoDetector
      * @param resolver
      * @param providerClassName
      */
-    private void loadProvider(ClassResolver resolver, String providerClassName)
+    private void loadProvider(ClassResolver resolver, AnnotationProcessorRegistry annotationProcessorRegistry, String providerClassName)
     {
         if (LOG.isDebugEnabled())
             LOG.debug("Loading provider " + providerClassName);
@@ -95,15 +88,16 @@ public class RegistryProviderAutoDetector
             {
                 cause = ((InvocationTargetException) e).getTargetException();
             }
-            throw new ApplicationRuntimeException(ImplMessages.unableToCreateProvider(providerClassName, e),
+            throw new ApplicationRuntimeException(AnnotationsMessages.unableToCreateAnnotationsExtensionProvider(providerClassName, e),
                     cause);
         }
         // Check type of provider
-        if (!(provider instanceof RegistryProvider)) {
-            throw new ApplicationRuntimeException(ImplMessages.providerWrongType(providerClassName, RegistryProvider.class));
+        if (!(provider instanceof AnnotationsExtensionProvider)) {
+            throw new ApplicationRuntimeException(AnnotationsMessages.annotationsExtensionProviderWrongType(providerClassName, AnnotationsExtensionProvider.class));
         }
         
-        _providers.add(provider);
+        // Let the provider register its processors
+        ((AnnotationsExtensionProvider) provider).registerAnnotationProcessors(annotationProcessorRegistry);
     }
 
 }

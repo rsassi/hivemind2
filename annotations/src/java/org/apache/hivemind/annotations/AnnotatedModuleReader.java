@@ -18,7 +18,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hivemind.ApplicationRuntimeException;
 import org.apache.hivemind.ClassResolver;
+import org.apache.hivemind.annotations.definition.processors.AnnotationProcessor;
 import org.apache.hivemind.annotations.internal.AnnotatedModuleProcessor;
+import org.apache.hivemind.annotations.internal.AnnotationProcessorRegistry;
 import org.apache.hivemind.annotations.internal.AnnotationProcessorRegistryFactory;
 import org.apache.hivemind.definition.RegistryDefinition;
 import org.apache.hivemind.impl.DefaultClassResolver;
@@ -71,15 +73,28 @@ public class AnnotatedModuleReader
     }
 
     /**
-     * Reads an annotated module.
+     * Reads an annotated module. Uses the the default {@link AnnotationProcessorRegistry}.
      * 
      * @param moduleClass  class of the module
      */
     public void readModule(Class moduleClass)
     {
+        // TODO: Better cache the factory for performance?
+        AnnotationProcessorRegistryFactory factory = new AnnotationProcessorRegistryFactory();
+        readModule(moduleClass, factory.createDefaultRegistry(_classResolver));
+    }
+    
+    /**
+     * Reads an annotated module.
+     * 
+     * @param moduleClass  class of the module
+     * @param annotationProcessorRegistry  the registry the holds all known {@link AnnotationProcessor annotation processors}
+     */
+    public void readModule(Class moduleClass, AnnotationProcessorRegistry annotationProcessorRegistry)
+    {
         AnnotatedModuleProcessor _processor = new AnnotatedModuleProcessor(
                 _registryDefinition, _classResolver, 
-                AnnotationProcessorRegistryFactory.createDefaultRegistry());
+                annotationProcessorRegistry);
         try
         {
             _processor.processModule(moduleClass);

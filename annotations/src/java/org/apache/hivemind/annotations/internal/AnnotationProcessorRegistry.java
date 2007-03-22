@@ -10,21 +10,21 @@ import org.apache.hivemind.annotations.definition.processors.AnnotationProcessor
 
 public class AnnotationProcessorRegistry
 {
-    private Map<Class<? extends Annotation>, List<AnnotationProcessor>> processorLists = new HashMap<Class<? extends Annotation>, List<AnnotationProcessor>>();
+    private Map<Class<? extends Annotation>, List<Class<? extends AnnotationProcessor>>> processorLists = new HashMap<Class<? extends Annotation>, List<Class<? extends AnnotationProcessor>>>();
 
-    public List<AnnotationProcessor> getProcessors(Class<? extends Annotation> annotationClass)
+    public List<Class<? extends AnnotationProcessor>> getProcessorClasses(Class<? extends Annotation> annotationClass)
     {
         return processorLists.get(annotationClass);
     }
 
-    public void registerProcessor(Class<? extends Annotation> annotationClass, AnnotationProcessor processor)
+    public void registerProcessor(Class<? extends Annotation> annotationClass, Class<? extends AnnotationProcessor> processorClass)
     {
-        List<AnnotationProcessor> processorList = getProcessors(annotationClass);
+        List<Class<? extends AnnotationProcessor>> processorList = getProcessorClasses(annotationClass);
         if (processorList == null) {
-            processorList = new ArrayList<AnnotationProcessor>();
+            processorList = new ArrayList<Class<? extends AnnotationProcessor>>();
             processorLists.put(annotationClass, processorList);
         }
-        processorList.add(processor);
+        processorList.add(processorClass);
     }
 }
 

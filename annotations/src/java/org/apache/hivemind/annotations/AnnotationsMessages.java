@@ -61,14 +61,14 @@ public class AnnotationsMessages
         return _formatter.format("annotated-method-protected-not-accessible", methodSig.toString());
     }
     
-    public static String unableToCreateAnnotationProcessor(String processorClassName, Exception cause)
+    public static String unableToCreateAnnotationsExtensionProvider(String processorClassName, Exception cause)
     {
-        return _formatter.format("unable-to-create-annotation-processor", processorClassName, cause);
+        return _formatter.format("unable-to-create-annotations-extension-provider", processorClassName, cause);
     }
 
-    public static String annotationProcessorWrongType(String processorClassName, Class requiredInterface)
+    public static String annotationsExtensionProviderWrongType(String processorClassName, Class requiredInterface)
     {
-        return _formatter.format("annotation-processor-wrong-type", processorClassName, requiredInterface.getName());
+        return _formatter.format("annotations-extension-provider-wrong-type", processorClassName, requiredInterface.getName());
     }
 
 }
