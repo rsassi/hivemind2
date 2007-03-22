@@ -31,7 +31,6 @@ public interface LogManagement
      * 
      * @param loggerPattern
      *            Name of the logger
-     * @return ObjectName of created MBean
      */
     public void addLoggerMBean(String loggerPattern);
 }
