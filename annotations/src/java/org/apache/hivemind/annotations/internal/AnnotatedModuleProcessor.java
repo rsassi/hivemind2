@@ -67,6 +67,7 @@ public class AnnotatedModuleProcessor
     {
         _registryDefinition = registryDefinition;
         _classResolver = classResolver;
+        _annotationProcessorRegistry = annotationProcessorRegistry;
         _annotationProcessorFactory = new AnnotationProcessorFactory(annotationProcessorRegistry);
     }
     

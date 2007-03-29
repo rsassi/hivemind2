@@ -11,6 +11,7 @@ annotations/src/java/org/apache/hivemind/annotations/AnnotationsStrings.properti
 annotations/src/java/org/apache/hivemind/annotations/TypedRegistry.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/Configuration.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/Contribution.java -text
+annotations/src/java/org/apache/hivemind/annotations/definition/Implementation.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/Module.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/Service.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/Submodule.java -text
@@ -19,6 +20,7 @@ annotations/src/java/org/apache/hivemind/annotations/definition/processors/Annot
 annotations/src/java/org/apache/hivemind/annotations/definition/processors/AnnotationProcessor.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/processors/ConfigurationProcessor.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/processors/ContributionProcessor.java -text
+annotations/src/java/org/apache/hivemind/annotations/definition/processors/ImplementationProcessor.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/processors/ServiceProcessor.java -text
 annotations/src/java/org/apache/hivemind/annotations/definition/processors/SubmoduleProcessor.java -text
 annotations/src/java/org/apache/hivemind/annotations/internal/AnnotatedModuleLocation.java -text
@@ -42,6 +44,7 @@ annotations/src/test/org/apache/hivemind/annotations/AutowiringModule.java -text
 annotations/src/test/org/apache/hivemind/annotations/FinalModule.java -text
 annotations/src/test/org/apache/hivemind/annotations/ModuleWithExplicitId.java -text
 annotations/src/test/org/apache/hivemind/annotations/NotPublicModule.java -text
+annotations/src/test/org/apache/hivemind/annotations/OverrideServiceModule.java -text
 annotations/src/test/org/apache/hivemind/annotations/SimpleAnnotatedModule.java -text
 annotations/src/test/org/apache/hivemind/annotations/Submodule1.java -text
 annotations/src/test/org/apache/hivemind/annotations/Supermodule.java -text

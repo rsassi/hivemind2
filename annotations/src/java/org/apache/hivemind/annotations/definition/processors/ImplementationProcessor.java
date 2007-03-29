@@ -1,23 +1,21 @@
 package org.apache.hivemind.annotations.definition.processors;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.hivemind.annotations.definition.Service;
+import org.apache.hivemind.annotations.definition.Implementation;
 import org.apache.hivemind.annotations.definition.impl.AnnotatedModuleDefinitionImpl;
 import org.apache.hivemind.annotations.internal.CheckTools;
 import org.apache.hivemind.annotations.internal.MethodCallImplementationConstructor;
 import org.apache.hivemind.definition.ImplementationConstructor;
 import org.apache.hivemind.definition.ImplementationDefinition;
-import org.apache.hivemind.definition.Visibility;
 import org.apache.hivemind.definition.impl.ImplementationDefinitionImpl;
-import org.apache.hivemind.definition.impl.ServicePointDefinitionImpl;
+import org.apache.hivemind.util.IdUtils;
 
-public class ServiceProcessor implements AnnotationProcessor
+public class ImplementationProcessor implements AnnotationProcessor
 {
-    private static final Log _log = LogFactory.getLog(ServiceProcessor.class);
+    private static final Log _log = LogFactory.getLog(ImplementationProcessor.class);
 
     /**
      * @see org.apache.hivemind.annotations.definition.processors.AnnotationProcessor#processAnnotation(org.apache.hivemind.annotations.definition.processors.AnnotationProcessingContext)
@@ -26,30 +24,26 @@ public class ServiceProcessor implements AnnotationProcessor
     {
         Method method = (Method) context.getAnnotatedElement();
         AnnotatedModuleDefinitionImpl module = context.getModule();
-        Service serviceAnnotation = (Service) context.getTargetAnnotation(); 
+        Implementation implementationAnnotation = (Implementation) context.getTargetAnnotation(); 
         
-        CheckTools.checkMethodModifiers(method, 0, "service point");
+        CheckTools.checkMethodModifiers(method, 0, "implementation");
         
         if (_log.isDebugEnabled())
         {
-            _log.debug("Method " + method.getName() + "classified as service point.");
+            _log.debug("Method " + method.getName() + "classified as implementation.");
         }
         
-        Visibility visibility = Visibility.PUBLIC;
-        if (Modifier.isProtected(method.getModifiers())) {
-            visibility = Visibility.PRIVATE;
-        }
-        ServicePointDefinitionImpl spd = new ServicePointDefinitionImpl(module, serviceAnnotation.id(), context.getLocation(), 
-                visibility, method.getReturnType().getName());
-        module.addServicePoint(spd);
-
+        // Create implementation constructor that calls the annotated method 
         ImplementationConstructor constructor = new MethodCallImplementationConstructor(context.getLocation(), 
                 method, context.getModuleInstanceProvider());
 
-        ImplementationDefinition sid = new ImplementationDefinitionImpl(module, context.getLocation(), 
-                constructor, serviceAnnotation.serviceModel(), false);
+        ImplementationDefinition id = new ImplementationDefinitionImpl(module, context.getLocation(), 
+                constructor, implementationAnnotation.serviceModel(), true);
+        
+        String qualifiedServiceId = IdUtils.qualify(
+                module.getId(), implementationAnnotation.serviceId());
 
-        spd.addImplementation(sid);
+        module.addImplementation(qualifiedServiceId, id);
 
         return true;
     }

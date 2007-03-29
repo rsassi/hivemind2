@@ -16,6 +16,7 @@ package org.apache.hivemind.annotations;
 
 import hivemind.test.services.ServiceAutowireTarget;
 import hivemind.test.services.StringHolder;
+import hivemind.test.services.impl.StringHolderImpl;
 
 public class TestAnnotatedModules extends AnnotationTestCase
 {
@@ -31,6 +32,14 @@ public class TestAnnotatedModules extends AnnotationTestCase
         TypedRegistry registry = constructRegistry(Supermodule.class);
         StringHolder service = registry.getService("super.sub.StringHolder", StringHolder.class);
         assertNotNull(service);
+    }
+
+    public void testOverrideServiceImplementation()
+    {
+        TypedRegistry registry = constructRegistry(OverrideServiceModule.class);
+        StringHolder service = registry.getService("testModule.Test", StringHolder.class);
+        assertNotNull(service);
+        assertEquals(service.getClass(), StringHolderImpl.class);
     }
 
 }
