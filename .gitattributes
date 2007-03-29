@@ -50,6 +50,7 @@ annotations/src/test/org/apache/hivemind/annotations/Submodule1.java -text
 annotations/src/test/org/apache/hivemind/annotations/Supermodule.java -text
 annotations/src/test/org/apache/hivemind/annotations/TestAnnotatedModuleReader.java -text
 annotations/src/test/org/apache/hivemind/annotations/TestAnnotatedModules.java -text
+annotations/src/test/org/apache/hivemind/annotations/definition/processors/CustomExtensionProvider.java -text
 annotations/src/test/org/apache/hivemind/annotations/definition/processors/MappedClassLoader.java -text
 annotations/src/test/org/apache/hivemind/annotations/definition/processors/TestCustomProcessor.java -text
 annotations/src/test/org/apache/hivemind/annotations/definition/processors/custom-manifest.mf -text

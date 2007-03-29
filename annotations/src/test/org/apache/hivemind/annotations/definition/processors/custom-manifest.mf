@@ -1,1 +1,2 @@
-annotations-extension-providers: org.apache.hivemind.Test1
+annotations-extension-providers: org.apache.hivemind.annotations.definition.processors.CustomExtensionProvider
+
