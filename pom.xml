@@ -53,7 +53,7 @@
         <url>http://issues.apache.org/jira/browse/HIVEMIND</url>
     </issueManagement>
     <scm>
-        <connection>svn:http://svn.apache.org/repos/asf/hivemind/hivemind2/trunk/</connection>
+        <connection>scm:svn:http://svn.apache.org/repos/asf/hivemind/hivemind2/trunk/</connection>
         <url>http://svn.apache.org/viewvc/hivemind/hivemind2/trunk/</url>
     </scm>
     

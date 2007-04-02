@@ -74,6 +74,10 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <scm>
+        <connection>scm:svn:http://svn.apache.org/repos/asf/hivemind/hivemind2/trunk/xml</connection>
+        <url>http://svn.apache.org/viewvc/hivemind/hivemind2/trunk/xml</url>
+    </scm>
     <reporting>
 			<plugins>
           <plugin>
