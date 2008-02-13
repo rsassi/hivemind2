@@ -42,4 +42,12 @@ public class TestAnnotatedModules extends AnnotationTestCase
         assertEquals(service.getClass(), StringHolderImpl.class);
     }
 
+    
+    public void testEagerLoadContribution()
+    {
+        TypedRegistry registry = constructRegistry(EagerLoadContributionModule.class);
+        StringHolder service = registry.getService(StringHolder.class);
+        assertNotNull(service);
+    }
+    
 }

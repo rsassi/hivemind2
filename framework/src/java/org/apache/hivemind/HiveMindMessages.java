@@ -59,4 +59,12 @@ public class HiveMindMessages
                 .getJavaClassName(parameter.getClass()), ClassFabUtils
                 .getJavaClassName(expectedType));
     }
+    
+    /** @since 2.0 */
+    public static String contributionWrongType(Object contribution, Class expectedType)
+    {
+        return _formatter.format("contribution-wrong-type", ClassFabUtils
+                .getJavaClassName(contribution.getClass()), ClassFabUtils
+                .getJavaClassName(expectedType));
+    }
 }

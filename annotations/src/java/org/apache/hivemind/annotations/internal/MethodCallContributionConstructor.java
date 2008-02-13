@@ -14,6 +14,7 @@
 
 package org.apache.hivemind.annotations.internal;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.apache.hivemind.ApplicationRuntimeException;
@@ -66,6 +67,10 @@ public class MethodCallContributionConstructor implements
             } else {
                 // TODO: Throw Exception
             }
+        }
+        catch (InvocationTargetException ex)
+        {
+            throw new ApplicationRuntimeException(ex.getCause().getMessage(), getLocation(), ex.getCause());
         }
         catch (Exception ex)
         {

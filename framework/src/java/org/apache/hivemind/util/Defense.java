@@ -70,4 +70,18 @@ public final class Defense
                     parameter,
                     expectedType));
     }
+    
+    /**
+     * Check that a contribution is assignable to a particular type.
+     * 
+     * @throws ClassCastException
+     *             if not assignable (with a useable message)
+     */
+    public static void isContributionAssignable(Object contribution, Class expectedType)
+    {
+        if (!expectedType.isAssignableFrom(contribution.getClass()))
+            throw new ClassCastException(HiveMindMessages.contributionWrongType(
+                    contribution,
+                    expectedType));
+    }    
 }

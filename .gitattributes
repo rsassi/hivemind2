@@ -41,6 +41,7 @@ annotations/src/site/xdoc/index.xml -text
 annotations/src/test/org/apache/hivemind/annotations/AbstractModule.java -text
 annotations/src/test/org/apache/hivemind/annotations/AnnotationTestCase.java -text
 annotations/src/test/org/apache/hivemind/annotations/AutowiringModule.java -text
+annotations/src/test/org/apache/hivemind/annotations/EagerLoadContributionModule.java -text svneol=unset#text/plain
 annotations/src/test/org/apache/hivemind/annotations/FinalModule.java -text
 annotations/src/test/org/apache/hivemind/annotations/ModuleWithExplicitId.java -text
 annotations/src/test/org/apache/hivemind/annotations/NotPublicModule.java -text

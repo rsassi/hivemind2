@@ -18,6 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.hivemind.internal.ServicePoint;
+import org.apache.hivemind.util.Defense;
 
 /**
  * Implementation of the <code>hivemind.EagerLoad</code> service, which
@@ -34,7 +35,9 @@ public class EagerLoader implements Runnable
         Iterator i = _servicePoints.iterator();
         while (i.hasNext())
         {
-            ServicePoint point = (ServicePoint) i.next();
+            Object untypedPoint = i.next();
+            Defense.isContributionAssignable(untypedPoint, ServicePoint.class);
+            ServicePoint point = (ServicePoint) untypedPoint;
 
             point.forceServiceInstantiation();
         }

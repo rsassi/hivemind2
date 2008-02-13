@@ -14,7 +14,6 @@
 
 package org.apache.hivemind.annotations;
 
-import hivemind.test.services.StringHolder;
 import hivemind.test.services.impl.StringHolderImpl;
 
 import java.util.ArrayList;
