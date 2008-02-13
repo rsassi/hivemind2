@@ -30,6 +30,11 @@
             <artifactId>log4j</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>oro</groupId>
+            <artifactId>oro</artifactId>
+            <scope>compile</scope>
+        </dependency>
         <!-- PROVIDED -->
         <dependency>
             <groupId>mx4j</groupId>
