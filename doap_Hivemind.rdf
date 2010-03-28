@@ -9,7 +9,7 @@
     <license rdf:resource="http://usefulinc.com/doap/licenses/asl20" />
     <name>Apache Hivemind</name>
     <homepage rdf:resource="http://hivemind.apache.org/" />
-    <asfext:pmc rdf:resource="http://hivemind.apache.org" />
+    <asfext:pmc rdf:resource="http://attic.apache.org" />
     <shortdesc>Services and Configuration Microkernel</shortdesc>
     <description>HiveMind is a framework for creating applications, not an application, or even an application server, itself. The 'core' of HiveMind is the startup logic that knows how to parse and understand the module deployment descriptors, and use that information to instantiate and initialize all those services and configurations.</description>
     <bug-database rdf:resource="http://issues.apache.org/jira/secure/BrowseProject.jspa?id=10500" />
@@ -17,6 +17,7 @@
     <download-page rdf:resource="http://hivemind.apache.org/download.html" />
     <programming-language>Java</programming-language>
     <category rdf:resource="http://projects.apache.org/category/library" />
+    <category rdf:resource="http://projects.apache.org/category/retired" />
     <release>
       <Version>
         <name>hivemind</name>
